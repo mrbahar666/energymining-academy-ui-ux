@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#032C42">
+  <meta name="description" content="এনার্জি মাইনিং একাডেমির উদ্দেশ্য, ফ্রি অ্যাসেসমেন্ট, চার এনার্জির কোর্স, বই ও নিজেকে জানা থেকে বদলানোর ছয় ধাপের যাত্রা সম্পর্কে জানুন।">
+  <title>আমাদের সম্পর্কে — এনার্জি মাইনিং একাডেমি</title>
+  <link rel="stylesheet" href="css/design-system.css">
+  <script src="js/main.js" defer></script>
+  <style>
+    /* CONTENT-PAGES-ONLY (about.html — not in css/design-system.css) */
+    .language-toggle a { display: inline-flex; align-items: center; justify-content: center; min-width: 72px; min-height: 48px; padding: 8px 16px; border: 1px solid var(--off-white); border-radius: 7px; background: var(--navy); color: var(--off-white); font-weight: 600; text-decoration: none; }
+    .language-toggle a[aria-current="page"] { background: var(--off-white); color: var(--navy); }
+    .mobile-menu .language-toggle a { flex: 1; min-height: 64px; font-size: 1.5rem; }
+    .breadcrumb { padding-top: var(--space-24); }
+    .breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); list-style: none; margin: 0; padding: 0; font-size: var(--text-small); }
+    .breadcrumb li + li::before { content: "→"; margin-inline-end: var(--space-8); }
+    .content-stack { display: grid; gap: var(--space-16); }
+    .content-actions { display: flex; flex-wrap: wrap; gap: var(--space-12); }
+    .content-hero { border-bottom: 1px solid var(--accent-line); }
+    .content-hero .section-heading { margin-bottom: 0; }
+    .content-list { margin: 0; padding-inline-start: var(--space-24); }
+    .content-list li + li { margin-top: var(--space-16); }
+    .about-journey { list-style: none; margin: 0; padding: 0; }
+    .about-note { margin: 0; padding-inline-start: var(--space-24); border-inline-start: 2px solid var(--accent-line); }
+    .about-note blockquote { margin: 0; }
+    @media (min-width: 1024px) { .about-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  </style>
+</head>
+<body lang="bn">
+  <a class="skip-link" href="#main">মূল অংশে যান</a>
+
+  <header class="site-header navy-surface">
+    <div class="utility-strip">
+      <div class="container">
+        <!-- data-helpline: real number and service hours await owner confirmation. -->
+        <span data-helpline>হেল্পলাইন</span>
+        <!-- Target: login.html (not built yet). -->
+        <a class="text-link" href="#">লগ ইন</a>
+      </div>
+    </div>
+    <div class="container brand-row">
+      <a class="brand-name" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
+      <p class="header-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+    </div>
+    <div class="nav-row">
+      <div class="container nav-inner">
+        <nav class="desktop-nav" aria-label="প্রধান নেভিগেশন">
+          <a href="index.html#courses">কোর্স</a>
+          <a href="index.html#bookshop">বই</a>
+          <a href="index.html#assessment">অ্যাসেসমেন্ট</a>
+          <a href="index.html#journey">যাত্রা</a>
+          <a href="index.html#teachers">শিক্ষক</a>
+          <a href="index.html#faq">সাহায্য</a>
+        </nav>
+        <div class="desktop-language">
+          <div class="language-toggle" role="group" aria-label="ভাষা নির্বাচন">
+            <a href="about.html" aria-current="page" lang="bn">BN <span class="small">বাংলা</span></a>
+            <a href="en/index.html" lang="en">EN</a>
+          </div>
+        </div>
+        <span class="nav-prompt">শেখার পথ বেছে নিন</span>
+        <button class="button button--secondary menu-toggle" type="button" data-menu-toggle aria-controls="mobile-menu" aria-expanded="false" aria-haspopup="dialog">মেনু</button>
+      </div>
+    </div>
+    <dialog id="mobile-menu" class="mobile-menu navy-surface" aria-labelledby="menu-title">
+      <div class="menu-heading">
+        <h2 id="menu-title">শেখার পথ</h2>
+        <button class="button button--secondary menu-close" type="button" data-menu-close>বন্ধ করুন</button>
+      </div>
+      <nav class="menu-links" aria-label="মোবাইল নেভিগেশন">
+        <a href="index.html#courses">কোর্স</a>
+        <a href="index.html#bookshop">বই</a>
+        <a href="index.html#assessment">অ্যাসেসমেন্ট</a>
+        <a href="index.html#journey">যাত্রা</a>
+        <a href="index.html#teachers">শিক্ষক</a>
+        <a href="index.html#plan">জীবনের পরিকল্পনা</a>
+        <a href="index.html#faq">সাহায্য</a>
+        <!-- Target: login.html (not built yet). -->
+        <a href="#">লগ ইন</a>
+      </nav>
+      <p class="language-label">ভাষা বেছে নিন</p>
+      <div class="language-toggle" role="group" aria-label="ভাষা নির্বাচন">
+        <a href="about.html" aria-current="page" lang="bn">BN <span class="small">বাংলা</span></a>
+        <a href="en/index.html" lang="en">EN <span class="small">English</span></a>
+      </div>
+      <p class="menu-note">ইংরেজি পাতায় যেতে EN চাপুন।</p>
+    </dialog>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb container" aria-label="পাতার অবস্থান">
+      <ol>
+        <li><a class="text-link" href="index.html">হোম</a></li>
+        <li><span class="text-link" aria-current="page">আমাদের সম্পর্কে</span></li>
+      </ol>
+    </nav>
+    <section class="section container content-hero" aria-labelledby="about-title">
+      <div class="section-heading">
+        <h1 id="about-title"><span lang="en" translate="no">Energy Mining Academy</span> সম্পর্কে</h1>
+        <p>নিজেকে জানা → নিজেকে বদলানো।</p>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="academy-title">
+      <div class="section-heading">
+        <h2 id="academy-title">একাডেমিতে কী আছে</h2>
+        <p>নিজেকে জানার অ্যাসেসমেন্টকে কেন্দ্রে রেখে শেখা ও নিজের পথ লিখে নেওয়ার সুযোগ।</p>
+      </div>
+      <div class="card-grid about-grid">
+        <article class="card form-card light-surface content-stack" aria-labelledby="assessment-title">
+          <span class="badge">সম্পূর্ণ ফ্রি</span>
+          <h3 id="assessment-title">নিজেকে জানার অ্যাসেসমেন্ট</h3>
+          <p><span lang="en">Human Assessment</span> — ২১০টি প্রশ্ন, ৭টি স্তর। নিজের বিভিন্ন দিক বোঝার প্রোফাইল; সম্পূর্ণ ফলাফল ফ্রি।</p>
+          <a class="text-link" href="human-assessment.html">অ্যাসেসমেন্ট সম্পর্কে জানুন</a>
+        </article>
+        <article class="card form-card light-surface content-stack" aria-labelledby="self-test-title">
+          <h3 id="self-test-title">২৬টি সেলফ-টেস্ট</h3>
+          <p>নিজের সম্পর্কে ভাবতে ছোট ছোট বিষয় ধরে শুরু করুন।</p>
+          <a class="text-link" href="self-test.html">সেলফ-টেস্ট দেখুন</a>
+        </article>
+        <article class="card form-card light-surface content-stack" aria-labelledby="courses-title">
+          <h3 id="courses-title">চার এনার্জির কোর্স</h3>
+          <p>কণ্ঠস্বর, শরীর, মন ও উদ্দেশ্য — <span lang="en">Voice, Body, Mind, Purpose</span> নিয়ে শেখার পথ। প্রতিটি কোর্সের প্রথম পাঠ ফ্রি।</p>
+          <a class="text-link" href="courses.html">কোর্সের পরিচয় দেখুন</a>
+        </article>
+        <article class="card form-card light-surface content-stack" aria-labelledby="books-title">
+          <h3 id="books-title">বই</h3>
+          <p>পড়ে ও শুনে শেখার জন্য বইয়ের পরিচয় এবং মাধ্যম সম্পর্কে জানুন।</p>
+          <a class="text-link" href="books.html">বই দেখুন</a>
+        </article>
+        <article class="card form-card light-surface content-stack" aria-labelledby="plan-title">
+          <h3 id="plan-title">নিজের জীবনের পরিকল্পনা</h3>
+          <p><span lang="en">Personal Project Plan</span> — ভিশন ও বর্তমান অবস্থা থেকে সামনে এগোনোর লিখিত পথ।</p>
+          <a class="text-link" href="personal-project-plan.html">পরিকল্পনা সম্পর্কে জানুন</a>
+        </article>
+        <article class="card form-card light-surface content-stack" aria-labelledby="spiritual-title">
+          <span class="badge">ঐচ্ছিক</span>
+          <h3 id="spiritual-title">আধ্যাত্মিক পাঠ</h3>
+          <p>যাঁরা এই পথে শিখতে চান, তাঁদের জন্য। এই পাঠ বেছে নেওয়া বাধ্যতামূলক নয়।</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="section container" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <h2 id="journey-title">ছয় ধাপের যাত্রা</h2>
+        <p>নিজেকে জানা থেকে নিজেকে বদলানো — একটি ধাপের পর আরেকটি।</p>
+      </div>
+      <ol class="card-grid about-grid about-journey">
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ১</span>
+          <h3>আমার গঠন</h3>
+          <p>জীবনের সময়রেখা — নিজের গল্পটি শুরু থেকে দেখুন।</p>
+          <p class="small"><span lang="en">Life Timeline</span></p>
+        </li>
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ২</span>
+          <h3>নিজেকে জানা ও বোঝা</h3>
+          <p>সেলফ-টেস্ট, ৩৬০° আয়না, হিউম্যান টাইপ, শক্তি ও চার এনার্জির মানচিত্র।</p>
+          <p class="small"><span lang="en">Self-test, 360° Mirror, Human Types, Strengths, Four Energy Map</span></p>
+        </li>
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ৩</span>
+          <h3>ভিশন ও বর্তমান</h3>
+          <p>কোথায় যেতে চান, আর এখন কোথায় আছেন — দুটোই স্পষ্ট করুন।</p>
+        </li>
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ৪</span>
+          <h3>উন্নয়ন</h3>
+          <p>চার এনার্জির কোর্স — কণ্ঠস্বর, শরীর, মন ও উদ্দেশ্য নিয়ে কাজ।</p>
+          <p class="small"><span lang="en">Four Energy courses</span></p>
+        </li>
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ৫</span>
+          <h3>পরিশুদ্ধি</h3>
+          <p>যা ধরে রেখেছেন, তা ছেড়ে দেওয়ার পথ।</p>
+        </li>
+        <li class="card form-card light-surface content-stack">
+          <span class="badge">ধাপ ৬</span>
+          <h3>আধ্যাত্মিক পথ</h3>
+          <p>ঐচ্ছিক পথ — যাঁরা চান, তাঁদের জন্য।</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section container" aria-labelledby="founder-title">
+      <div class="section-heading">
+        <h2 id="founder-title">প্রতিষ্ঠাতার কথা</h2>
+        <p>ভরসা, শেখা ও দীর্ঘদিনের সঙ্গ।</p>
+      </div>
+      <figure class="about-note content-stack">
+        <blockquote>
+          <p>আমার লক্ষ্য — মানুষ যেন আমার ওপর ভরসা রাখে, আমার কাছ থেকে শেখে, আর দীর্ঘদিন আমার সঙ্গে থাকে।</p>
+        </blockquote>
+        <figcaption class="small">— <span lang="en" translate="no">Sayful Alvi</span>, প্রতিষ্ঠাতা ও শিক্ষক, <span lang="en" translate="no">Energy Mining Academy</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="section container" aria-labelledby="boundaries-title">
+      <div class="section-heading">
+        <h2 id="boundaries-title">আমরা যা নই</h2>
+        <p>শেখার আগে এই সীমাগুলো জানা থাকুক।</p>
+      </div>
+      <ul class="content-list">
+        <li><p>এটি থেরাপি নয়। নিজের সম্পর্কে ভাবার এই পথ পেশাদার মানসিক স্বাস্থ্যসেবার বিকল্প নয়।</p></li>
+        <li><p>এটি রোগনির্ণয় নয়। অ্যাসেসমেন্টের উত্তর দিয়ে কোনো রোগ নির্ধারণ করা হয় না।</p></li>
+        <li><p>এটি পরীক্ষার প্রস্তুতি নয়। শেখার বিষয় নিজেকে জানা ও নিজের উন্নয়ন।</p></li>
+        <li><p>এটি চাকরি পাওয়ার প্রতিশ্রুতি নয়। নিজের শেখার পথ নিয়ে কাজ করা চাকরি নিশ্চিত করে না।</p></li>
+        <li><p>এটি র‍্যাঙ্কিং বা মোট স্কোর নয়। অ্যাসেসমেন্ট নিজের বিভিন্ন দিক বোঝার প্রোফাইল; অন্যের সঙ্গে অবস্থান মাপার উপায় নয়।</p></li>
+      </ul>
+    </section>
+
+    <section class="section container" aria-labelledby="inclusion-title">
+      <div class="section-heading">
+        <h2 id="inclusion-title">সবার শেখার পথ</h2>
+      </div>
+      <div class="content-stack">
+        <p>মুসলিম ও অমুসলিম, সব বয়সের মানুষের জন্য একাডেমির শেখার পথ। আধ্যাত্মিক পাঠ ঐচ্ছিক; নিজের লক্ষ্য অনুযায়ী পথ বেছে নিন।</p>
+        <p>১৩–১৭ বছরের কিশোর-কিশোরী এবং ১০–১২ বছরের শিশুরা পরিবারের দিকনির্দেশনা নিয়ে শিখবে।</p>
+        <nav class="content-actions" aria-label="একাডেমি সম্পর্কে আরও জানুন">
+          <a class="button button--primary" href="teachers.html">শিক্ষকদের পরিচয়</a>
+          <a class="button button--ghost" href="help.html">সাহায্য ও যোগাযোগ</a>
+          <a class="button button--ghost" href="legal.html">আইনি তথ্য</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand-band navy-surface">
+      <div class="container footer-brand-layout">
+        <div class="footer-brand-copy">
+          <a class="brand-name" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
+          <p>নিজেকে জানা → নিজেকে বদলানো</p>
+          <p class="small" data-placeholder="true">হেল্পলাইন: শীঘ্রই জানানো হবে</p>
+        </div>
+        <p class="footer-purpose">নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+      </div>
+    </div>
+    <div class="footer-links-band light-surface">
+      <nav class="container footer-link-grid" aria-label="ফুটার নেভিগেশন">
+        <div class="footer-link-group">
+          <h3>কোর্স</h3>
+          <a href="index.html#courses">চার এনার্জির কোর্স</a>
+          <a href="index.html#teachers">শিক্ষক</a>
+          <a href="index.html#journey">ছয় ধাপের যাত্রা</a>
+        </div>
+        <div class="footer-link-group">
+          <h3>বই</h3>
+          <a href="index.html#bookshop">আত্মার রসায়ন</a>
+          <a href="index.html#book-title">পড়া ও শোনার মাধ্যম</a>
+        </div>
+        <div class="footer-link-group">
+          <h3>অ্যাসেসমেন্ট</h3>
+          <a href="index.html#assessment">ফ্রি অ্যাসেসমেন্ট</a>
+          <a href="index.html#plan">Personal Project Plan</a>
+        </div>
+        <div class="footer-link-group">
+          <h3>সাহায্য</h3>
+          <a href="index.html#faq">সাধারণ প্রশ্ন</a>
+          <a href="index.html#notice">নোটিশ বোর্ড</a>
+          <!-- Target: login.html (not built yet). -->
+          <a href="#">লগ ইন</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom-bar navy-surface">
+      <div class="container">
+        <p lang="en" translate="no">© Energy Mining Academy</p>
+        <p>অ্যাসেসমেন্ট সম্পূর্ণ ফ্রি <span lang="en">(Assessment is free)</span></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
