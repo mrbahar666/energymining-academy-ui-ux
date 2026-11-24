@@ -51,15 +51,32 @@
 
 Journey of self-knowledge → self-change. Centre: Human Assessment; around it self-tests, Four Energy courses, books, Personal Project Plan, spiritual lessons. Audience: Bangladesh, all levels, Muslim + non-Muslim, adults, teens 13–17, children 10–12; mostly mobile, slow internet. 6-stage journey: 1) Amar gothon (Life Timeline) 2) Nijeke jana o bojha (self-test, 360° Mirror, Human Types, Strengths, Four Energy Map) 3) Vision o Present 4) Development (Four Energy courses) 5) Cleansing 6) Adhyatmik path (optional). Free: self-tests, Life Timeline, check-in, content. Paid: Personal Project Plan, courses, books (PDF/hard copy/audio). **NO payment for now** (owner order) — design the flows, no payment UI. Account: phone-focus + email, login by PASSWORD (email/phone + password, OTP only secondary).
 
-## 5. Research (BEFORE design — in progress)
+## 5. Research (DONE 2026-11-25 — read live, nothing invented)
 
-- **Bangladeshi academy sites** → `docs/research-bd.md` — site name, URL, sections worth borrowing, what to avoid. (Runner: BD research.)
-- **International sites** → `docs/research-international.md` — same structure. (Runner: international research.)
-- Section decisions after research: which BD + international sections are adopted and why — recorded in §6 and the research docs.
+- **Bangladeshi academy sites** → [`docs/research-bd.md`](docs/research-bd.md) — 7 sites read live (10 Minute School, Shikho, Ostad, Interactive Cares, Ghoori Learning, Rokomari, Islamic Online Madrasah IOM). Bohubrihi attempted, homepage unreadable (JS-heavy) — honestly excluded. Top borrows: "Where do you start?" picker + free diagnostic front door; Four Energy category cards with counts; "What you get" benefit grid + Ostad course-detail anatomy; journey as a staged path; Rokomari-style bookshop browse (category/author/format, pre-order first-class, COD-simple ordering); numbered "Why us" reasons; duration on every card; notice board; "Become a teacher" entry point.
+- **International sites** → [`docs/research-international.md`](docs/research-international.md) — 8 sites read live (Mindvalley, 16Personalities, MasterClass, Coursera, Headspace, Udemy, Truity, Rokomari). Black Friday promotions dominated several homepages that day — recorded, not smoothed over. Top borrows: Four Energy category catalogue; goal picker ("What brings you here today?"); need chips ("What are you looking for right now?"); guided pathway (courses in sequence → My Life Plan); free first lesson; one hero/one action/one time promise for the free assessment (one section only, never the hero); result as a profile (per-layer, no total score); teach-the-model-before-the-test + sample report; Rokomari book-detail template; founder's personal note; plain-language FAQ.
+- **Deliberately NOT adopted (both docs):** rankings/leaderboards/scores, testimonial walls/star ratings, job-placement promises, discount theatre (struck-through prices, % off, countdowns, "seats left"), paywalled results / "unlock full report", all-access subscriptions, live counters/accuracy/outcome stats, celebrity/career framing, therapy/medical framing, points/gamification, app dependency, non-book sprawl.
 
-## 6. Section decisions (after research — TBD)
+## 6. Section decisions (from research + guide)
 
-_To be filled from the research notes. Candidate sections: shopfront hero (courses + books), Four Energy courses, bookshop (Rokomari-style), teachers, free assessment (one section only), journey/6 stages, Personal Project Plan, spiritual lessons, about Sayful Alvi, FAQ, help/contact, legal._
+Homepage (bn-first, shopfront-led, mobile long-scroll — courses + books lead, assessment exactly ONE section):
+1. Header — utility strip (log in, helpline), brand row + tagline, nav row; big EN/BN toggle in the mobile slide menu.
+2. Hero — shopfront: goal picker "Where do you start?" (Know myself / Grow one energy / Plan my life / Learn spiritually) routing into the 6-stage journey.
+3. Need chips — "What are you looking for right now?" routing to a self-test, course, book or lesson, no account needed.
+4. Four Energy category cards — Voice / Body / Mind / Purpose, with course counts.
+5. Courses — course cards (teacher name + one plain outcome line + duration + free first lesson note).
+6. Bookshop — book cards (cover, author, format pills PDF/hardcopy/audio, stock); browse by theme/author/format; pre-order first-class.
+7. Journey — 6-stage path (assessment → self-knowledge → Vision → Development → Cleansing → spiritual path) + 4-step "how it works" strip.
+8. Teachers — teacher profiles as the trust anchor (Sayful Alvi + each course teacher); "Become a teacher" entry point.
+9. **Free assessment — EXACTLY ONE section** — Human Assessment (210 questions, 7 layers) + 26 self-tests; teach-the-model first, one time promise, one button, full result free, no paywall cues, no price.
+10. Personal Project Plan (My Life Plan) — what it is, sample (blurred) report preview.
+11. Founder's note — short personal note from Sayful Alvi.
+12. Why Energy Mining Academy — numbered, concrete, verifiable reasons only.
+13. Notice board — dated announcements strip.
+14. FAQ — plain language, incl. what the assessment is and is NOT (not therapy, not diagnosis).
+15. Footer — 3-band (brand / links / bottom bar), helpline + hours, real contact only.
+
+Other pages follow the same system: course list + detail (Ostad anatomy: demo → curriculum by module with teacher → teacher bio → requirements → what you get → FAQ), book list + detail (Rokomari template: cover/author/format/price/Buy Now/stock/delivery/summary/spec table/related), cart → order confirmation (name/phone/address, no payment), self-test flow + result (profile, no score), Human Assessment flow (teach model → 210 questions → full free result), teachers + teacher dashboard, my-courses/my-orders/my-results, login (password-led), signup (phone-focus + email), admin (advanced), about/help/legal.
 
 ## 7. Design system (to be built)
 
@@ -84,3 +101,4 @@ Tokens: colours (§2), type scale (Domaine Display headlines + Synonym body/UI, 
 
 - 2026-11-25 ~00:19 — Repo created (public `mrbahar666/energymining-academy-ui-ux`), cloned to `~/workspace/energymining-academy-ui-ux`. Fonts copied as-is into `fonts/` (Domaine Display woff2 + Synonym woff2 ×7 + licences). Brand guideline + developer guide extracted and read. Codex 6.2 NOT available on this ChatGPT account → fallback `gpt-6.1-sol` + effort ULTRA (recorded §0).
 - 2026-11-25 — Research runners launched (BD + international). Design system next, then pages.
+- 2026-11-25 — Research DONE: both docs verified by coordinator (read in full — grounded in live reads, partial reads honestly flagged, no invented contents). BD: 7 sites (10MS, Shikho, Ostad, Interactive Cares, Ghoori, Rokomari, IOM). International: 8 sites (Mindvalley, 16Personalities, MasterClass, Coursera, Headspace, Udemy, Truity, Rokomari). Section decisions recorded in §6. Research docs committed. Design-system runner next (Codex GPT-6.1-sol ULTRA, design skills active).
