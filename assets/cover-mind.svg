@@ -1,0 +1,11 @@
+<svg data-placeholder="true" xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Mind course placeholder artwork</title>
+  <desc id="desc">Three carefully spaced off-white concentric rings surround a small gold centre on navy.</desc>
+  <rect width="400" height="500" fill="#032C42"/>
+  <g fill="none" stroke="#F6F3EC" stroke-width="18">
+    <circle cx="200" cy="250" r="136"/>
+    <circle cx="200" cy="250" r="92"/>
+    <circle cx="200" cy="250" r="48"/>
+  </g>
+  <circle cx="200" cy="250" r="10" fill="#C9A24B"/>
+</svg>

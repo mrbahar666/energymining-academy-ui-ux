@@ -1,0 +1,9 @@
+<svg data-placeholder="true" xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Atmar Rosayon book placeholder artwork</title>
+  <desc id="desc">An off-white arch frames the meeting pages of an open book, traced by a single gold curve on navy.</desc>
+  <rect width="400" height="500" fill="#032C42"/>
+  <path d="M80 378 V214 A120 120 0 0 1 320 214 V378 H292 V214 A92 92 0 0 0 108 214 V378 Z" fill="#F6F3EC"/>
+  <path d="M136 378 V286 Q168 278 200 302 Q232 278 264 286 V378 Q232 370 200 394 Q168 370 136 378 Z" fill="#F6F3EC"/>
+  <path d="M200 302 V394" fill="none" stroke="#032C42" stroke-width="6"/>
+  <path d="M136 254 V214 A64 64 0 0 1 264 214 V254" fill="none" stroke="#C9A24B" stroke-width="6" stroke-linecap="round"/>
+</svg>

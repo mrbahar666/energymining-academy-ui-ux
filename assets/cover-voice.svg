@@ -1,0 +1,11 @@
+<svg data-placeholder="true" xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Voice course placeholder artwork</title>
+  <desc id="desc">Three off-white sound-wave arcs grow from a small gold source on a navy field.</desc>
+  <rect width="400" height="500" fill="#032C42"/>
+  <g fill="none" stroke="#F6F3EC" stroke-width="24" stroke-linecap="round">
+    <path d="M142 192 A64 64 0 0 1 142 308"/>
+    <path d="M169 143 A118 118 0 0 1 169 357"/>
+    <path d="M196 94 A172 172 0 0 1 196 406"/>
+  </g>
+  <circle cx="100" cy="250" r="16" fill="#C9A24B"/>
+</svg>

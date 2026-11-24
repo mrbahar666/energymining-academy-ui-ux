@@ -1,0 +1,7 @@
+<svg data-placeholder="true" xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" role="img" aria-labelledby="title desc">
+  <title id="title">Body course placeholder artwork</title>
+  <desc id="desc">Three grounded off-white bands broaden toward a restrained gold foundation on navy.</desc>
+  <rect width="400" height="500" fill="#032C42"/>
+  <path d="M144 130 H256 V178 H144 Z M104 218 H296 V266 H104 Z M64 306 H336 V354 H64 Z" fill="#F6F3EC"/>
+  <path d="M64 394 H336" fill="none" stroke="#C9A24B" stroke-width="6" stroke-linecap="round"/>
+</svg>
