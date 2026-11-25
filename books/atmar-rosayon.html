@@ -8,38 +8,45 @@
   <title>আত্মার রসায়ন — Atmar Rosayon | Energy Mining Academy</title>
   <link rel="preload" href="../fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/design-system-v2.css">
+  <link rel="icon" href="../assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/design-system-v3.css">
   <script src="../js/main.js" defer></script>
   <!-- BOOKS-ONLY -->
   <script src="../js/cart.js" defer></script>
   <!-- Detail: cover, formats, specs, recommendations, FAQ. -->
   <style>
     .small { font-size: .875rem; }
-    .book-detail { display: grid; gap: 2rem; align-items: start; }
-    .book-detail .cover-figure { inline-size: min(100%, 320px); justify-self: center; margin: 0; overflow: clip; border-radius: var(--v2-radius-panel); background: var(--v2-navy); color: var(--v2-paper); }
+    [hidden] { display: none; }
+    .section-heading { margin-block-end: 1.5rem; }
+    .v3-title-band .v3-book-title { font-size: 48px; line-height: 62px; }
+    .v3-title-band :is(.v3-book-latin, .v3-book-author) { color: var(--v3-paper); }
+    .book-detail .v3-book-card { margin-inline: auto; align-items: start; }
+    .book-detail .cover-figure { inline-size: 240px; justify-self: center; margin: 0; background: var(--v3-navy); color: var(--v3-paper); }
     .book-cover { inline-size: 100%; block-size: auto; aspect-ratio: 4 / 5; }
     .cover-caption { padding: .5rem 1rem; font-size: .875rem; }
     .book-detail-copy { display: grid; gap: 1.5rem; }
     .book-heading { display: grid; gap: .75rem; }
     .format-choices { display: grid; gap: .75rem; margin-block-start: 1rem; }
-    .format-choice { display: grid; align-content: start; gap: .5rem; min-block-size: 148px; padding: 1rem; border: 1px solid var(--v2-navy); border-radius: var(--v2-radius-panel); background: var(--v2-paper); color: var(--v2-navy); text-align: start; }
-    .format-choice strong { font-weight: 600; }
-    .format-choice[aria-pressed="true"] { background: var(--v2-navy); color: var(--v2-paper); }
-    .format-choice .selection-state { visibility: hidden; font-weight: 600; }
-    .format-choice[aria-pressed="true"] .selection-state { visibility: visible; }
+    .v3-format-choice { display: grid; align-content: start; gap: .5rem; min-block-size: 148px; padding: 1rem; border: 1.5px solid var(--v3-navy); border-radius: var(--v3-radius); background: var(--v3-paper); color: var(--v3-navy); text-align: start; }
+    .v3-format-choice strong { font-weight: 600; }
+    .v3-format-choice[aria-pressed="true"] { background: var(--v3-navy); color: var(--v3-paper); }
+    .v3-format-choice .selection-state { visibility: hidden; font-weight: 600; }
+    .v3-format-choice[aria-pressed="true"] .selection-state { visibility: visible; }
     .book-actions { display: grid; gap: .75rem; }
-    .availability-note { display: grid; gap: .75rem; padding-block-start: 1.5rem; border-block-start: 1px dashed var(--v2-navy); }
+    #cart-feedback a { display: inline-flex; align-items: center; min-block-size: 48px; }
+    .availability-note { display: grid; gap: .75rem; padding-block-start: 1.5rem; border-block-start: 1px solid var(--v3-navy); }
     .book-summary { display: grid; gap: 1rem; max-inline-size: 70ch; }
     .book-specs { inline-size: 100%; border-collapse: collapse; text-align: start; }
-    .book-specs caption { text-align: start; margin-block-end: 1.5rem; font: 400 1.5rem/1.5 var(--v2-font-display); color: var(--v2-navy); }
-    .book-specs th, .book-specs td { padding: 1rem .75rem; border-block-end: 1px solid var(--v2-navy); vertical-align: top; overflow-wrap: anywhere; }
-    .book-specs th { inline-size: 34%; font-weight: 600; color: var(--v2-navy); }
+    .book-specs caption { text-align: start; margin-block-end: 1.5rem; font: 400 1.5rem/1.5 var(--v3-font-display); color: var(--v3-navy); }
+    .book-specs th, .book-specs td { padding: 1rem .75rem; border-block-end: 1px solid var(--v3-navy); vertical-align: top; overflow-wrap: anywhere; }
+    .book-specs th { inline-size: 34%; font-weight: 600; color: var(--v3-navy); }
     .recommendations { display: grid; gap: 1.5rem; }
     .recommendation { display: grid; align-content: start; gap: .75rem; }
     .faq-layout { display: grid; gap: 1.5rem; }
-    .faq-item { border-block-end: 1px solid var(--v2-navy); }
+    .faq-list { min-inline-size: 0; }
+    .faq-item { border-block-end: 1px solid var(--v3-navy); }
     .faq-item h3 { margin: 0; }
-    .faq-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; inline-size: 100%; min-block-size: 64px; padding: 1rem 1.5rem; border: 0; border-radius: var(--v2-radius-panel); background: var(--v2-paper); color: var(--v2-navy); font-weight: 600; text-align: start; }
+    .faq-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; inline-size: 100%; min-block-size: 64px; padding: 1rem 1.5rem; border: 0; border-radius: var(--v3-radius); background: var(--v3-paper); color: var(--v3-navy); font-weight: 600; text-align: start; }
     .faq-toggle::after { content: ""; inline-size: 10px; block-size: 10px; flex-shrink: 0; border-inline-end: 2px solid currentColor; border-block-end: 2px solid currentColor; transform: rotate(45deg); }
     .faq-toggle[aria-expanded="true"]::after { transform: rotate(225deg); }
     .faq-answer { padding: 0 1.5rem 1.5rem; }
@@ -48,198 +55,173 @@
       .book-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .recommendations { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+    @media (max-width: 767px) {
+      .v3-title-band .v3-book-title { font-size: 34px; line-height: 46px; }
+      .book-detail .cover-figure { inline-size: 160px; }
+    }
     @media (min-width: 1024px) {
-      .book-detail { grid-template-columns: 320px minmax(0, 1fr); gap: 4rem; }
       .faq-layout { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: 4rem; }
     }
   </style>
-  <!-- Hybrid chrome: desktop A, mobile C. -->
-  <style>
-    @media (max-width: 1099px) { .v2-hybrid-a { display: none; } }
-    @media (min-width: 1100px) { .v2-hybrid-c { display: none; } }
-  </style>
 </head>
-<body lang="bn" class="v2-concept-c">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-
-  <header class="v2-header v2-header--a v2-hybrid-a v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="../index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="../courses.html">কোর্স</a>
-        <a href="../books.html" aria-current="true">বই</a>
-        <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="../teachers.html">শিক্ষক</a>
-        <a href="../personal-project-plan.html">পরিকল্পনা</a>
+<body lang="bn">
+  <!-- Masthead — spec §4.2 and §6.1–6.3, shown for the Bangla home page. -->
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="../index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="../assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="../courses.html">কোর্স</a>
+      <a href="../books.html" aria-current="true">বই</a>
+      <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="../teachers.html">শিক্ষক</a>
+      <a href="../personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="../cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="../login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-header">
-          <a href="atmar-rosayon.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="../cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="../login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="atmar-rosayon.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="../en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-a-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-hybrid-a v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-menu">
-        <a href="atmar-rosayon.html" lang="bn" autofocus aria-current="page">BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="../index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="../assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="atmar-rosayon.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="../en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-a-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="../courses.html">কোর্স</a>
-        <a href="../books.html" aria-current="true">বই</a>
-        <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="../teachers.html">শিক্ষক</a>
-        <a href="../personal-project-plan.html">পরিকল্পনা</a>
-        <a href="../about.html">আমাদের কথা</a>
-        <a href="../help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="../courses.html">কোর্স</a>
+      <a href="../books.html" aria-current="true">বই</a>
+      <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="../teachers.html">শিক্ষক</a>
+      <a href="../personal-project-plan.html">পরিকল্পনা</a>
+      <a href="../about.html">আমাদের কথা</a>
+      <a href="../help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="../login.html">লগ ইন</a>
-        <a href="../signup.html">সাইন আপ</a>
-        <a href="../cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="../login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="../signup.html">সাইন আপ</a>
+      <a href="../cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-<header class="v2-header v2-header--c v2-hybrid-c v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="../index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="../courses.html">কোর্স</a>
-        <a href="../books.html" aria-current="true">বই</a>
-        <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="../teachers.html">শিক্ষক</a>
-        <a href="../personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="../login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="../cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-header">
-          <a href="atmar-rosayon.html" lang="bn" aria-current="page">BN</a>
-          <a href="../en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-c-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-hybrid-c v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-menu">
-        <a href="atmar-rosayon.html" lang="bn" aria-current="page">BN</a>
-        <a href="../en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-c-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="../index.html">হোম</a>
-        <a href="../courses.html">কোর্স</a>
-        <a href="../books.html" aria-current="true">বই</a>
-        <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="../teachers.html">শিক্ষক</a>
-        <a href="../personal-project-plan.html">পরিকল্পনা</a>
-        <a href="../about.html">আমাদের কথা</a>
-        <a href="../help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="../login.html">লগ ইন</a>
-        <a href="../signup.html">সাইন আপ</a>
-        <a href="../cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light" aria-label="মোবাইল নেভিগেশন">
-  <a href="../index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="../courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="../books.html" aria-current="true"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="../human-assessment.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
-
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main">
-    <section class="v2-title-band" aria-labelledby="book-title">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব">
-          <a href="../index.html">হোম</a><span aria-hidden="true">/</span><a href="../books.html">বই</a><span aria-hidden="true">/</span><span aria-current="page">আত্মার রসায়ন</span>
+    <section class="v3-title-band" aria-labelledby="book-title">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব">
+          <ol><li><a href="../index.html">হোম</a></li><li><a href="../books.html">বই</a></li><li><span aria-current="page">আত্মার রসায়ন</span></li></ol>
         </nav>
-        <h1 id="book-title">আত্মার রসায়ন <span lang="en" translate="no">Atmar Rosayon</span></h1>
-        <p>লেখক: <span lang="en" translate="no">Sayful Alvi</span></p>
+        <h1 id="book-title" class="v3-book-title">আত্মার রসায়ন <span class="v3-book-latin" lang="en" translate="no">Atmar Rosayon</span></h1>
+        <p class="v3-book-author">লেখক: <span lang="en" translate="no">Sayful Alvi</span></p>
       </div>
     </section>
 
-    <section class="v2-section v2-container book-detail" aria-labelledby="book-title">
-      <figure class="cover-figure">
-        <img class="book-cover" src="../assets/cover-atmar-rosayon.svg" width="400" height="500" alt="আত্মার রসায়নের খিলান ও খোলা বইয়ের জ্যামিতিক প্রচ্ছদ" data-placeholder="true">
-        <figcaption class="cover-caption">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
-      </figure>
-      <div class="book-detail-copy">
-        <div class="book-heading">
+    <section class="v3-section v3-surface-navy book-detail" aria-labelledby="book-title">
+      <div class="v3-container">
+        <div class="v3-book-card">
+          <figure class="cover-figure">
+            <img class="book-cover v3-book-cover" src="../assets/cover-atmar-rosayon.svg" width="400" height="500" alt="আত্মার রসায়নের খিলান ও খোলা বইয়ের জ্যামিতিক প্রচ্ছদ" data-placeholder="true">
+            <figcaption class="cover-caption">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
+          </figure>
+          <div class="book-detail-copy">
+            <div class="book-heading">
           
           
-          <p class="small"><span lang="en" translate="no">Energy Mining Academy</span>-এর প্রতিষ্ঠাতা।</p>
-        </div>
+              <p class="small"><span lang="en" translate="no">Energy Mining Academy</span>-এর প্রতিষ্ঠাতা।</p>
+            </div>
 
-        <div id="formats" aria-labelledby="formats-title">
-          <h2 id="formats-title">পড়বেন, না শুনবেন?</h2>
-          <p class="small">আপনার জন্য একটি মাধ্যম বেছে নিন।</p>
-          <div class="format-choices" role="group" aria-label="বইয়ের মাধ্যম নির্বাচন">
-            <button class="v2-card format-choice" type="button" data-format="PDF" aria-pressed="false">
-              <strong lang="en">PDF</strong>
-              <span class="small">স্ক্রিনে পড়ার জন্য</span>
-              <span class="small selection-state">নির্বাচিত</span>
-            </button>
-            <button class="v2-card format-choice" type="button" data-format="hard copy" aria-pressed="true">
-              <strong lang="en">hard copy</strong>
-              <span class="small">ছাপানো বই</span>
-              <span class="small selection-state">নির্বাচিত</span>
-            </button>
-            <button class="v2-card format-choice" type="button" data-format="audio" aria-pressed="false">
-              <strong lang="en">audio</strong>
-              <span class="small">বইটি শোনার জন্য</span>
-              <span class="small selection-state">নির্বাচিত</span>
-            </button>
+            <div id="formats" aria-labelledby="formats-title">
+              <h2 id="formats-title">পড়বেন, না শুনবেন?</h2>
+              <p class="small">আপনার জন্য একটি মাধ্যম বেছে নিন।</p>
+              <div class="format-choices" role="group" aria-label="বইয়ের মাধ্যম নির্বাচন">
+                <button class="v3-format-choice" type="button" data-format="PDF" aria-pressed="false">
+                  <strong lang="en">PDF</strong>
+                  <span class="small">স্ক্রিনে পড়ার জন্য</span>
+                  <span class="small selection-state">নির্বাচিত</span>
+                </button>
+                <button class="v3-format-choice" type="button" data-format="hard copy" aria-pressed="true">
+                  <strong lang="en">hard copy</strong>
+                  <span class="small">ছাপানো বই</span>
+                  <span class="small selection-state">নির্বাচিত</span>
+                </button>
+                <button class="v3-format-choice" type="button" data-format="audio" aria-pressed="false">
+                  <strong lang="en">audio</strong>
+                  <span class="small">বইটি শোনার জন্য</span>
+                  <span class="small selection-state">নির্বাচিত</span>
+                </button>
+              </div>
+              <noscript><p class="small">ডিফল্ট মাধ্যম ছাপানো বই (hard copy)। মাধ্যম বদলাতে ও কার্ট সংরক্ষণ করতে JavaScript দরকার।</p></noscript>
+            </div>
+
+            <div>
+              <div class="book-actions">
+                <a id="add-to-cart" class="v3-button v3-button--primary" href="../cart.html?add=atmar-rosayon">কার্টে যোগ করুন</a>
+                <a id="buy-now" class="v3-button v3-button--secondary" href="../cart.html?add=atmar-rosayon">এখনই কিনুন</a>
+              </div>
+              <p id="cart-feedback" class="small" role="status" aria-live="polite" hidden>কার্টে যোগ হয়েছে। <a href="../cart.html">কার্ট দেখুন</a></p>
+              <p id="cart-error" class="v3-field-error" role="alert" hidden>কার্ট সংরক্ষণ করা যায়নি। এই ব্রাউজারে সাইটের তথ্য সংরক্ষণের অনুমতি দিয়ে আবার চেষ্টা করুন।</p>
+              <p class="small">ডিজাইন ডেমো: কার্টটি এই ব্রাউজারেই থাকে; কোনো অর্ডার সার্ভারে যায় না।</p>
+            </div>
+
+            <div class="availability-note">
+              <p data-placeholder="true">স্টকের তথ্য: নিশ্চিত করা বাকি</p>
+              <p data-placeholder="true">ডেলিভারির বিবরণ শীঘ্রই জানানো হবে <span lang="en">/ Delivery details to be announced</span></p>
+            </div>
           </div>
-          <noscript><p class="small">ডিফল্ট মাধ্যম ছাপানো বই (hard copy)। মাধ্যম বদলাতে ও কার্ট সংরক্ষণ করতে JavaScript দরকার।</p></noscript>
-        </div>
-
-        <div>
-          <div class="book-actions">
-            <a id="add-to-cart" class="v2-button v2-button--primary" href="../cart.html?add=atmar-rosayon">কার্টে যোগ করুন</a>
-            <a id="buy-now" class="v2-button v2-button--secondary" href="../cart.html?add=atmar-rosayon">এখনই কিনুন</a>
-          </div>
-          <p id="cart-feedback" class="small" role="status" aria-live="polite" hidden>কার্টে যোগ হয়েছে। <a class="v2-link" href="../cart.html">কার্ট দেখুন</a></p>
-          <p id="cart-error" class="field-error" role="alert" hidden>কার্ট সংরক্ষণ করা যায়নি। এই ব্রাউজারে সাইটের তথ্য সংরক্ষণের অনুমতি দিয়ে আবার চেষ্টা করুন।</p>
-          <p class="small">ডিজাইন ডেমো: কার্টটি এই ব্রাউজারেই থাকে; কোনো অর্ডার সার্ভারে যায় না।</p>
-        </div>
-
-        <div class="availability-note">
-          <p data-placeholder="true">স্টকের তথ্য: নিশ্চিত করা বাকি</p>
-          <p data-placeholder="true">ডেলিভারির বিবরণ শীঘ্রই জানানো হবে <span lang="en">/ Delivery details to be announced</span></p>
         </div>
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="summary-title">
+    <section class="v3-section v3-container" aria-labelledby="summary-title">
       <div class="section-heading">
         <h2 id="summary-title">বই সম্পর্কে</h2>
       </div>
@@ -249,7 +231,7 @@
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="specs-title">
+    <section class="v3-section v3-container" aria-labelledby="specs-title">
       <table class="book-specs">
         <caption id="specs-title">বইয়ের তথ্য</caption>
         <tbody>
@@ -264,26 +246,26 @@
       </table>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="related-title">
+    <section class="v3-section v3-container" aria-labelledby="related-title">
       <div class="section-heading">
         <h2 id="related-title">এই বইটি পড়ার পর</h2>
         <p>শেখা ও নিজের পরিকল্পনা নিয়ে আরও জানুন।</p>
       </div>
       <div class="recommendations">
-        <a class="v2-card recommendation v2-surface-light" href="../courses/voice.html">
+        <a class="v3-light-card recommendation" href="../courses/voice.html">
           <h3>কণ্ঠস্বর <span lang="en">Voice</span></h3>
           <p>নিজের কণ্ঠস্বরকে জানুন।</p>
-          <span class="v2-link">কোর্স সম্পর্কে জানুন</span>
+          <span>কোর্স সম্পর্কে জানুন</span>
         </a>
-        <a class="v2-card recommendation v2-surface-light" href="../personal-project-plan.html">
+        <a class="v3-light-card recommendation" href="../personal-project-plan.html">
           <h3 lang="en">Personal Project Plan</h3>
           <p>ভিশন ও বর্তমান অবস্থা থেকে নিজের পরিকল্পনা — কোন দিক নিয়ে, কীভাবে এগোবেন, তার লিখিত পথ।</p>
-          <span class="v2-link">পরিকল্পনা সম্পর্কে জানুন</span>
+          <span>পরিকল্পনা সম্পর্কে জানুন</span>
         </a>
       </div>
     </section>
 
-    <section id="faq" class="v2-section v2-container" aria-labelledby="faq-title">
+    <section id="faq" class="v3-section v3-container" aria-labelledby="faq-title">
       <div class="faq-layout">
         <div class="section-heading">
           <h2 id="faq-title">সাধারণ প্রশ্ন</h2>
@@ -320,15 +302,27 @@
     </section>
   </main>
 
-  <footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="../courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="../books.html" aria-current="true">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+  <!-- Footer colophon — spec §7: brand, five link groups, and bottom line. -->
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="../index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="../assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="../courses.html">সব কোর্স</a>
         <a href="../courses/voice.html">কণ্ঠস্বর</a>
@@ -338,18 +332,18 @@
         <a href="../teachers.html">শিক্ষক</a>
         <a href="../personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="../books.html" aria-current="true">বইয়ের তাক</a>
         <a href="../books/atmar-rosayon.html" aria-current="page">আত্মার রসায়ন</a>
         <a href="../cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="../human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="../self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="../login.html">লগ ইন</a>
         <a href="../signup.html">সাইন আপ</a>
@@ -357,16 +351,15 @@
         <a href="../my-orders.html">আমার অর্ডার</a>
         <a href="../my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="../about.html">আমাদের কথা</a>
         <a href="../help.html">সাহায্য</a>
         <a href="../legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="../index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="../legal.html">আইনি তথ্য</a>
     </div>
@@ -376,7 +369,7 @@
   <!-- BOOKS-ONLY -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const formatCards = document.querySelectorAll(".format-choice");
+      const formatCards = document.querySelectorAll(".v3-format-choice");
       const feedback = document.getElementById("cart-feedback");
       const error = document.getElementById("cart-error");
       let selectedFormat = "hard copy";
@@ -406,22 +399,6 @@
           }
         });
       });
-    });
-  </script>
-  <!-- Close either menu on navigation and mirror the modal scroll lock. -->
-  <script>
-    const menus = Array.from(document.querySelectorAll('.v2-dialog'));
-    const syncDialogScroll = () => {
-      document.body.style.overflow = menus.some(menu => menu.open) ? 'hidden' : '';
-    };
-    menus.forEach((menu) => {
-      menu.addEventListener('click', (event) => {
-        if (event.target.closest('a[href]')) menu.close();
-      });
-      new MutationObserver(syncDialogScroll).observe(menu, { attributes: true, attributeFilter: ['open'] });
-    });
-    window.matchMedia('(min-width: 1100px)').addEventListener('change', () => {
-      menus.forEach(menu => menu.close());
     });
   </script>
 </body>

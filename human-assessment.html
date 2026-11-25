@@ -8,257 +8,170 @@
   <title>Human Assessment — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
-  <!-- ASSESSMENT-ONLY -->
+
+
   <style>
-    .ha-intro { display: grid; gap: 1rem; padding-bottom: 2rem; }
-    .ha-intro .v2-badge { justify-self: start; }
-    .ha-nav { padding-block: 1rem; border-block: 0.0625rem solid var(--v2-navy); }
-    .ha-nav .v2-chip[aria-current="page"] { background: var(--v2-navy); color: var(--v2-paper); }
-    .ha-content { display: grid; gap: 3rem; }
-    .ha-layers { border-top: 0.0625rem solid var(--v2-navy); }
-    .ha-layer { display: grid; gap: 1.5rem; padding-block: 2rem; border-bottom: 0.0625rem solid var(--v2-navy); }
-    .ha-layer-copy { display: grid; align-content: start; gap: .75rem; }
-    .ha-layer-copy > p[lang="en"] { font-weight: 600; color: var(--v2-navy); }
-    .ha-dimensions { display: grid; gap: .5rem; margin: 0; padding-inline-start: 1.5rem; font-size: .875rem; }
-    .ha-energy-map { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.125rem; background: var(--v2-gold); border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-panel); overflow: clip; }
-    .ha-energy-part { display: grid; align-content: start; gap: .75rem; padding: 1.5rem; background: var(--v2-paper); }
-    .ha-energy-part strong { color: var(--v2-navy); font-size: 1.25rem; }
-    .ha-map-note { margin-top: 1rem; }
-    .ha-report { border: 0.0625rem dashed var(--v2-navy); border-radius: var(--v2-radius-panel); padding: 1.5rem; }
-    .ha-report > .section-heading { margin-bottom: 1.5rem; }
-    .ha-report-rows { display: grid; gap: 1.5rem; }
-    .ha-report-row { display: grid; gap: .5rem; }
-    .ha-report-row > p:first-child { color: var(--v2-navy); font-weight: 600; }
-    .ha-report-track { height: 0.625rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-pill); overflow: clip; }
-    .ha-report-track span { display: block; height: 100%; background: var(--v2-navy); }
-    .ha-report-track .ha-sample-bar-1 { width: 60.0%; }
-    .ha-report-track .ha-sample-bar-2 { width: 51.11%; }
-    .ha-report-track .ha-sample-bar-3 { width: 67.78%; }
-    .ha-report-track .ha-sample-bar-4 { width: 46.67%; }
-    .ha-report-track .ha-sample-bar-5 { width: 64.44%; }
-    .ha-report-track .ha-sample-bar-6 { width: 56.67%; }
-    .ha-report-track .ha-sample-bar-7 { width: 71.11%; }
-    .ha-sample-map { display: grid; gap: .5rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 0.0625rem solid var(--v2-navy); }
-    .ha-sample-map p { padding-inline-start: 1rem; border-inline-start: 0.0625rem solid var(--v2-navy); }
-    .ha-map { display: grid; gap: 0; list-style: none; margin: 0; padding: 0; }
-    .ha-map li { position: relative; display: grid; gap: .25rem; padding: 0 0 2rem 2rem; margin-inline-start: .5rem; border-inline-start: 0.0625rem solid var(--v2-navy); }
-    .ha-map li:last-child { padding-bottom: 0; }
-    .ha-map li::before { content: ""; position: absolute; inset-inline-start: -0.4375rem; top: 0.4375rem; width: 0.8125rem; height: 0.8125rem; border: 0.0625rem solid var(--v2-navy); border-radius: 50%; background: var(--v2-gold); }
-    .ha-map strong { color: var(--v2-navy); font-size: 1.125rem; }
-    .ha-panel { display: grid; gap: 1rem; padding: 1.5rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .ha-steps { display: grid; gap: 1rem; margin: 0; padding-inline-start: 1.5rem; }
-    .ha-how-start { margin-top: 1.5rem; display: grid; gap: .75rem; justify-items: start; }
-    .ha-flow { display: grid; gap: 1.5rem; }
-    .ha-flow-heading { display: grid; gap: .75rem; padding: 1.5rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .ha-question { display: grid; gap: .75rem; min-width: 0; margin: 0; padding: 1.5rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .ha-question legend { padding-inline: .5rem; color: var(--v2-navy); font-weight: 600; }
-    .ha-answer { display: flex; align-items: center; gap: .75rem; min-height: 3rem; padding: .5rem .75rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-control); cursor: pointer; }
-    .ha-answer input { flex: 0 0 auto; width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--v2-navy); }
-    .ha-answer:has(input:checked) { background: var(--v2-navy); color: var(--v2-paper); }
-    .ha-answer:has(input:focus-visible) { outline: 0.125rem solid var(--v2-navy); outline-offset: 0.25rem; }
-    .ha-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .ha-account { margin-top: 1.5rem; }
-    .ha-outro { display: grid; gap: 1rem; padding-top: 0; }
-    .ha-noscript { padding-block: 1rem; }
-    @media (min-width: 40rem) {
-      .ha-dimensions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1.5rem; }
-      .ha-report-row { grid-template-columns: minmax(0, 1fr) auto; }
-      .ha-report-track { grid-column: 1 / -1; }
+    #assessment-nav,
+    #flow [aria-label="প্রবাহের নকশার নেভিগেশন"],
+    main > nav,
+    noscript nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    main > section:not(.v3-title-band) > div:first-child { margin-block-end: 32px; }
+    main article[aria-labelledby^="layer-"] { display: grid; gap: 24px; padding-block: 32px; }
+    main article[aria-labelledby^="layer-"] ul { margin: 0; padding-inline-start: 24px; }
+    main section[aria-labelledby="energy-map-title"] > [role="group"] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    main section[aria-labelledby="report-title"] > div > div:nth-child(2),
+    #flow > div:nth-child(2),
+    #flow [role="group"] { display: grid; gap: 24px; }
+    main section[aria-labelledby="report-title"] [data-placeholder="true"] > p { margin-block-end: 8px; }
+    #how-it-works li + li { margin-block-start: 16px; }
+    #how-it-works article,
+    #account-note { margin-block-start: 32px; }
+    #faq > div { display: grid; gap: 24px; }
+    #faq > div > div:last-child { display: grid; gap: 16px; }
+    #faq button { inline-size: 100%; min-block-size: 48px; }
+    @media (min-width: 768px) {
+      main article[aria-labelledby^="layer-"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+      main article[aria-labelledby^="layer-"] ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+      #faq > div { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: 48px; }
     }
-    @media (min-width: 64rem) {
-      .ha-layer { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
-      .ha-content { gap: 4rem; }
-      .ha-report { padding: 2rem; }
-    }
-    [hidden] { display: none !important; }
-    .small { font-size: .875rem; }
-    .section-heading { display: grid; gap: .75rem; margin-bottom: 1.5rem; }
-    .section-heading p { max-inline-size: 60ch; }
-    .chip-list { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .assessment-card { display: grid; align-items: center; gap: 1.5rem; }
-    .assessment-copy { display: grid; justify-items: start; gap: 1rem; }
-    .assessment-action { display: grid; justify-items: start; gap: .75rem; }
-    .faq-layout { display: grid; gap: 1.5rem; }
-    .faq-list { display: grid; gap: .75rem; }
-    .faq-item { border: .0625rem solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .faq-item h3 { margin: 0; font: 600 1rem/1.8 var(--v2-font-ui); }
-    .faq-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; width: 100%; min-height: 4rem; padding: 1rem 1.5rem; border: 0; border-radius: var(--v2-radius-panel); background: var(--v2-paper); color: var(--v2-navy); font-weight: 600; text-align: start; }
-    .faq-toggle::after { content: ""; width: .625rem; height: .625rem; flex-shrink: 0; border-inline-end: .125rem solid currentColor; border-block-end: .125rem solid currentColor; transform: rotate(45deg); }
-    .faq-toggle[aria-expanded="true"]::after { transform: rotate(225deg); }
-    .faq-toggle:hover { background: var(--v2-navy); color: var(--v2-paper); --v2-focus: var(--v2-gold); }
-    .faq-answer { padding: 0 1.5rem 1.5rem; }
-    .faq-answer p + p { margin-top: .75rem; }
-    @media (min-width: 64rem) {
-      .section-heading { margin-bottom: 2rem; }
-      .assessment-card { grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); gap: 3rem; }
-      .faq-layout { grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: 4rem; }
-    }
-    @media (width < 68.75rem) { .v2-hybrid-desktop { display: none; } }
-    @media (min-width: 68.75rem) { .v2-hybrid-mobile { display: none; } }
   </style>
 </head>
-<body class="v2-concept-c" lang="bn">
-<a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-<header class="v2-header v2-header--a v2-surface-light v2-hybrid-desktop">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body lang="bn">
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-a">
-          <a href="human-assessment.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="human-assessment.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-header-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light v2-hybrid-desktop" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-a">
-        <a href="human-assessment.html" lang="bn" aria-current="page" autofocus>BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="human-assessment.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-<header class="v2-header v2-header--c v2-surface-light v2-hybrid-mobile">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-c">
-          <a href="human-assessment.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-header-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light v2-hybrid-mobile" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-c">
-        <a href="human-assessment.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="index.html">হোম</a>
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light v2-hybrid-mobile" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html" aria-current="page"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
-
-  <noscript>
-    <nav class="v2-container chip-list ha-noscript" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
-      <a class="v2-chip" href="courses.html">কোর্স</a>
-      <a class="v2-chip" href="books.html">বই</a>
-      <a class="v2-chip" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
-      <a class="v2-chip" href="human-assessment.html" aria-current="page">Human Assessment</a>
-      <a class="v2-chip" href="help.html">সাধারণ প্রশ্ন</a>
-    </nav>
-  </noscript>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main" tabindex="-1">
-    <div class="v2-title-band">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব">
-          <a href="index.html">হোম</a><span aria-hidden="true">›</span><span aria-current="page">ফ্রি অ্যাসেসমেন্ট</span>
+    <section class="v3-title-band v3-surface-navy">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব">
+          <ol><li><a href="index.html">হোম</a></li><li><span aria-current="page">ফ্রি অ্যাসেসমেন্ট</span></li></ol>
         </nav>
-        <h1 id="page-title" lang="en">Human Assessment</h1>
+        <h1 class="v3-h1" id="page-title" lang="en">Human Assessment</h1>
         <p>সম্পূর্ণ ফ্রি — ২১০টি প্রশ্ন, ৭টি স্তর, সম্পূর্ণ ফলাফলসহ। কোনো দাম নেই, কোনো পে-ওয়াল নেই।</p>
-        <span class="v2-badge">সম্পূর্ণ ফ্রি</span>
+        <span class="v3-badge">সম্পূর্ণ ফ্রি</span>
       </div>
-    </div>
-    <section class="v2-section v2-container ha-intro" aria-labelledby="page-title">
+    </section>
+  <noscript>
+    <nav class="v3-container" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
+      <a class="v3-button v3-button--secondary" href="courses.html">কোর্স</a>
+      <a class="v3-button v3-button--secondary" href="books.html">বই</a>
+      <a class="v3-button v3-button--secondary" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
+      <a class="v3-button v3-button--secondary" href="human-assessment.html" aria-current="page">Human Assessment</a>
+      <a class="v3-button v3-button--secondary" href="help.html">সাধারণ প্রশ্ন</a>
+    </nav>
+  </noscript>
+    <section class="v3-section v3-container" aria-labelledby="page-title">
       <p lang="en" translate="no">Human Assessment — Sayful Alvi</p>
       <p>এটি থেরাপি নয়, রোগনির্ণয় নয় — নিজেকে জানার একটি শিক্ষামূলক মানচিত্র। <span lang="en">This assessment is not therapy and not a diagnosis.</span></p>
-      <p class="small">এই স্থির ডিজাইন ডেমোতে আগে মডেলটি বুঝবেন, তারপর প্রশ্নের পাতার নকশা দেখবেন। এখানে আসল উত্তর জমা বা ফলাফল তৈরি হয় না।</p>
-      <nav id="assessment-nav" class="chip-list ha-nav" aria-label="অ্যাসেসমেন্ট বিভাগ">
-        <a class="v2-chip" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
-        <a class="v2-chip" href="human-assessment.html" aria-current="page">Human Assessment</a>
+      <p class="v3-small">এই স্থির ডিজাইন ডেমোতে আগে মডেলটি বুঝবেন, তারপর প্রশ্নের পাতার নকশা দেখবেন। এখানে আসল উত্তর জমা বা ফলাফল তৈরি হয় না।</p>
+      <nav id="assessment-nav" aria-label="অ্যাসেসমেন্ট বিভাগ">
+        <a class="v3-button v3-button--secondary" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
+        <a class="v3-button v3-button--secondary" href="human-assessment.html" aria-current="page">Human Assessment</a>
       </nav>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="model-title">
-      <div class="section-heading">
-        <h2 id="model-title">প্রশ্নের আগে সাতটি স্তর বুঝুন</h2>
+    <section class="v3-section v3-container" aria-labelledby="model-title">
+      <div>
+        <h2 class="v3-h2" id="model-title">প্রশ্নের আগে সাতটি স্তর বুঝুন</h2>
         <p>প্রতিটি স্তরে ৩০টি প্রশ্ন। ফলাফলে সাতটি স্তরই আলাদা করে দেখা যাবে—নিজের বিভিন্ন দিক, শক্তি ও বেড়ে ওঠার জায়গা নিয়ে ভাবার জন্য।</p>
       </div>
-      <div class="ha-layers">
-        <article class="ha-layer" aria-labelledby="layer-1">
-          <div class="ha-layer-copy">
-            <h3 id="layer-1">নিজের পরিচয়, অভ্যাস আর ভেতরের গল্প</h3>
+      <div>
+        <article aria-labelledby="layer-1">
+          <div>
+            <h3 class="v3-h3" id="layer-1">নিজের পরিচয়, অভ্যাস আর ভেতরের গল্প</h3>
             <p lang="en">Foundational Self</p>
             <p>নিজের পরিচয়, অনুভূতি, ভাবনা ও সিদ্ধান্তের ধরন নিয়ে ভাববেন। ভয়, প্রেরণা এবং অতীতের গল্পের প্রভাবও এই স্তরের অংশ।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Foundational Self-এর ১০টি দিক" lang="en">
+          <ul aria-label="Foundational Self-এর ১০টি দিক" lang="en">
             <li>Identity Clarity</li>
             <li>Self-awareness</li>
             <li>Emotional Awareness</li>
@@ -271,14 +184,14 @@
             <li>Past Story Influence</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-2">
-          <div class="ha-layer-copy">
-            <h3 id="layer-2">অনুভূতি ও আচরণের ধরন</h3>
+        <article aria-labelledby="layer-2">
+          <div>
+            <h3 class="v3-h3" id="layer-2">অনুভূতি ও আচরণের ধরন</h3>
             <p lang="en">Psychological &amp; Behavioral</p>
             <p>অনুভূতি সামলানো, সম্পর্ক, চাপের সময়ের অভ্যাস এবং দায়িত্ব নেওয়ার ধরন নিয়ে ভাববেন। নিজের চিন্তার পক্ষপাত ও আড়ালে থাকা স্বভাবও এখানে দেখবেন।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Psychological &amp; Behavioral-এর ১০টি দিক" lang="en">
+          <ul aria-label="Psychological &amp; Behavioral-এর ১০টি দিক" lang="en">
             <li>Emotional Regulation</li>
             <li>Mindset Lens</li>
             <li>Trauma Signatures</li>
@@ -291,14 +204,14 @@
             <li>Shadow Traits</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-3">
-          <div class="ha-layer-copy">
-            <h3 id="layer-3">মনোযোগ, শেখা ও অভ্যাসের ছন্দ</h3>
+        <article aria-labelledby="layer-3">
+          <div>
+            <h3 class="v3-h3" id="layer-3">মনোযোগ, শেখা ও অভ্যাসের ছন্দ</h3>
             <p lang="en">Neuroscience &amp; Brain Pattern</p>
             <p>মনোযোগ, মনে রাখা, নতুন কিছু শেখা এবং সৃজনশীল ভাবনার অভ্যাস নিয়ে প্রশ্ন পাবেন। কাজের চাপ ও অভ্যাসের পুনরাবৃত্তিও এই স্তরের অংশ।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Neuroscience &amp; Brain Pattern-এর ১০টি দিক" lang="en">
+          <ul aria-label="Neuroscience &amp; Brain Pattern-এর ১০টি দিক" lang="en">
             <li>RAS Programming</li>
             <li>DMN Pattern</li>
             <li>Dopamine Relationship</li>
@@ -311,14 +224,14 @@
             <li>Neuroplasticity Readiness</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-4">
-          <div class="ha-layer-copy">
-            <h3 id="layer-4">মানুষের সাথে থাকা ও নেতৃত্ব</h3>
+        <article aria-labelledby="layer-4">
+          <div>
+            <h3 class="v3-h3" id="layer-4">মানুষের সাথে থাকা ও নেতৃত্ব</h3>
             <p lang="en">Social &amp; Leadership</p>
             <p>কথা বলা, মন দিয়ে শোনা, নিজের সীমা বোঝানো এবং মতের অমিল সামলানোর দিকগুলো দেখবেন। প্রভাব, নেতৃত্ব ও সমাজে নিজের অবদান নিয়েও ভাববেন।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Social &amp; Leadership-এর ১০টি দিক" lang="en">
+          <ul aria-label="Social &amp; Leadership-এর ১০টি দিক" lang="en">
             <li>Influence Power</li>
             <li>Authenticity</li>
             <li>Communication Clarity</li>
@@ -331,14 +244,14 @@
             <li>Community Contribution</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-5">
-          <div class="ha-layer-copy">
-            <h3 id="layer-5">সামনের পথ ও জীবনের লক্ষ্য</h3>
+        <article aria-labelledby="layer-5">
+          <div>
+            <h3 class="v3-h3" id="layer-5">সামনের পথ ও জীবনের লক্ষ্য</h3>
             <p lang="en">Vision &amp; Destination</p>
             <p>জীবনের ভিশন, স্বপ্ন, লক্ষ্য ও ভবিষ্যতের পরিচয় নিয়ে ভাববেন। আদর্শ মানুষ, রেখে যাওয়া অবদান এবং কাজের সাথে জীবনের ডাকার সম্পর্কও এখানে আছে।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Vision &amp; Destination-এর ১০টি দিক" lang="en">
+          <ul aria-label="Vision &amp; Destination-এর ১০টি দিক" lang="en">
             <li>Life Vision</li>
             <li>Big Dream Clarity</li>
             <li>Goal Precision</li>
@@ -351,14 +264,14 @@
             <li>World Impact Map</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-6">
-          <div class="ha-layer-copy">
-            <h3 id="layer-6">দক্ষতা, সৃজনশীলতা ও স্বাধীনতা</h3>
+        <article aria-labelledby="layer-6">
+          <div>
+            <h3 class="v3-h3" id="layer-6">দক্ষতা, সৃজনশীলতা ও স্বাধীনতা</h3>
             <p lang="en">Money &amp; Creative Power</p>
             <p>অর্থ নিয়ে ভাবনা, নিজের দক্ষতা ও লুকিয়ে থাকা প্রতিভা খেয়াল করবেন। নিজের কাজের মূল্য তৈরি, কাজ শেষ করা এবং আয়ের স্বাধীনতা নিয়ে ভাববেন।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Money &amp; Creative Power-এর ১০টি দিক" lang="en">
+          <ul aria-label="Money &amp; Creative Power-এর ১০টি দিক" lang="en">
             <li>Wealth Psychology</li>
             <li>Skill Inventory</li>
             <li>Creativity Zones</li>
@@ -371,14 +284,14 @@
             <li>Make Your Own Money Readiness</li>
           </ul>
         </article>
-        <article class="ha-layer" aria-labelledby="layer-7">
-          <div class="ha-layer-copy">
-            <h3 id="layer-7">বিশ্বাস ও প্রতিদিনের চর্চা</h3>
+        <article aria-labelledby="layer-7">
+          <div>
+            <h3 class="v3-h3" id="layer-7">বিশ্বাস ও প্রতিদিনের চর্চা</h3>
             <p lang="en">Spiritual &amp; Religious</p>
             <p>আল্লাহকে স্মরণ, কৃতজ্ঞতা, নামাজ, ধৈর্য ও ভরসার চর্চা নিয়ে ভাববেন। নিজের ভুল খেয়াল করা, তওবা এবং দৈনন্দিন কাজের সাথে উদ্দেশ্য মেলানোও এই স্তরের অংশ।</p>
-            <p class="small">৩০টি প্রশ্ন · ১০টি দিক</p>
+            <p class="v3-small">৩০টি প্রশ্ন · ১০টি দিক</p>
           </div>
-          <ul class="ha-dimensions" aria-label="Spiritual &amp; Religious-এর ১০টি দিক" lang="en">
+          <ul aria-label="Spiritual &amp; Religious-এর ১০টি দিক" lang="en">
             <li>Allah-consciousness</li>
             <li>Purpose alignment</li>
             <li>Tawakkul &amp; Sabr Index</li>
@@ -394,65 +307,65 @@
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="energy-map-title">
-      <div class="section-heading">
-        <h2 id="energy-map-title">চার এনার্জির মানচিত্র</h2>
+    <section class="v3-section v3-container" aria-labelledby="energy-map-title">
+      <div>
+        <h2 class="v3-h2" id="energy-map-title">চার এনার্জির মানচিত্র</h2>
         <p>কণ্ঠস্বর, শরীর, মন ও উদ্দেশ্য—শেখার চারটি দিক একসাথে দেখুন।</p>
       </div>
-      <div class="ha-energy-map" role="group" aria-label="Voice, Body, Mind ও Purpose: চারটি সমান অংশের নিজস্ব মানচিত্র">
-        <div class="ha-energy-part"><strong lang="en">Voice</strong><p>নিজের কণ্ঠস্বরকে জানা।</p></div>
-        <div class="ha-energy-part"><strong lang="en">Body</strong><p>শরীরের প্রতি মনোযোগ দেওয়া।</p></div>
-        <div class="ha-energy-part"><strong lang="en">Mind</strong><p>মন ও ভাবনার দিকে তাকানো।</p></div>
-        <div class="ha-energy-part"><strong lang="en">Purpose</strong><p>জীবনের উদ্দেশ্য নিয়ে ভাবা।</p></div>
+      <div role="group" aria-label="Voice, Body, Mind ও Purpose: চারটি সমান অংশের নিজস্ব মানচিত্র">
+        <div><strong lang="en">Voice</strong><p>নিজের কণ্ঠস্বরকে জানা।</p></div>
+        <div><strong lang="en">Body</strong><p>শরীরের প্রতি মনোযোগ দেওয়া।</p></div>
+        <div><strong lang="en">Mind</strong><p>মন ও ভাবনার দিকে তাকানো।</p></div>
+        <div><strong lang="en">Purpose</strong><p>জীবনের উদ্দেশ্য নিয়ে ভাবা।</p></div>
       </div>
-      <p class="small ha-map-note">এটি একাডেমির নিজস্ব চার অংশের সহজ চিত্র; এটি কোনো স্কোর বা ব্যক্তির ফলাফল নয়।</p>
+      <p class="v3-small">এটি একাডেমির নিজস্ব চার অংশের সহজ চিত্র; এটি কোনো স্কোর বা ব্যক্তির ফলাফল নয়।</p>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="report-title">
-      <div class="ha-report" data-placeholder="true">
-        <div class="section-heading">
-          <h2 id="report-title">নমুনা রিপোর্ট — তথ্য নমুনা</h2>
+    <section class="v3-section v3-container" aria-labelledby="report-title">
+      <div class="v3-light-card" data-placeholder="true">
+        <div>
+          <h2 class="v3-h2" id="report-title">নমুনা রিপোর্ট — তথ্য নমুনা</h2>
           <p data-placeholder="true">সব মান নমুনা—এগুলো কোনো ব্যক্তির উত্তর থেকে আসেনি। প্রতিটি স্তরের ফলাফল আলাদা থাকবে; একটি সংখ্যা দিয়ে আপনার পরিচয় নির্ধারণ করা হবে না।</p>
         </div>
-        <div class="ha-report-rows">
-          <div class="ha-report-row" data-placeholder="true">
+        <div>
+          <div data-placeholder="true">
             <p lang="en">Foundational Self</p>
-            <p class="small">নমুনা ৮৪ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-1"></span></div>
+            <p class="v3-small">নমুনা ৮৪ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="600" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Psychological &amp; Behavioral</p>
-            <p class="small">নমুনা ৭৬ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-2"></span></div>
+            <p class="v3-small">নমুনা ৭৬ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="511.1" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Neuroscience &amp; Brain Pattern</p>
-            <p class="small">নমুনা ৯১ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-3"></span></div>
+            <p class="v3-small">নমুনা ৯১ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="677.8" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Social &amp; Leadership</p>
-            <p class="small">নমুনা ৭২ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-4"></span></div>
+            <p class="v3-small">নমুনা ৭২ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="466.7" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Vision &amp; Destination</p>
-            <p class="small">নমুনা ৮৮ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-5"></span></div>
+            <p class="v3-small">নমুনা ৮৮ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="644.4" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Money &amp; Creative Power</p>
-            <p class="small">নমুনা ৮১ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-6"></span></div>
+            <p class="v3-small">নমুনা ৮১ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="566.7" height="10" fill="var(--v3-navy)"/></svg>
           </div>
-          <div class="ha-report-row" data-placeholder="true">
+          <div data-placeholder="true">
             <p lang="en">Spiritual &amp; Religious</p>
-            <p class="small">নমুনা ৯৪ / ১২০ · পরিসর ৩০–১২০</p>
-            <div class="ha-report-track" aria-hidden="true"><span class="ha-sample-bar-7"></span></div>
+            <p class="v3-small">নমুনা ৯৪ / ১২০ · পরিসর ৩০–১২০</p>
+            <svg viewBox="0 0 1000 12" width="100%" height="12" aria-hidden="true" focusable="false"><rect x="1" y="1" width="998" height="10" fill="none" stroke="var(--v3-navy)" stroke-width="2"/><rect x="1" y="1" width="711.1" height="10" fill="var(--v3-navy)"/></svg>
           </div>
         </div>
-        <div class="ha-sample-map" data-placeholder="true" aria-label="স্তরের মানচিত্রের নমুনা">
-          <p class="small">নমুনা মানচিত্র · প্রতিটি পথচিহ্ন নমুনা রিপোর্টের কাঠামো দেখাচ্ছে</p>
+        <div data-placeholder="true" aria-label="স্তরের মানচিত্রের নমুনা">
+          <p class="v3-small">নমুনা মানচিত্র · প্রতিটি পথচিহ্ন নমুনা রিপোর্টের কাঠামো দেখাচ্ছে</p>
           <p data-placeholder="true"><span lang="en">SUPERHUMAN BLUEPRINT</span> · নমুনা পথচিহ্ন</p>
           <p data-placeholder="true"><span lang="en">POTENTIAL ICON</span> · নমুনা শুরুর জায়গা</p>
           <p data-placeholder="true"><span lang="en">GROWTH HUMAN</span> · নমুনা পথচিহ্ন</p>
@@ -462,28 +375,28 @@
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="level-map-title">
-      <div class="section-heading">
-        <h2 id="level-map-title">স্তরগুলো যাত্রার পথচিহ্ন</h2>
+    <section class="v3-section v3-container" aria-labelledby="level-map-title">
+      <div>
+        <h2 class="v3-h2" id="level-map-title">স্তরগুলো যাত্রার পথচিহ্ন</h2>
         <p>একটি স্তর আপনার যাত্রার শুরুর জায়গা দেখায়, আপনার মূল্য নয় — কোনো স্তরই ভালো বা খারাপ মানুষ নয়।</p>
       </div>
-      <ol class="ha-map" aria-label="০–১০০০ মানচিত্রের পাঁচটি পথচিহ্ন">
+      <ol aria-label="০–১০০০ মানচিত্রের পাঁচটি পথচিহ্ন">
         <li><strong lang="en">721+ SUPERHUMAN BLUEPRINT</strong><p>মানচিত্রে ৭২১ বা তার বেশি।</p></li>
         <li><strong lang="en">601+ POTENTIAL ICON</strong><p>মানচিত্রে ৬০১–৭২০।</p></li>
         <li><strong lang="en">461+ GROWTH HUMAN</strong><p>মানচিত্রে ৪৬১–৬০০।</p></li>
         <li><strong lang="en">331+ SURVIVOR</strong><p>মানচিত্রে ৩৩১–৪৬০।</p></li>
         <li><strong>এর নিচে <span lang="en">CRITICAL</span></strong><p>মানচিত্রে ০–৩৩০।</p></li>
       </ol>
-      <p class="small ha-map-note">০–১০০০-এর অবস্থান শুধু এই মানচিত্রে পথচিহ্ন খুঁজতে ব্যবহৃত হয়। ফলাফলের মূল অংশ হলো সাতটি স্তরের আলাদা প্রোফাইল। কোনো স্তরের নাম দিয়ে মানুষকে বিচার করা হয় না।</p>
-      <p class="small ha-map-note">মানচিত্রে অবস্থানের হিসাব: <span lang="en">round((total − minPossible) / (maxPossible − minPossible) × 1000)</span>। এখানে <span lang="en">total</span> হলো উত্তরগুলোর মান, আর <span lang="en">minPossible / maxPossible</span> হলো সম্ভাব্য সর্বনিম্ন / সর্বোচ্চ মান। এটি যাত্রার পথচিহ্ন খুঁজতে সাহায্য করে, ব্যক্তির মূল্য নির্ধারণ করে না।</p>
+      <p class="v3-small">০–১০০০-এর অবস্থান শুধু এই মানচিত্রে পথচিহ্ন খুঁজতে ব্যবহৃত হয়। ফলাফলের মূল অংশ হলো সাতটি স্তরের আলাদা প্রোফাইল। কোনো স্তরের নাম দিয়ে মানুষকে বিচার করা হয় না।</p>
+      <p class="v3-small">মানচিত্রে অবস্থানের হিসাব: <span lang="en">round((total − minPossible) / (maxPossible − minPossible) × 1000)</span>। এখানে <span lang="en">total</span> হলো উত্তরগুলোর মান, আর <span lang="en">minPossible / maxPossible</span> হলো সম্ভাব্য সর্বনিম্ন / সর্বোচ্চ মান। এটি যাত্রার পথচিহ্ন খুঁজতে সাহায্য করে, ব্যক্তির মূল্য নির্ধারণ করে না।</p>
     </section>
 
-    <section id="how-it-works" class="v2-section v2-container" aria-labelledby="how-title">
-      <div class="section-heading">
-        <h2 id="how-title">যেভাবে এগোবেন</h2>
+    <section id="how-it-works" class="v3-section v3-container" aria-labelledby="how-title">
+      <div>
+        <h2 class="v3-h2" id="how-title">যেভাবে এগোবেন</h2>
         <p>সময় নিয়ে এগোন; পাতায় পাতায় থামা যায়।</p>
       </div>
-      <ol class="ha-steps">
+      <ol>
         <li>লাইভ সাইটের শুরুতে নাম, WhatsApp নম্বর ও পেশা জানতে চাওয়া হবে।</li>
         <li>মোট ২১০টি প্রশ্ন, ৭টি স্তরে ৩০টি করে। প্রতি পাতায় ১০টি প্রশ্ন—সব মিলিয়ে ২১টি পাতা।</li>
         <li>প্রতিটি প্রশ্নে চারটি উত্তর: <span lang="en">A=4, B=3, C=2, D=1</span>। এই মানগুলো দিয়ে স্তরভিত্তিক প্রোফাইল তৈরি হয়; এগুলো ভালো বা খারাপ মানুষের চিহ্ন নয়।</li>
@@ -491,120 +404,131 @@
         <li>আসল প্রবাহে সংরক্ষিত সেশন একই ব্রাউজারে ৩০ দিন পর্যন্ত আবার চালানো যায়। নাম, WhatsApp নম্বর, পেশা বা উত্তর ব্রাউজার স্টোরেজে রাখা হয় না।</li>
         <li>শেষে সাতটি স্তরের ফলাফল ও যাত্রার মানচিত্র পাবেন—সম্পূর্ণ ফলাফল ফ্রি।</li>
       </ol>
-      <article class="v2-card assessment-card ha-how-start">
-        <div class="assessment-copy">
-          <h3>প্রশ্নের পাতার নকশা দেখুন</h3>
+      <article class="v3-light-card">
+        <div>
+          <h3 class="v3-h3">প্রশ্নের পাতার নকশা দেখুন</h3>
           <p>সাতটি স্তর সম্পর্কে পড়ে নিয়ে প্রথম পাতার তিনটি আসল প্রশ্ন দেখতে পারেন।</p>
         </div>
-        <div class="assessment-action">
-          <a class="v2-button v2-button--primary" href="self-test-take.html">Human Assessment শুরু করুন</a>
-          <p class="small">এই বাটন প্রশ্নের প্রবাহের কাজের ডেমো খুলবে; লাইভ Human Assessment শুরু করবে না।</p>
+        <div>
+          <a class="v3-button" href="self-test-take.html">Human Assessment শুরু করুন</a>
+          <p class="v3-small">এই বাটন প্রশ্নের প্রবাহের কাজের ডেমো খুলবে; লাইভ Human Assessment শুরু করবে না।</p>
         </div>
       </article>
     </section>
 
-    <section id="flow" class="v2-section v2-container" aria-labelledby="flow-title">
-      <div class="section-heading">
-        <h2 id="flow-title">প্রশ্নের পাতার নকশা</h2>
+    <section id="flow" class="v3-section v3-container" aria-labelledby="flow-title">
+      <div>
+        <h2 class="v3-h2" id="flow-title">প্রশ্নের পাতার নকশা</h2>
         <p data-placeholder="true">নকশার নমুনা — প্রথম পাতার প্রথম ৩টি আসল প্রশ্ন দেখানো হয়েছে; বাকি প্রশ্নগুলো লাইভ সাইটে আসবে</p>
       </div>
-      <div class="ha-flow">
-        <div class="ha-flow-heading">
+      <div>
+        <div class="v3-light-card">
           <p><strong>প্রশ্ন ১–১০ / ২১০ · পাতা ১ / ২১</strong></p>
-          <p class="small">মূল প্রবাহে এই পাতায় ১০টি প্রশ্ন থাকবে। নিচের ৩টি প্রশ্ন ও উত্তর আসল উৎস থেকে হুবহু নেওয়া।</p>
-          <p class="small">লগ ইন করলে আপনার অগ্রগতি সংরক্ষিত হবে; অতিথি হিসেবে একবারে শেষ করতে হবে। এই ডেমোতে উত্তর সংরক্ষিত হয় না।</p>
+          <p class="v3-small">মূল প্রবাহে এই পাতায় ১০টি প্রশ্ন থাকবে। নিচের ৩টি প্রশ্ন ও উত্তর আসল উৎস থেকে হুবহু নেওয়া।</p>
+          <p class="v3-small">লগ ইন করলে আপনার অগ্রগতি সংরক্ষিত হবে; অতিথি হিসেবে একবারে শেষ করতে হবে। এই ডেমোতে উত্তর সংরক্ষিত হয় না।</p>
         </div>
-        <div class="ha-flow" role="group" aria-label="প্রথম তিনটি আসল প্রশ্ন">
-          <fieldset class="ha-question">
-            <legend>১. তুমি নিজের পরিচয় কোন লাইনে define করো?</legend>
-            <label class="ha-answer" for="ha-q1-a"><input id="ha-q1-a" type="radio" name="ha-q1" value="A"><span><span lang="en">A</span> — আমি কী করি সেটা দিয়ে</span></label>
-            <label class="ha-answer" for="ha-q1-b"><input id="ha-q1-b" type="radio" name="ha-q1" value="B"><span><span lang="en">B</span> — মানুষ আমাকে কেমন দেখে সেটা দিয়ে</span></label>
-            <label class="ha-answer" for="ha-q1-c"><input id="ha-q1-c" type="radio" name="ha-q1" value="C"><span><span lang="en">C</span> — আমার ভেতরের অনুভূতি দিয়ে</span></label>
-            <label class="ha-answer" for="ha-q1-d"><input id="ha-q1-d" type="radio" name="ha-q1" value="D"><span><span lang="en">D</span> — আমি যেটা হতে চাই সেটা দিয়ে</span></label>
+        <div role="group" aria-label="প্রথম তিনটি আসল প্রশ্ন">
+          <fieldset class="v3-light-card">
+            <legend class="v3-field-label">১. তুমি নিজের পরিচয় কোন লাইনে define করো?</legend>
+            <label class="v3-choice" for="ha-q1-a"><input id="ha-q1-a" type="radio" name="ha-q1" value="A"><span><span lang="en">A</span> — আমি কী করি সেটা দিয়ে</span></label>
+            <label class="v3-choice" for="ha-q1-b"><input id="ha-q1-b" type="radio" name="ha-q1" value="B"><span><span lang="en">B</span> — মানুষ আমাকে কেমন দেখে সেটা দিয়ে</span></label>
+            <label class="v3-choice" for="ha-q1-c"><input id="ha-q1-c" type="radio" name="ha-q1" value="C"><span><span lang="en">C</span> — আমার ভেতরের অনুভূতি দিয়ে</span></label>
+            <label class="v3-choice" for="ha-q1-d"><input id="ha-q1-d" type="radio" name="ha-q1" value="D"><span><span lang="en">D</span> — আমি যেটা হতে চাই সেটা দিয়ে</span></label>
           </fieldset>
-          <fieldset class="ha-question">
-            <legend>২. তুমি নিজের সাথে কতটা পরিষ্কার?</legend>
-            <label class="ha-answer" for="ha-q2-a"><input id="ha-q2-a" type="radio" name="ha-q2" value="A"><span><span lang="en">A</span> — একদম পরিষ্কার</span></label>
-            <label class="ha-answer" for="ha-q2-b"><input id="ha-q2-b" type="radio" name="ha-q2" value="B"><span><span lang="en">B</span> — মাঝারি</span></label>
-            <label class="ha-answer" for="ha-q2-c"><input id="ha-q2-c" type="radio" name="ha-q2" value="C"><span><span lang="en">C</span> — বিভ্রান্ত</span></label>
-            <label class="ha-answer" for="ha-q2-d"><input id="ha-q2-d" type="radio" name="ha-q2" value="D"><span><span lang="en">D</span> — প্রতিদিন বদলায়</span></label>
+          <fieldset class="v3-light-card">
+            <legend class="v3-field-label">২. তুমি নিজের সাথে কতটা পরিষ্কার?</legend>
+            <label class="v3-choice" for="ha-q2-a"><input id="ha-q2-a" type="radio" name="ha-q2" value="A"><span><span lang="en">A</span> — একদম পরিষ্কার</span></label>
+            <label class="v3-choice" for="ha-q2-b"><input id="ha-q2-b" type="radio" name="ha-q2" value="B"><span><span lang="en">B</span> — মাঝারি</span></label>
+            <label class="v3-choice" for="ha-q2-c"><input id="ha-q2-c" type="radio" name="ha-q2" value="C"><span><span lang="en">C</span> — বিভ্রান্ত</span></label>
+            <label class="v3-choice" for="ha-q2-d"><input id="ha-q2-d" type="radio" name="ha-q2" value="D"><span><span lang="en">D</span> — প্রতিদিন বদলায়</span></label>
           </fieldset>
-          <fieldset class="ha-question">
-            <legend>৩. সবচেয়ে true line কোনটা?</legend>
-            <label class="ha-answer" for="ha-q3-a"><input id="ha-q3-a" type="radio" name="ha-q3" value="A"><span><span lang="en">A</span> — আমি জানি আমি কে</span></label>
-            <label class="ha-answer" for="ha-q3-b"><input id="ha-q3-b" type="radio" name="ha-q3" value="B"><span><span lang="en">B</span> — আমি খুঁজছি আমি কে</span></label>
-            <label class="ha-answer" for="ha-q3-c"><input id="ha-q3-c" type="radio" name="ha-q3" value="C"><span><span lang="en">C</span> — আমি জানি না আমি কে</span></label>
-            <label class="ha-answer" for="ha-q3-d"><input id="ha-q3-d" type="radio" name="ha-q3" value="D"><span><span lang="en">D</span> — আমি হতে চাই নতুন একজন</span></label>
+          <fieldset class="v3-light-card">
+            <legend class="v3-field-label">৩. সবচেয়ে true line কোনটা?</legend>
+            <label class="v3-choice" for="ha-q3-a"><input id="ha-q3-a" type="radio" name="ha-q3" value="A"><span><span lang="en">A</span> — আমি জানি আমি কে</span></label>
+            <label class="v3-choice" for="ha-q3-b"><input id="ha-q3-b" type="radio" name="ha-q3" value="B"><span><span lang="en">B</span> — আমি খুঁজছি আমি কে</span></label>
+            <label class="v3-choice" for="ha-q3-c"><input id="ha-q3-c" type="radio" name="ha-q3" value="C"><span><span lang="en">C</span> — আমি জানি না আমি কে</span></label>
+            <label class="v3-choice" for="ha-q3-d"><input id="ha-q3-d" type="radio" name="ha-q3" value="D"><span><span lang="en">D</span> — আমি হতে চাই নতুন একজন</span></label>
           </fieldset>
         </div>
-        <div class="ha-actions" aria-label="প্রবাহের নকশার নেভিগেশন">
-          <a class="v2-button v2-button--secondary" href="human-assessment.html">পেছনে</a>
-          <a class="v2-button v2-button--primary" href="self-test-take.html">পরের পাতা</a>
-          <a class="v2-button v2-button--secondary" href="login.html">থামুন ও সংরক্ষণ করুন</a>
+        <div aria-label="প্রবাহের নকশার নেভিগেশন">
+          <a class="v3-button v3-button--secondary" href="human-assessment.html">পেছনে</a>
+          <a class="v3-button" href="self-test-take.html">পরের পাতা</a>
+          <a class="v3-button v3-button--secondary" href="login.html">থামুন ও সংরক্ষণ করুন</a>
         </div>
-        <p class="small">এই ডেমোতে ‘পেছনে’ নির্দেশনায়, ‘পরের পাতা’ বাকি পাতার বিবরণে, আর ‘থামুন ও সংরক্ষণ করুন’ সংরক্ষণের ব্যাখ্যায় নিয়ে যাবে। এখানে কোনো তথ্য জমা বা সংরক্ষণ হবে না।</p>
-        <div id="remaining-pages" class="ha-panel">
-          <h3>বাকি পাতাগুলো</h3>
+        <p class="v3-small">এই ডেমোতে ‘পেছনে’ নির্দেশনায়, ‘পরের পাতা’ বাকি পাতার বিবরণে, আর ‘থামুন ও সংরক্ষণ করুন’ সংরক্ষণের ব্যাখ্যায় নিয়ে যাবে। এখানে কোনো তথ্য জমা বা সংরক্ষণ হবে না।</p>
+        <div id="remaining-pages" class="v3-light-card">
+          <h3 class="v3-h3">বাকি পাতাগুলো</h3>
           <p>প্রথম পাতায় আরও ৭টি প্রশ্ন এবং পরের ২০টি পাতায় ১০টি করে প্রশ্ন থাকবে। এখানে সেই প্রশ্ন বা ফলাফল সাজিয়ে দেখানো হয়নি; পুরো ২১০টি প্রশ্ন লাইভ সাইটের প্রবাহে থাকবে।</p>
         </div>
       </div>
-      <div id="account-note" class="ha-panel ha-account">
-        <h3>লগ ইন ও অগ্রগতি সংরক্ষণ</h3>
+      <div id="account-note" class="v3-light-card">
+        <h3 class="v3-h3">লগ ইন ও অগ্রগতি সংরক্ষণ</h3>
         <p>লগ ইন করলে আপনার অগ্রগতি সংরক্ষিত হবে; অতিথি হিসেবে একবারে শেষ করতে হবে। লাইভ সাইটে সংরক্ষণের জন্য অ্যাকাউন্ট লাগবে।</p>
         <p>এই স্থির ডিজাইন ডেমোতে লগ ইন বা সংরক্ষণের ব্যবস্থা নেই। এই পাতার কোনো উত্তর, নাম বা নম্বর ব্রাউজার স্টোরেজে রাখা বা কোথাও পাঠানো হয় না।</p>
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="age-title">
-      <div class="ha-panel">
-        <h2 id="age-title">বয়স অনুযায়ী একটু দিকনির্দেশনা</h2>
+    <section class="v3-section v3-container" aria-labelledby="age-title">
+      <div class="v3-light-card">
+        <h2 class="v3-h2" id="age-title">বয়স অনুযায়ী একটু দিকনির্দেশনা</h2>
         <p>প্রাপ্তবয়স্করা নিজের মতো করে নিতে পারেন। ১৩–১৭ বছর বয়সীরা মা-বাবা বা অভিভাবকের নির্দেশনায় নিন। ১০–১২ বছর বয়সীরা শুধু মা-বাবা বা অভিভাবক পাশে থাকলে নিন। ১০ বছরের কম বয়সী শিশুদের জন্য এই টেস্টগুলো নয়।</p>
       </div>
     </section>
 
-    <section id="faq" class="v2-section v2-container" aria-labelledby="faq-title">
-      <div class="faq-layout">
-        <div class="section-heading"><h2 id="faq-title">শুরু করার আগে</h2><p>কিছু সাধারণ প্রশ্নের সহজ উত্তর।</p></div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3><button id="faq-question-free" class="faq-toggle" type="button" aria-controls="faq-answer-free" aria-expanded="true">আসলেই কি সম্পূর্ণ ফ্রি?</button></h3>
+    <section id="faq" class="v3-section v3-container" aria-labelledby="faq-title">
+      <div>
+        <div><h2 class="v3-h2" id="faq-title">শুরু করার আগে</h2><p>কিছু সাধারণ প্রশ্নের সহজ উত্তর।</p></div>
+        <div>
+          <div class="v3-light-card">
+            <h3 class="v3-h3"><button id="faq-question-free" class="faq-toggle" type="button" aria-controls="faq-answer-free" aria-expanded="true">আসলেই কি সম্পূর্ণ ফ্রি?</button></h3>
             <div id="faq-answer-free" class="faq-answer"><p>হ্যাঁ। ২১০টি প্রশ্নের Human Assessment এবং সাতটি স্তরসহ সম্পূর্ণ ফলাফল ফ্রি।</p></div>
           </div>
-          <div class="faq-item">
-            <h3><button id="faq-question-time" class="faq-toggle" type="button" aria-controls="faq-answer-time" aria-expanded="true">কতটা সময় লাগবে?</button></h3>
+          <div class="v3-light-card">
+            <h3 class="v3-h3"><button id="faq-question-time" class="faq-toggle" type="button" aria-controls="faq-answer-time" aria-expanded="true">কতটা সময় লাগবে?</button></h3>
             <div id="faq-answer-time" class="faq-answer"><p>সময় নিয়ে এগোন; পাতায় পাতায় থামা যায়। প্রতি পাতায় ১০টি প্রশ্ন, মোট ২১টি পাতা।</p></div>
           </div>
-          <div class="faq-item">
-            <h3><button id="faq-question-account" class="faq-toggle" type="button" aria-controls="faq-answer-account" aria-expanded="true">অ্যাকাউন্ট লাগবে?</button></h3>
+          <div class="v3-light-card">
+            <h3 class="v3-h3"><button id="faq-question-account" class="faq-toggle" type="button" aria-controls="faq-answer-account" aria-expanded="true">অ্যাকাউন্ট লাগবে?</button></h3>
             <div id="faq-answer-account" class="faq-answer"><p>অতিথি হিসেবে শুরু করা যাবে; একবারে শেষ করতে হবে। লাইভ সাইটে অগ্রগতি সংরক্ষণ করে পরে চালাতে অ্যাকাউন্টে লগ ইন করতে হবে। এই ডেমোতে লগ ইন বা সংরক্ষণ নেই।</p></div>
           </div>
-          <div class="faq-item">
-            <h3><button id="faq-question-answers" class="faq-toggle" type="button" aria-controls="faq-answer-answers" aria-expanded="true">আমার উত্তর কী হবে?</button></h3>
+          <div class="v3-light-card">
+            <h3 class="v3-h3"><button id="faq-question-answers" class="faq-toggle" type="button" aria-controls="faq-answer-answers" aria-expanded="true">আমার উত্তর কী হবে?</button></h3>
             <div id="faq-answer-answers" class="faq-answer"><p>এই ডেমোতে উত্তর কোথাও পাঠানো বা সংরক্ষণ করা হয় না। আসল প্রবাহে সংরক্ষিত সেশন একই ব্রাউজারে ৩০ দিন চালু থাকে; নাম, নম্বর, পেশা বা উত্তর ব্রাউজার স্টোরেজে রাখা হয় না।</p></div>
           </div>
-          <div class="faq-item">
-            <h3><button id="faq-question-care" class="faq-toggle" type="button" aria-controls="faq-answer-care" aria-expanded="true">এটি নিজেকে জানার মানচিত্র কেন?</button></h3>
+          <div class="v3-light-card">
+            <h3 class="v3-h3"><button id="faq-question-care" class="faq-toggle" type="button" aria-controls="faq-answer-care" aria-expanded="true">এটি নিজেকে জানার মানচিত্র কেন?</button></h3>
             <div id="faq-answer-care" class="faq-answer"><p>এটি থেরাপি নয়, রোগনির্ণয় নয়—নিজেকে জানার একটি শিক্ষামূলক মানচিত্র। <span lang="en">This assessment is not therapy and not a diagnosis.</span></p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <nav class="v2-section v2-container ha-outro" aria-label="অ্যাসেসমেন্টের আরও পাতা">
-      <a href="self-test.html">সেলফ-টেস্টের তালিকা দেখুন</a>
-      <a href="self-test-result.html">নমুনা ফলাফল দেখুন</a>
+    <nav class="v3-section v3-container" aria-label="অ্যাসেসমেন্টের আরও পাতা">
+      <a class="v3-button v3-button--secondary" href="self-test.html">সেলফ-টেস্টের তালিকা দেখুন</a>
+      <a class="v3-button v3-button--secondary" href="self-test-result.html">নমুনা ফলাফল দেখুন</a>
     </nav>
   </main>
 
-  <footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -614,18 +538,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
-        <a href="human-assessment.html" aria-current="page">ফ্রি অ্যাসেসমেন্ট</a>
+        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -633,16 +557,15 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
@@ -655,20 +578,6 @@
       button.setAttribute("aria-expanded", "false");
       panel.hidden = true;
     });
-  </script>
-  <script>
-    (() => {
-      const menus = [...document.querySelectorAll('.v2-dialog')];
-      const sync = () => {
-        document.body.style.overflow = menus.some(menu => menu.open) ? 'hidden' : '';
-      };
-      menus.forEach(menu => {
-        menu.addEventListener('click', event => {
-          if (event.target.closest('a[href]')) menu.close();
-        });
-        new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['open'] });
-      });
-    })();
   </script>
 </body>
 </html>

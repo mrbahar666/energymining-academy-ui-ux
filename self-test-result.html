@@ -8,257 +8,202 @@
   <title>আপনার প্রোফাইল (নমুনা) — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
-  <!-- ASSESSMENT-ONLY -->
   <style>
-    [hidden] { display: none !important; }
-    .small { font-size: .875rem; }
-    .section-heading { display: grid; gap: .75rem; margin-bottom: 1.5rem; }
-    .section-heading p { max-width: 60ch; }
-    .chip-list { display: flex; flex-wrap: wrap; gap: .75rem; }
-    @media (width < 68.75rem) {
-      .v2-hybrid-desktop { display: none; }
+    main > section > nav, noscript nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    section[aria-labelledby="dimensions-title"] > div:last-of-type { display: grid; gap: 32px; margin-block-end: 32px; }
+    article[aria-labelledby^="dimension-"] > div[aria-hidden="true"] { display: flex; justify-content: space-between; }
+    article[aria-labelledby^="dimension-"] dl { display: grid; gap: 24px; margin-block-end: 0; }
+    article[aria-labelledby^="dimension-"] dd { margin-inline-start: 0; }
+    section[aria-labelledby="safety-title"] > div:last-child { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 32px; }
+    @media (min-width: 640px) {
+      article[aria-labelledby^="dimension-"] dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    @media (min-width: 68.75rem) {
-      .v2-hybrid-mobile { display: none; }
-    }
-
-    .assessment-fallback { padding-block: 1rem; }
-    .assessment-nav { margin-top: 1.5rem; }
-    .assessment-note { padding-block: 1.5rem; border-top: 0.0625rem solid var(--v2-navy); display: grid; gap: .75rem; }
-    .assessment-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
-    .sample-notice { display: grid; gap: 1rem; padding-block: 1.5rem; border-block: 0.0625rem solid var(--v2-navy); }
-    .profile-list { display: grid; gap: 2rem; }
-    .profile-dimension { padding-block: 1.5rem; border-top: 0.0625rem solid var(--v2-navy); }
-    .dimension-heading { display: grid; gap: .75rem; margin-bottom: 1rem; }
-    .dimension-heading h3 span { display: block; margin-top: .25rem; font: 500 1rem/1.65 var(--v2-font-ui); }
-    .profile-bar { height: 1rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-pill); overflow: clip; background: var(--v2-paper); }
-    .profile-bar span { display: block; height: 100%; background: var(--v2-navy); border-inline-end: 0.1875rem solid var(--v2-gold); }
-    .range-labels { display: flex; justify-content: space-between; margin-top: .25rem; font-size: .875rem; }
-    .dimension-notes { display: grid; gap: 1rem; margin: 1rem 0 0; }
-    .dimension-notes dt { font-weight: 600; color: var(--v2-navy); }
-    .dimension-notes dd { margin: .25rem 0 0; }
-    .next-step-lines { display: grid; gap: 1rem; }
-    .result-actions { margin-top: 2rem; }
-    @media (min-width: 40rem) {
-      .dimension-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-    }
-    .profile-bar .profile-sample-1 { width: 75.0%; }
-    .profile-bar .profile-sample-2 { width: 81.25%; }
-    .profile-bar .profile-sample-3 { width: 62.5%; }
-    .profile-bar .profile-sample-4 { width: 50.0%; }
-    .profile-bar .profile-sample-5 { width: 68.75%; }
   </style>
 </head>
-<body lang="bn" class="v2-concept-c">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-<header class="v2-header v2-header--a v2-surface-light v2-hybrid-desktop">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body lang="bn">
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-a">
-          <a href="self-test-result.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="self-test-result.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-header-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light v2-hybrid-desktop" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-a">
-        <a href="self-test-result.html" lang="bn" aria-current="page" autofocus>BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="self-test-result.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
-<header class="v2-header v2-header--c v2-surface-light v2-hybrid-mobile">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-c">
-          <a href="self-test-result.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-header-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light v2-hybrid-mobile" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-c">
-        <a href="self-test-result.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="index.html">হোম</a>
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light v2-hybrid-mobile" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html" aria-current="true"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
-
-  <noscript>
-    <nav class="v2-container chip-list assessment-fallback" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
-      <a class="v2-chip" href="courses.html">কোর্স</a>
-      <a class="v2-chip" href="books.html">বই</a>
-      <a class="v2-chip" href="self-test.html">সেলফ-টেস্ট</a>
-      <a class="v2-chip" href="human-assessment.html" lang="en">Human Assessment</a>
-      <a class="v2-chip" href="help.html">সাহায্য</a>
-    </nav>
-  </noscript>
   <main id="main" tabindex="-1">
-    <div class="v2-title-band">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব"><a href="index.html">হোম</a><span aria-hidden="true">›</span><a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a><span aria-hidden="true">›</span><a href="self-test.html">ফ্রি সেলফ-টেস্ট</a><span aria-hidden="true">›</span><span aria-current="page">নমুনা ফলাফল</span></nav>
+    <section class="v3-title-band v3-surface-navy">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব"><ol><li><a href="index.html">হোম</a></li><li><a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a></li><li><a href="self-test.html">ফ্রি সেলফ-টেস্ট</a></li><li aria-current="page">নমুনা ফলাফল</li></ol></nav>
         <h1 id="result-title">আপনার প্রোফাইল (নমুনা)</h1>
         <p>স্বভাবের পাঁচটা রং · Mini-IPIP · Donnellan ও সহকর্মী, ২০০৬ · পাবলিক ডোমেইন</p>
       </div>
-    </div>
-    <section class="v2-section v2-container" aria-labelledby="result-title">
-      <div class="section-heading">
-        <p class="sample-notice" data-placeholder="true"><strong>নমুনা ফলাফল — এটি আপনার আসল উত্তর থেকে আসেনি</strong>নিচের সব অবস্থান নমুনা তথ্য; কোনো বাস্তব ব্যক্তির ফলাফল নয়।</p>
+    </section>
+  <noscript>
+    <nav class="v3-container" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
+      <a class="v3-button v3-button--secondary" href="courses.html">কোর্স</a>
+      <a class="v3-button v3-button--secondary" href="books.html">বই</a>
+      <a class="v3-button v3-button--secondary" href="self-test.html">সেলফ-টেস্ট</a>
+      <a class="v3-button v3-button--secondary" href="human-assessment.html" lang="en">Human Assessment</a>
+      <a class="v3-button v3-button--secondary" href="help.html">সাহায্য</a>
+    </nav>
+  </noscript>
+    <section class="v3-section v3-container" aria-labelledby="result-title">
+      <div>
+        <p data-placeholder="true"><strong>নমুনা ফলাফল — এটি আপনার আসল উত্তর থেকে আসেনি</strong><br>নিচের সব অবস্থান নমুনা তথ্য; কোনো বাস্তব ব্যক্তির ফলাফল নয়।</p>
         <p>পাঁচটি দিকে আলাদা অবস্থান দেখুন। এটি থেরাপি নয়, রোগনির্ণয় নয়।</p>
         <p>সম্পূর্ণ ফলাফল এখানেই আছে, ফ্রি — কোনো একক মোট স্কোর নেই, কোনো র‍্যাঙ্কিং নেই।</p>
       </div>
-      <nav class="chip-list assessment-nav" aria-label="অ্যাসেসমেন্ট বিভাগ">
-        <a class="v2-chip" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
-        <a class="v2-chip" href="human-assessment.html" lang="en">Human Assessment</a>
+      <nav aria-label="অ্যাসেসমেন্ট বিভাগ">
+        <a class="v3-button v3-button--secondary" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
+        <a class="v3-button v3-button--secondary" href="human-assessment.html" lang="en">Human Assessment</a>
       </nav>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="dimensions-title">
-      <div class="section-heading">
+    <section class="v3-section v3-container" aria-labelledby="dimensions-title">
+      <div>
         <h2 id="dimensions-title">পাঁচটি দিক, একটি প্রোফাইল</h2>
         <p>প্রতিটি দিকের সীমা ৪–২০। কোনো দিক ভালো বা খারাপ মানুষের পরিচয় নয়।</p>
         <p>শক্তি ও বেড়ে ওঠার কথাগুলো প্রতিটি দিক বোঝার সাধারণ উদাহরণ; এগুলো আপনার সম্পর্কে ব্যক্তিগত সিদ্ধান্ত নয়।</p>
       </div>
-      <div class="profile-list">
-        <article class="profile-dimension" aria-labelledby="dimension-1" data-placeholder="true">
-          <div class="dimension-heading">
-            <h3 id="dimension-1">মানুষের সাথে মেশার আগ্রহ <span lang="en">(Extraversion)</span></h3>
+      <div>
+        <article class="v3-light-card" aria-labelledby="dimension-1" data-placeholder="true">
+          <div>
+            <h3 id="dimension-1">মানুষের সাথে মেশার আগ্রহ <span class="v3-small" lang="en">(Extraversion)</span></h3>
             <p data-placeholder="true">এই দিকে আপনার অবস্থান — <strong>নমুনা ১৬</strong> (সীমা ৪–২০)</p>
           </div>
-          <div class="profile-bar" role="img" aria-label="নমুনা অবস্থান ১৬ — সীমা ৪ থেকে ২০" data-placeholder="true"><span class="profile-sample-1"></span></div>
-          <div class="range-labels" aria-hidden="true"><span>৪</span><span>২০</span></div>
-          <dl class="dimension-notes">
+          <svg role="img" aria-label="নমুনা অবস্থান ১৬ — সীমা ৪ থেকে ২০" data-placeholder="true" viewBox="0 0 100 16" width="100%" height="16" preserveAspectRatio="none" focusable="false"><rect x="0" y="0.5" width="100" height="15" fill="var(--v3-paper)" stroke="var(--v3-navy)" vector-effect="non-scaling-stroke"/><rect width="75" height="16" fill="var(--v3-navy)"/></svg>
+          <div class="v3-small" aria-hidden="true"><span>৪</span><span>২০</span></div>
+          <dl>
             <div><dt>শক্তির দিক — সাধারণ উদাহরণ</dt><dd>কথোপকথনে অংশ নেওয়ার ঝোঁক</dd></div>
             <div><dt>বেড়ে ওঠার জায়গা — সাধারণ উদাহরণ</dt><dd>অন্যের কথা শোনার জন্য জায়গা রাখা</dd></div>
           </dl>
         </article>
-        <article class="profile-dimension" aria-labelledby="dimension-2" data-placeholder="true">
-          <div class="dimension-heading">
-            <h3 id="dimension-2">অন্যের প্রতি সহমর্মিতা <span lang="en">(Agreeableness)</span></h3>
+        <article class="v3-light-card" aria-labelledby="dimension-2" data-placeholder="true">
+          <div>
+            <h3 id="dimension-2">অন্যের প্রতি সহমর্মিতা <span class="v3-small" lang="en">(Agreeableness)</span></h3>
             <p data-placeholder="true">এই দিকে আপনার অবস্থান — <strong>নমুনা ১৭</strong> (সীমা ৪–২০)</p>
           </div>
-          <div class="profile-bar" role="img" aria-label="নমুনা অবস্থান ১৭ — সীমা ৪ থেকে ২০" data-placeholder="true"><span class="profile-sample-2"></span></div>
-          <div class="range-labels" aria-hidden="true"><span>৪</span><span>২০</span></div>
-          <dl class="dimension-notes">
+          <svg role="img" aria-label="নমুনা অবস্থান ১৭ — সীমা ৪ থেকে ২০" data-placeholder="true" viewBox="0 0 100 16" width="100%" height="16" preserveAspectRatio="none" focusable="false"><rect x="0" y="0.5" width="100" height="15" fill="var(--v3-paper)" stroke="var(--v3-navy)" vector-effect="non-scaling-stroke"/><rect width="81.25" height="16" fill="var(--v3-navy)"/></svg>
+          <div class="v3-small" aria-hidden="true"><span>৪</span><span>২০</span></div>
+          <dl>
             <div><dt>শক্তির দিক — সাধারণ উদাহরণ</dt><dd>অন্যের অনুভূতি বোঝার ঝোঁক</dd></div>
             <div><dt>বেড়ে ওঠার জায়গা — সাধারণ উদাহরণ</dt><dd>নিজের প্রয়োজনও স্পষ্ট করে বলা</dd></div>
           </dl>
         </article>
-        <article class="profile-dimension" aria-labelledby="dimension-3" data-placeholder="true">
-          <div class="dimension-heading">
-            <h3 id="dimension-3">গোছানো ভাব <span lang="en">(Conscientiousness)</span></h3>
+        <article class="v3-light-card" aria-labelledby="dimension-3" data-placeholder="true">
+          <div>
+            <h3 id="dimension-3">গোছানো ভাব <span class="v3-small" lang="en">(Conscientiousness)</span></h3>
             <p data-placeholder="true">এই দিকে আপনার অবস্থান — <strong>নমুনা ১৪</strong> (সীমা ৪–২০)</p>
           </div>
-          <div class="profile-bar" role="img" aria-label="নমুনা অবস্থান ১৪ — সীমা ৪ থেকে ২০" data-placeholder="true"><span class="profile-sample-3"></span></div>
-          <div class="range-labels" aria-hidden="true"><span>৪</span><span>২০</span></div>
-          <dl class="dimension-notes">
+          <svg role="img" aria-label="নমুনা অবস্থান ১৪ — সীমা ৪ থেকে ২০" data-placeholder="true" viewBox="0 0 100 16" width="100%" height="16" preserveAspectRatio="none" focusable="false"><rect x="0" y="0.5" width="100" height="15" fill="var(--v3-paper)" stroke="var(--v3-navy)" vector-effect="non-scaling-stroke"/><rect width="62.5" height="16" fill="var(--v3-navy)"/></svg>
+          <div class="v3-small" aria-hidden="true"><span>৪</span><span>২০</span></div>
+          <dl>
             <div><dt>শক্তির দিক — সাধারণ উদাহরণ</dt><dd>কাজ গুছিয়ে করার ঝোঁক</dd></div>
             <div><dt>বেড়ে ওঠার জায়গা — সাধারণ উদাহরণ</dt><dd>হঠাৎ বদলের সাথে মানিয়ে নেওয়া</dd></div>
           </dl>
         </article>
-        <article class="profile-dimension" aria-labelledby="dimension-4" data-placeholder="true">
-          <div class="dimension-heading">
-            <h3 id="dimension-4">মনের স্থিরতা <span lang="en">(Emotional Stability)</span></h3>
+        <article class="v3-light-card" aria-labelledby="dimension-4" data-placeholder="true">
+          <div>
+            <h3 id="dimension-4">মনের স্থিরতা <span class="v3-small" lang="en">(Emotional Stability)</span></h3>
             <p data-placeholder="true">এই দিকে আপনার অবস্থান — <strong>নমুনা ১২</strong> (সীমা ৪–২০)</p>
           </div>
-          <div class="profile-bar" role="img" aria-label="নমুনা অবস্থান ১২ — সীমা ৪ থেকে ২০" data-placeholder="true"><span class="profile-sample-4"></span></div>
-          <div class="range-labels" aria-hidden="true"><span>৪</span><span>২০</span></div>
-          <dl class="dimension-notes">
+          <svg role="img" aria-label="নমুনা অবস্থান ১২ — সীমা ৪ থেকে ২০" data-placeholder="true" viewBox="0 0 100 16" width="100%" height="16" preserveAspectRatio="none" focusable="false"><rect x="0" y="0.5" width="100" height="15" fill="var(--v3-paper)" stroke="var(--v3-navy)" vector-effect="non-scaling-stroke"/><rect width="50" height="16" fill="var(--v3-navy)"/></svg>
+          <div class="v3-small" aria-hidden="true"><span>৪</span><span>২০</span></div>
+          <dl>
             <div><dt>শক্তির দিক — সাধারণ উদাহরণ</dt><dd>চাপের সময় স্থির থাকার ঝোঁক</dd></div>
             <div><dt>বেড়ে ওঠার জায়গা — সাধারণ উদাহরণ</dt><dd>বিচলিত হলে থেমে নিজের অনুভূতি খেয়াল করা</dd></div>
           </dl>
         </article>
-        <article class="profile-dimension" aria-labelledby="dimension-5" data-placeholder="true">
-          <div class="dimension-heading">
-            <h3 id="dimension-5">কল্পনাশক্তি <span lang="en">(Openness)</span></h3>
+        <article class="v3-light-card" aria-labelledby="dimension-5" data-placeholder="true">
+          <div>
+            <h3 id="dimension-5">কল্পনাশক্তি <span class="v3-small" lang="en">(Openness)</span></h3>
             <p data-placeholder="true">এই দিকে আপনার অবস্থান — <strong>নমুনা ১৫</strong> (সীমা ৪–২০)</p>
           </div>
-          <div class="profile-bar" role="img" aria-label="নমুনা অবস্থান ১৫ — সীমা ৪ থেকে ২০" data-placeholder="true"><span class="profile-sample-5"></span></div>
-          <div class="range-labels" aria-hidden="true"><span>৪</span><span>২০</span></div>
-          <dl class="dimension-notes">
+          <svg role="img" aria-label="নমুনা অবস্থান ১৫ — সীমা ৪ থেকে ২০" data-placeholder="true" viewBox="0 0 100 16" width="100%" height="16" preserveAspectRatio="none" focusable="false"><rect x="0" y="0.5" width="100" height="15" fill="var(--v3-paper)" stroke="var(--v3-navy)" vector-effect="non-scaling-stroke"/><rect width="68.75" height="16" fill="var(--v3-navy)"/></svg>
+          <div class="v3-small" aria-hidden="true"><span>৪</span><span>২০</span></div>
+          <dl>
             <div><dt>শক্তির দিক — সাধারণ উদাহরণ</dt><dd>নতুন ধারণা নিয়ে ভাবার ঝোঁক</dd></div>
             <div><dt>বেড়ে ওঠার জায়গা — সাধারণ উদাহরণ</dt><dd>ধারণাকে ছোট কাজে রূপ দেওয়া</dd></div>
           </dl>
@@ -267,12 +212,12 @@
       <p>সম্পূর্ণ নমুনা ফলাফল এই পাতাতেই আছে, সম্পূর্ণ ফ্রি।</p>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="next-title">
-      <div class="section-heading">
+    <section class="v3-section v3-container" aria-labelledby="next-title">
+      <div>
         <h2 id="next-title">এরপর কোন দিকে ভাবতে পারেন</h2>
         <p>নমুনা প্রোফাইল দেখে পথের কয়েকটি পরামর্শ। নিজের প্রয়োজন অনুযায়ী বেছে নিন।</p>
       </div>
-      <div class="next-step-lines">
+      <div>
         <p>পরের ধাপ হিসেবে দেখতে পারেন — মনের স্থিরতা নিয়ে শেখার জন্য <a href="courses/mind.html">মন (Mind) কোর্স</a>।</p>
         <p>পরের ধাপ হিসেবে দেখতে পারেন — মানুষের সাথে যোগাযোগ নিয়ে শেখার জন্য <a href="courses/voice.html">কণ্ঠস্বর (Voice) কোর্স</a>।</p>
         <p>পরের ধাপ হিসেবে দেখতে পারেন — <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a> বই।</p>
@@ -280,32 +225,43 @@
       </div>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="safety-title">
-      <div class="assessment-note">
+    <section class="v3-section v3-container" aria-labelledby="safety-title">
+      <div>
         <h2 id="safety-title">মনের ভালো থাকার ফলাফলের নকশার নিয়ম</h2>
         <p>নকশার নিয়ম: মনের ভালো থাকার (WHO-5) ফলাফল কম দেখালে এখানে কোনো বিক্রির কার্ড বসবে না — শুধু একটি নরম কথা থাকবে: কাছের কারো সাথে কথা বলুন, আর মন খারাপ দীর্ঘদিন থাকলে একজন পেশাদারের সাথে কথা বলা ভালো। এটি থেরাপি বা রোগনির্ণয় নয়।</p>
       </div>
-      <div class="assessment-actions result-actions">
-        <a class="v2-button v2-button--primary" href="self-test.html">আরেকটি টেস্ট নিন</a>
-        <a class="v2-button v2-button--secondary" href="human-assessment.html">Human Assessment জানুন</a>
+      <div>
+        <a class="v3-button" href="self-test.html">আরেকটি টেস্ট নিন</a>
+        <a class="v3-button v3-button--secondary" href="human-assessment.html">Human Assessment জানুন</a>
       </div>
     </section>
 
-    <div class="v2-container assessment-note" id="account-note">
+    <div class="v3-section v3-container" id="account-note">
       <p>লাইভ সাইটে লগ ইন করলে অগ্রগতি সংরক্ষিত হবে; অতিথি হিসেবে একবারে শেষ করতে হবে।</p>
-      <p class="small">এই স্থির ডিজাইন ডেমোতে লগ ইন বা সংরক্ষণ নেই। এই পাতার ফলাফল শুধু নমুনা; আপনার উত্তর থেকে তৈরি হয়নি।</p>
+      <p class="v3-small">এই স্থির ডিজাইন ডেমোতে লগ ইন বা সংরক্ষণ নেই। এই পাতার ফলাফল শুধু নমুনা; আপনার উত্তর থেকে তৈরি হয়নি।</p>
     </div>
   </main>
 
-  <footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -315,18 +271,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -334,34 +290,19 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
   </div>
 </footer>
-  <script>
-    (() => {
-      const menus = [...document.querySelectorAll('.v2-dialog')];
-      const syncDialogScroll = () => {
-        document.body.style.overflow = menus.some(menu => menu.open) ? 'hidden' : '';
-      };
-      menus.forEach(menu => {
-        menu.addEventListener('click', event => {
-          if (event.target.closest('a[href]')) menu.close();
-        });
-        new MutationObserver(syncDialogScroll).observe(menu, { attributes: true, attributeFilter: ['open'] });
-      });
-    })();
-  </script>
 </body>
 </html>

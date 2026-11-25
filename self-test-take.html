@@ -8,202 +8,158 @@
   <title>স্বভাবের পাঁচটা রং — টেস্টের ডিজাইন ডেমো — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
   <!-- ASSESSMENT-ONLY -->
   <style>
     [hidden] { display: none !important; }
-    .small { font-size: .875rem; }
-    .chip-list { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .section-heading { display: grid; gap: .75rem; margin-bottom: 1.5rem; }
-    .section-heading p { max-width: 60ch; }
-    .section-heading > *, .take-copy > p, .take-copy > h2, .take-copy > h3 { margin: 0; }
-    @media (width < 68.75rem) { .v2-hybrid-desktop { display: none; } }
-    @media (min-width: 68.75rem) { .v2-hybrid-mobile { display: none; } }
-    .assessment-fallback { padding-block: 1rem; }
-    .assessment-nav { margin-top: 1.5rem; }
-    .assessment-note { padding-block: 1.5rem; border-top: 0.0625rem solid var(--v2-navy); display: grid; gap: .75rem; }
-    .assessment-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
-    .take-intro { padding-bottom: 2rem; }
-    .take-panel { max-width: 60rem; margin-inline: auto; }
-    .take-copy { display: grid; justify-items: start; gap: 1rem; }
-    .scale-guide { list-style-type: bengali; margin: 0; padding-inline-start: 1.5rem; }
-    .scale-guide li { padding-block: .25rem; }
-    .question-page { padding-top: 2rem; }
-    .question-item { margin: 0 0 1.5rem; padding: 1.5rem 0; border: 0; border-top: 0.0625rem solid var(--v2-navy); min-inline-size: 0; }
-    .question-item legend { float: left; width: 100%; margin-bottom: 1rem; padding: 0; color: var(--v2-navy); font-weight: 600; }
-    .question-item::after { content: ""; display: block; clear: both; }
-    .answer-scale { display: grid; gap: .5rem; clear: both; }
-    .answer-choice { display: flex; align-items: center; gap: .75rem; min-height: 3.25rem; padding: .75rem 1rem; border: 0.0625rem solid var(--v2-navy); border-radius: var(--v2-radius-control); cursor: pointer; }
-    .answer-choice:has(input:checked) { background: var(--v2-navy); color: var(--v2-paper); --v2-focus: var(--v2-paper); }
-    .answer-choice input { width: 1.25rem; height: 1.25rem; margin: 0; flex-shrink: 0; accent-color: var(--v2-navy); }
-    .answer-choice:focus-within { outline: 0.125rem solid var(--v2-navy); outline-offset: 0.1875rem; }
-    .question-page > .small { margin-top: .75rem; }
-    .sample-submit { display: grid; justify-items: start; gap: .75rem; padding-block: 1.5rem; border-top: 0.0625rem solid var(--v2-navy); }
-    @media (min-width: 40rem) {
-      .answer-scale { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-      .answer-choice { flex-direction: column; align-items: start; gap: .5rem; }
+    main nav:not(.v3-breadcrumb), noscript nav, [data-page-controls] { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-block: 24px; }
+    #before-start, #questions { max-inline-size: 960px; margin-inline: auto; }
+    #before-start { display: grid; justify-items: start; gap: 16px; }
+    #before-start > * { margin-block: 0; }
+    #before-start ol { margin-block: 0; }
+    #account-note, #sample-submit { display: grid; justify-items: start; gap: 12px; padding-block: 24px; }
+    [data-question-page] { padding-block-start: 32px; }
+    [data-question] { margin: 0 0 24px; min-inline-size: 0; }
+    [data-question] > div { display: grid; gap: 8px; }
+    @media (min-width: 768px) {
+      [data-question] > div { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+      [data-question] label { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
-<body lang="bn" class="v2-concept-c v2-no-tabbar">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-
-<header class="v2-header v2-header--a v2-surface-light v2-hybrid-desktop">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body lang="bn">
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-a">
-          <a href="self-test-take.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="self-test-take.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-header-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light v2-hybrid-desktop" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-a">
-        <a href="self-test-take.html" lang="bn" aria-current="page" autofocus>BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="self-test-take.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-a">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-<header class="v2-header v2-header--c v2-surface-light v2-hybrid-mobile">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-header-c">
-          <a href="self-test-take.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-header-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light v2-hybrid-mobile" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-menu-c">
-        <a href="self-test-take.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-menu-c">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="index.html">হোম</a>
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light v2-hybrid-mobile" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html" aria-current="true"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
-
-  <noscript>
-    <nav class="v2-container chip-list assessment-fallback" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
-      <a class="v2-chip" href="courses.html">কোর্স</a>
-      <a class="v2-chip" href="books.html">বই</a>
-      <a class="v2-chip" href="self-test.html">সেলফ-টেস্ট</a>
-      <a class="v2-chip" href="human-assessment.html" lang="en">Human Assessment</a>
-      <a class="v2-chip" href="help.html">সাহায্য</a>
-    </nav>
-  </noscript>
   <main id="main" tabindex="-1">
-    <div class="v2-title-band">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব">
-          <a href="index.html">হোম</a><span aria-hidden="true">›</span>
-          <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a><span aria-hidden="true">›</span>
-          <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a><span aria-hidden="true">›</span>
+    <section class="v3-title-band v3-surface-navy">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব"><ol><li>
+          <a href="index.html">হোম</a></li><li>
+          <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a></li><li>
+          <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a></li><li>
           <span aria-current="page">টেস্ট নিন</span>
-        </nav>
-        <h1 id="take-title">স্বভাবের পাঁচটা রং</h1>
+        </li></ol></nav>
+        <h1 class="v3-h1" id="take-title">স্বভাবের পাঁচটা রং</h1>
         <p>Mini-IPIP · ২০ প্রশ্ন · Donnellan ও সহকর্মী, ২০০৬ (IPIP, পাবলিক ডোমেইন)</p>
       </div>
-    </div>
-    <section class="v2-section v2-container take-intro" aria-labelledby="take-title">
-      <div class="section-heading">
+    </section>
+  <noscript>
+    <nav class="v3-container" aria-label="জাভাস্ক্রিপ্ট ছাড়া নেভিগেশন">
+      <a class="v3-button v3-button--secondary" href="courses.html">কোর্স</a>
+      <a class="v3-button v3-button--secondary" href="books.html">বই</a>
+      <a class="v3-button v3-button--secondary" href="self-test.html">সেলফ-টেস্ট</a>
+      <a class="v3-button v3-button--secondary" href="human-assessment.html" lang="en">Human Assessment</a>
+      <a class="v3-button v3-button--secondary" href="help.html">সাহায্য</a>
+    </nav>
+  </noscript>
+    <section class="v3-section v3-container" aria-labelledby="take-title">
+      <div>
         <p>এই ডিজাইন ডেমোতে শুধু Mini-IPIP-এর প্রশ্ন দেখানো হয়েছে। তালিকার অন্য টেস্ট থেকে এলেও এখানে একই Mini-IPIP প্রবাহ পাবেন।</p>
       </div>
-      <nav class="chip-list assessment-nav" aria-label="অ্যাসেসমেন্ট বিভাগ">
-        <a class="v2-chip" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
-        <a class="v2-chip" href="human-assessment.html" lang="en">Human Assessment</a>
+      <nav aria-label="অ্যাসেসমেন্ট বিভাগ">
+        <a class="v3-button v3-button--secondary" href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
+        <a class="v3-button v3-button--secondary" href="human-assessment.html" lang="en">Human Assessment</a>
       </nav>
     </section>
 
-    <section class="v2-section v2-container" aria-labelledby="before-title">
-      <div class="take-panel take-copy" id="before-start">
-        <span class="v2-badge">সম্পূর্ণ ফ্রি</span>
-        <h2 id="before-title" tabindex="-1">শুরু করার আগে</h2>
+    <section class="v3-section v3-container" aria-labelledby="before-title">
+      <div id="before-start">
+        <span class="v3-badge">সম্পূর্ণ ফ্রি</span>
+        <h2 class="v3-h2" id="before-title" tabindex="-1">শুরু করার আগে</h2>
         <p>এখন আপনি সাধারণত যেমন, সেভাবে উত্তর দিন; ভবিষ্যতে যেমন হতে চান, তেমন নয়। নিচের কথাগুলো আপনার ক্ষেত্রে কতটা ঠিক?</p>
         <p>সময়: কয়েক মিনিট।</p>
-        <div class="take-copy">
-          <h3>উত্তর দেবেন যেভাবে</h3>
+        <div>
+          <h3 class="v3-h3">উত্তর দেবেন যেভাবে</h3>
           <p>প্রতিটি কথার জন্য ১–৫-এর মধ্যে একটি উত্তর বেছে নিন।</p>
-          <ol class="scale-guide">
+          <ol>
           <li>একদম ঠিক না</li>
           <li>মোটামুটি ঠিক না</li>
           <li>ঠিকও না, ভুলও না</li>
@@ -211,553 +167,564 @@
           <li>একদম ঠিক</li>
           </ol>
         </div>
-        <div class="assessment-note" id="account-note">
+        <div id="account-note">
           <p>লগ ইন করলে আপনার অগ্রগতি সংরক্ষিত হবে; অতিথি হিসেবে একবারে শেষ করতে হবে।</p>
-          <p class="small">এটি লাইভ সাইটের নিয়ম। এই স্থির ডিজাইন ডেমোতে লগ ইন বা সংরক্ষণ নেই; নাম বা উত্তর ব্রাউজারে সংরক্ষিত হয় না।</p>
+          <p class="v3-small">এটি লাইভ সাইটের নিয়ম। এই স্থির ডিজাইন ডেমোতে লগ ইন বা সংরক্ষণ নেই; নাম বা উত্তর ব্রাউজারে সংরক্ষিত হয় না।</p>
         </div>
         <!-- ASSESSMENT-ONLY: ten-question pages reuse the Human Assessment flow pattern. -->
-        <p class="small">নকশার কথা: Human Assessment-এর মতো প্রতি পাতায় ১০টি প্রশ্ন রাখা হয়েছে, যাতে দুই অ্যাসেসমেন্টে একইভাবে এগোনো যায়।</p>
-        <button class="v2-button v2-button--primary" type="button" id="start-test" hidden>শুরু করুন</button>
+        <p class="v3-small">নকশার কথা: Human Assessment-এর মতো প্রতি পাতায় ১০টি প্রশ্ন রাখা হয়েছে, যাতে দুই অ্যাসেসমেন্টে একইভাবে এগোনো যায়।</p>
+        <button class="v3-button" type="button" id="start-test" hidden>শুরু করুন</button>
       </div>
-      <div class="take-panel" id="questions">
-        <section class="question-page" data-question-page="0" aria-labelledby="page-1-title">
-          <div class="section-heading">
-            <h2 id="page-1-title" tabindex="-1">প্রশ্ন ১–১০ / ২০</h2>
+      <div id="questions">
+        <section data-question-page="0" aria-labelledby="page-1-title">
+          <div>
+            <h2 class="v3-h2" id="page-1-title" tabindex="-1">প্রশ্ন ১–১০ / ২০</h2>
             <p>পাতা ১ / ২</p>
           </div>
-          <fieldset class="question-item" data-question="1">
-            <legend><span class="question-number">১. </span>আড্ডা বা দাওয়াতে আমিই আসর জমিয়ে রাখি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-1-1">
+          <fieldset class="v3-light-card" data-question="1">
+            <legend class="v3-field-label"><span>১. </span>আড্ডা বা দাওয়াতে আমিই আসর জমিয়ে রাখি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-1-1">
                 <input id="ipip-1-1" type="radio" name="ipip-1" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-1-2">
+              <label class="v3-choice" for="ipip-1-2">
                 <input id="ipip-1-2" type="radio" name="ipip-1" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-1-3">
+              <label class="v3-choice" for="ipip-1-3">
                 <input id="ipip-1-3" type="radio" name="ipip-1" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-1-4">
+              <label class="v3-choice" for="ipip-1-4">
                 <input id="ipip-1-4" type="radio" name="ipip-1" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-1-5">
+              <label class="v3-choice" for="ipip-1-5">
                 <input id="ipip-1-5" type="radio" name="ipip-1" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="2">
-            <legend><span class="question-number">২. </span>অন্যের অনুভূতির প্রতি আমার সহানুভূতি থাকে।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-2-1">
+          <fieldset class="v3-light-card" data-question="2">
+            <legend class="v3-field-label"><span>২. </span>অন্যের অনুভূতির প্রতি আমার সহানুভূতি থাকে।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-2-1">
                 <input id="ipip-2-1" type="radio" name="ipip-2" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-2-2">
+              <label class="v3-choice" for="ipip-2-2">
                 <input id="ipip-2-2" type="radio" name="ipip-2" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-2-3">
+              <label class="v3-choice" for="ipip-2-3">
                 <input id="ipip-2-3" type="radio" name="ipip-2" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-2-4">
+              <label class="v3-choice" for="ipip-2-4">
                 <input id="ipip-2-4" type="radio" name="ipip-2" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-2-5">
+              <label class="v3-choice" for="ipip-2-5">
                 <input id="ipip-2-5" type="radio" name="ipip-2" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="3">
-            <legend><span class="question-number">৩. </span>রোজকার কাজ আমি সঙ্গে সঙ্গে সেরে ফেলি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-3-1">
+          <fieldset class="v3-light-card" data-question="3">
+            <legend class="v3-field-label"><span>৩. </span>রোজকার কাজ আমি সঙ্গে সঙ্গে সেরে ফেলি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-3-1">
                 <input id="ipip-3-1" type="radio" name="ipip-3" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-3-2">
+              <label class="v3-choice" for="ipip-3-2">
                 <input id="ipip-3-2" type="radio" name="ipip-3" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-3-3">
+              <label class="v3-choice" for="ipip-3-3">
                 <input id="ipip-3-3" type="radio" name="ipip-3" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-3-4">
+              <label class="v3-choice" for="ipip-3-4">
                 <input id="ipip-3-4" type="radio" name="ipip-3" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-3-5">
+              <label class="v3-choice" for="ipip-3-5">
                 <input id="ipip-3-5" type="radio" name="ipip-3" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="4">
-            <legend><span class="question-number">৪. </span>আমার মেজাজ প্রায়ই ওঠানামা করে।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-4-1">
+          <fieldset class="v3-light-card" data-question="4">
+            <legend class="v3-field-label"><span>৪. </span>আমার মেজাজ প্রায়ই ওঠানামা করে।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-4-1">
                 <input id="ipip-4-1" type="radio" name="ipip-4" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-4-2">
+              <label class="v3-choice" for="ipip-4-2">
                 <input id="ipip-4-2" type="radio" name="ipip-4" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-4-3">
+              <label class="v3-choice" for="ipip-4-3">
                 <input id="ipip-4-3" type="radio" name="ipip-4" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-4-4">
+              <label class="v3-choice" for="ipip-4-4">
                 <input id="ipip-4-4" type="radio" name="ipip-4" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-4-5">
+              <label class="v3-choice" for="ipip-4-5">
                 <input id="ipip-4-5" type="radio" name="ipip-4" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="5">
-            <legend><span class="question-number">৫. </span>আমার কল্পনাশক্তি প্রখর।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-5-1">
+          <fieldset class="v3-light-card" data-question="5">
+            <legend class="v3-field-label"><span>৫. </span>আমার কল্পনাশক্তি প্রখর।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-5-1">
                 <input id="ipip-5-1" type="radio" name="ipip-5" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-5-2">
+              <label class="v3-choice" for="ipip-5-2">
                 <input id="ipip-5-2" type="radio" name="ipip-5" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-5-3">
+              <label class="v3-choice" for="ipip-5-3">
                 <input id="ipip-5-3" type="radio" name="ipip-5" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-5-4">
+              <label class="v3-choice" for="ipip-5-4">
                 <input id="ipip-5-4" type="radio" name="ipip-5" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-5-5">
+              <label class="v3-choice" for="ipip-5-5">
                 <input id="ipip-5-5" type="radio" name="ipip-5" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="6">
-            <legend><span class="question-number">৬. </span>আমি বেশি কথা বলি না।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-6-1">
+          <fieldset class="v3-light-card" data-question="6">
+            <legend class="v3-field-label"><span>৬. </span>আমি বেশি কথা বলি না।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-6-1">
                 <input id="ipip-6-1" type="radio" name="ipip-6" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-6-2">
+              <label class="v3-choice" for="ipip-6-2">
                 <input id="ipip-6-2" type="radio" name="ipip-6" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-6-3">
+              <label class="v3-choice" for="ipip-6-3">
                 <input id="ipip-6-3" type="radio" name="ipip-6" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-6-4">
+              <label class="v3-choice" for="ipip-6-4">
                 <input id="ipip-6-4" type="radio" name="ipip-6" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-6-5">
+              <label class="v3-choice" for="ipip-6-5">
                 <input id="ipip-6-5" type="radio" name="ipip-6" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="7">
-            <legend><span class="question-number">৭. </span>অন্যের সমস্যা নিয়ে আমার আগ্রহ নেই।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-7-1">
+          <fieldset class="v3-light-card" data-question="7">
+            <legend class="v3-field-label"><span>৭. </span>অন্যের সমস্যা নিয়ে আমার আগ্রহ নেই।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-7-1">
                 <input id="ipip-7-1" type="radio" name="ipip-7" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-7-2">
+              <label class="v3-choice" for="ipip-7-2">
                 <input id="ipip-7-2" type="radio" name="ipip-7" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-7-3">
+              <label class="v3-choice" for="ipip-7-3">
                 <input id="ipip-7-3" type="radio" name="ipip-7" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-7-4">
+              <label class="v3-choice" for="ipip-7-4">
                 <input id="ipip-7-4" type="radio" name="ipip-7" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-7-5">
+              <label class="v3-choice" for="ipip-7-5">
                 <input id="ipip-7-5" type="radio" name="ipip-7" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="8">
-            <legend><span class="question-number">৮. </span>জিনিস ব্যবহারের পর জায়গামতো রাখতে আমি প্রায়ই ভুলে যাই।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-8-1">
+          <fieldset class="v3-light-card" data-question="8">
+            <legend class="v3-field-label"><span>৮. </span>জিনিস ব্যবহারের পর জায়গামতো রাখতে আমি প্রায়ই ভুলে যাই।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-8-1">
                 <input id="ipip-8-1" type="radio" name="ipip-8" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-8-2">
+              <label class="v3-choice" for="ipip-8-2">
                 <input id="ipip-8-2" type="radio" name="ipip-8" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-8-3">
+              <label class="v3-choice" for="ipip-8-3">
                 <input id="ipip-8-3" type="radio" name="ipip-8" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-8-4">
+              <label class="v3-choice" for="ipip-8-4">
                 <input id="ipip-8-4" type="radio" name="ipip-8" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-8-5">
+              <label class="v3-choice" for="ipip-8-5">
                 <input id="ipip-8-5" type="radio" name="ipip-8" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="9">
-            <legend><span class="question-number">৯. </span>বেশিরভাগ সময় আমি রিল্যাক্সড থাকি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-9-1">
+          <fieldset class="v3-light-card" data-question="9">
+            <legend class="v3-field-label"><span>৯. </span>বেশিরভাগ সময় আমি রিল্যাক্সড থাকি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-9-1">
                 <input id="ipip-9-1" type="radio" name="ipip-9" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-9-2">
+              <label class="v3-choice" for="ipip-9-2">
                 <input id="ipip-9-2" type="radio" name="ipip-9" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-9-3">
+              <label class="v3-choice" for="ipip-9-3">
                 <input id="ipip-9-3" type="radio" name="ipip-9" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-9-4">
+              <label class="v3-choice" for="ipip-9-4">
                 <input id="ipip-9-4" type="radio" name="ipip-9" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-9-5">
+              <label class="v3-choice" for="ipip-9-5">
                 <input id="ipip-9-5" type="radio" name="ipip-9" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="10">
-            <legend><span class="question-number">১০. </span>গভীর তত্ত্ব বা দর্শনের মতো বিষয়ে আমার আগ্রহ নেই।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-10-1">
+          <fieldset class="v3-light-card" data-question="10">
+            <legend class="v3-field-label"><span>১০. </span>গভীর তত্ত্ব বা দর্শনের মতো বিষয়ে আমার আগ্রহ নেই।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-10-1">
                 <input id="ipip-10-1" type="radio" name="ipip-10" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-10-2">
+              <label class="v3-choice" for="ipip-10-2">
                 <input id="ipip-10-2" type="radio" name="ipip-10" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-10-3">
+              <label class="v3-choice" for="ipip-10-3">
                 <input id="ipip-10-3" type="radio" name="ipip-10" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-10-4">
+              <label class="v3-choice" for="ipip-10-4">
                 <input id="ipip-10-4" type="radio" name="ipip-10" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-10-5">
+              <label class="v3-choice" for="ipip-10-5">
                 <input id="ipip-10-5" type="radio" name="ipip-10" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <div class="assessment-actions" data-page-controls hidden>
-            <button class="v2-button v2-button--secondary" type="button" id="back-to-intro">পেছনে</button>
-            <button class="v2-button v2-button--primary" type="button" id="next-page" disabled aria-describedby="next-hint">পরের পাতা</button>
+          <div data-page-controls hidden>
+            <button class="v3-button v3-button--secondary" type="button" id="back-to-intro">পেছনে</button>
+            <button class="v3-button" type="button" id="next-page" disabled aria-describedby="next-hint">পরের পাতা</button>
           </div>
-          <p class="small" id="next-hint" data-page-hint hidden>এই পাতার সব প্রশ্নে উত্তর দিলে পরের পাতায় যেতে পারবেন।</p>
+          <p class="v3-small" id="next-hint" data-page-hint hidden>এই পাতার সব প্রশ্নে উত্তর দিলে পরের পাতায় যেতে পারবেন।</p>
         </section>
-        <section class="question-page" data-question-page="1" aria-labelledby="page-2-title">
-          <div class="section-heading">
-            <h2 id="page-2-title" tabindex="-1">প্রশ্ন ১১–২০ / ২০</h2>
+        <section data-question-page="1" aria-labelledby="page-2-title">
+          <div>
+            <h2 class="v3-h2" id="page-2-title" tabindex="-1">প্রশ্ন ১১–২০ / ২০</h2>
             <p>পাতা ২ / ২</p>
           </div>
-          <fieldset class="question-item" data-question="11">
-            <legend><span class="question-number">১১. </span>অনুষ্ঠানে গেলে আমি নানা ধরনের মানুষের সাথে কথা বলি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-11-1">
+          <fieldset class="v3-light-card" data-question="11">
+            <legend class="v3-field-label"><span>১১. </span>অনুষ্ঠানে গেলে আমি নানা ধরনের মানুষের সাথে কথা বলি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-11-1">
                 <input id="ipip-11-1" type="radio" name="ipip-11" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-11-2">
+              <label class="v3-choice" for="ipip-11-2">
                 <input id="ipip-11-2" type="radio" name="ipip-11" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-11-3">
+              <label class="v3-choice" for="ipip-11-3">
                 <input id="ipip-11-3" type="radio" name="ipip-11" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-11-4">
+              <label class="v3-choice" for="ipip-11-4">
                 <input id="ipip-11-4" type="radio" name="ipip-11" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-11-5">
+              <label class="v3-choice" for="ipip-11-5">
                 <input id="ipip-11-5" type="radio" name="ipip-11" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="12">
-            <legend><span class="question-number">১২. </span>অন্যের আবেগ আমি নিজের ভেতরে টের পাই।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-12-1">
+          <fieldset class="v3-light-card" data-question="12">
+            <legend class="v3-field-label"><span>১২. </span>অন্যের আবেগ আমি নিজের ভেতরে টের পাই।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-12-1">
                 <input id="ipip-12-1" type="radio" name="ipip-12" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-12-2">
+              <label class="v3-choice" for="ipip-12-2">
                 <input id="ipip-12-2" type="radio" name="ipip-12" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-12-3">
+              <label class="v3-choice" for="ipip-12-3">
                 <input id="ipip-12-3" type="radio" name="ipip-12" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-12-4">
+              <label class="v3-choice" for="ipip-12-4">
                 <input id="ipip-12-4" type="radio" name="ipip-12" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-12-5">
+              <label class="v3-choice" for="ipip-12-5">
                 <input id="ipip-12-5" type="radio" name="ipip-12" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="13">
-            <legend><span class="question-number">১৩. </span>আমি সবকিছু গোছানো রাখতে পছন্দ করি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-13-1">
+          <fieldset class="v3-light-card" data-question="13">
+            <legend class="v3-field-label"><span>১৩. </span>আমি সবকিছু গোছানো রাখতে পছন্দ করি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-13-1">
                 <input id="ipip-13-1" type="radio" name="ipip-13" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-13-2">
+              <label class="v3-choice" for="ipip-13-2">
                 <input id="ipip-13-2" type="radio" name="ipip-13" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-13-3">
+              <label class="v3-choice" for="ipip-13-3">
                 <input id="ipip-13-3" type="radio" name="ipip-13" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-13-4">
+              <label class="v3-choice" for="ipip-13-4">
                 <input id="ipip-13-4" type="radio" name="ipip-13" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-13-5">
+              <label class="v3-choice" for="ipip-13-5">
                 <input id="ipip-13-5" type="radio" name="ipip-13" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="14">
-            <legend><span class="question-number">১৪. </span>আমি সহজেই বিচলিত হয়ে পড়ি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-14-1">
+          <fieldset class="v3-light-card" data-question="14">
+            <legend class="v3-field-label"><span>১৪. </span>আমি সহজেই বিচলিত হয়ে পড়ি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-14-1">
                 <input id="ipip-14-1" type="radio" name="ipip-14" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-14-2">
+              <label class="v3-choice" for="ipip-14-2">
                 <input id="ipip-14-2" type="radio" name="ipip-14" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-14-3">
+              <label class="v3-choice" for="ipip-14-3">
                 <input id="ipip-14-3" type="radio" name="ipip-14" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-14-4">
+              <label class="v3-choice" for="ipip-14-4">
                 <input id="ipip-14-4" type="radio" name="ipip-14" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-14-5">
+              <label class="v3-choice" for="ipip-14-5">
                 <input id="ipip-14-5" type="radio" name="ipip-14" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="15">
-            <legend><span class="question-number">১৫. </span>গভীর তত্ত্ব বা দর্শনের মতো বিষয় বুঝতে আমার কষ্ট হয়।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-15-1">
+          <fieldset class="v3-light-card" data-question="15">
+            <legend class="v3-field-label"><span>১৫. </span>গভীর তত্ত্ব বা দর্শনের মতো বিষয় বুঝতে আমার কষ্ট হয়।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-15-1">
                 <input id="ipip-15-1" type="radio" name="ipip-15" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-15-2">
+              <label class="v3-choice" for="ipip-15-2">
                 <input id="ipip-15-2" type="radio" name="ipip-15" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-15-3">
+              <label class="v3-choice" for="ipip-15-3">
                 <input id="ipip-15-3" type="radio" name="ipip-15" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-15-4">
+              <label class="v3-choice" for="ipip-15-4">
                 <input id="ipip-15-4" type="radio" name="ipip-15" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-15-5">
+              <label class="v3-choice" for="ipip-15-5">
                 <input id="ipip-15-5" type="radio" name="ipip-15" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="16">
-            <legend><span class="question-number">১৬. </span>আমি আড়ালে থাকতে পছন্দ করি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-16-1">
+          <fieldset class="v3-light-card" data-question="16">
+            <legend class="v3-field-label"><span>১৬. </span>আমি আড়ালে থাকতে পছন্দ করি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-16-1">
                 <input id="ipip-16-1" type="radio" name="ipip-16" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-16-2">
+              <label class="v3-choice" for="ipip-16-2">
                 <input id="ipip-16-2" type="radio" name="ipip-16" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-16-3">
+              <label class="v3-choice" for="ipip-16-3">
                 <input id="ipip-16-3" type="radio" name="ipip-16" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-16-4">
+              <label class="v3-choice" for="ipip-16-4">
                 <input id="ipip-16-4" type="radio" name="ipip-16" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-16-5">
+              <label class="v3-choice" for="ipip-16-5">
                 <input id="ipip-16-5" type="radio" name="ipip-16" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="17">
-            <legend><span class="question-number">১৭. </span>অন্যদের ব্যাপারে আমার তেমন আগ্রহ নেই।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-17-1">
+          <fieldset class="v3-light-card" data-question="17">
+            <legend class="v3-field-label"><span>১৭. </span>অন্যদের ব্যাপারে আমার তেমন আগ্রহ নেই।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-17-1">
                 <input id="ipip-17-1" type="radio" name="ipip-17" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-17-2">
+              <label class="v3-choice" for="ipip-17-2">
                 <input id="ipip-17-2" type="radio" name="ipip-17" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-17-3">
+              <label class="v3-choice" for="ipip-17-3">
                 <input id="ipip-17-3" type="radio" name="ipip-17" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-17-4">
+              <label class="v3-choice" for="ipip-17-4">
                 <input id="ipip-17-4" type="radio" name="ipip-17" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-17-5">
+              <label class="v3-choice" for="ipip-17-5">
                 <input id="ipip-17-5" type="radio" name="ipip-17" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="18">
-            <legend><span class="question-number">১৮. </span>আমি জিনিসপত্র এলোমেলো করে ফেলি।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-18-1">
+          <fieldset class="v3-light-card" data-question="18">
+            <legend class="v3-field-label"><span>১৮. </span>আমি জিনিসপত্র এলোমেলো করে ফেলি।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-18-1">
                 <input id="ipip-18-1" type="radio" name="ipip-18" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-18-2">
+              <label class="v3-choice" for="ipip-18-2">
                 <input id="ipip-18-2" type="radio" name="ipip-18" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-18-3">
+              <label class="v3-choice" for="ipip-18-3">
                 <input id="ipip-18-3" type="radio" name="ipip-18" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-18-4">
+              <label class="v3-choice" for="ipip-18-4">
                 <input id="ipip-18-4" type="radio" name="ipip-18" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-18-5">
+              <label class="v3-choice" for="ipip-18-5">
                 <input id="ipip-18-5" type="radio" name="ipip-18" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="19">
-            <legend><span class="question-number">১৯. </span>আমার মন খুব কমই খারাপ থাকে।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-19-1">
+          <fieldset class="v3-light-card" data-question="19">
+            <legend class="v3-field-label"><span>১৯. </span>আমার মন খুব কমই খারাপ থাকে।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-19-1">
                 <input id="ipip-19-1" type="radio" name="ipip-19" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-19-2">
+              <label class="v3-choice" for="ipip-19-2">
                 <input id="ipip-19-2" type="radio" name="ipip-19" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-19-3">
+              <label class="v3-choice" for="ipip-19-3">
                 <input id="ipip-19-3" type="radio" name="ipip-19" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-19-4">
+              <label class="v3-choice" for="ipip-19-4">
                 <input id="ipip-19-4" type="radio" name="ipip-19" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-19-5">
+              <label class="v3-choice" for="ipip-19-5">
                 <input id="ipip-19-5" type="radio" name="ipip-19" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <fieldset class="question-item" data-question="20">
-            <legend><span class="question-number">২০. </span>আমার কল্পনাশক্তি তেমন ভালো না।</legend>
-            <div class="answer-scale">
-              <label class="answer-choice" for="ipip-20-1">
+          <fieldset class="v3-light-card" data-question="20">
+            <legend class="v3-field-label"><span>২০. </span>আমার কল্পনাশক্তি তেমন ভালো না।</legend>
+            <div>
+              <label class="v3-choice" for="ipip-20-1">
                 <input id="ipip-20-1" type="radio" name="ipip-20" value="1">
                 <span>১ — একদম ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-20-2">
+              <label class="v3-choice" for="ipip-20-2">
                 <input id="ipip-20-2" type="radio" name="ipip-20" value="2">
                 <span>২ — মোটামুটি ঠিক না</span>
               </label>
-              <label class="answer-choice" for="ipip-20-3">
+              <label class="v3-choice" for="ipip-20-3">
                 <input id="ipip-20-3" type="radio" name="ipip-20" value="3">
                 <span>৩ — ঠিকও না, ভুলও না</span>
               </label>
-              <label class="answer-choice" for="ipip-20-4">
+              <label class="v3-choice" for="ipip-20-4">
                 <input id="ipip-20-4" type="radio" name="ipip-20" value="4">
                 <span>৪ — মোটামুটি ঠিক</span>
               </label>
-              <label class="answer-choice" for="ipip-20-5">
+              <label class="v3-choice" for="ipip-20-5">
                 <input id="ipip-20-5" type="radio" name="ipip-20" value="5">
                 <span>৫ — একদম ঠিক</span>
               </label>
             </div>
           </fieldset>
-          <div class="assessment-actions" data-page-controls hidden>
-            <button class="v2-button v2-button--secondary" type="button" id="previous-page">পেছনে</button>
+          <div data-page-controls hidden>
+            <button class="v3-button v3-button--secondary" type="button" id="previous-page">পেছনে</button>
           </div>
         </section>
-        <form class="sample-submit" id="sample-submit" action="self-test-result.html" method="get">
-          <button class="v2-button v2-button--primary" type="submit" id="show-sample" aria-describedby="submit-note submit-hint">নমুনা ফলাফল দেখুন</button>
-          <p class="small" id="submit-hint" hidden>এই পাতার সব প্রশ্নে উত্তর দিলে নমুনা ফলাফল দেখতে পারবেন।</p>
-          <p class="small" id="submit-note">এই ডেমোতে উত্তর জমা হয় না — ফলাফলের পাতায় একটি নমুনা প্রোফাইল দেখানো হয়েছে।</p>
+        <form id="sample-submit" action="self-test-result.html" method="get">
+          <button class="v3-button" type="submit" id="show-sample" aria-describedby="submit-note submit-hint">নমুনা ফলাফল দেখুন</button>
+          <p class="v3-field-help" id="submit-hint" hidden>এই পাতার সব প্রশ্নে উত্তর দিলে নমুনা ফলাফল দেখতে পারবেন।</p>
+          <p class="v3-small" id="submit-note">এই ডেমোতে উত্তর জমা হয় না — ফলাফলের পাতায় একটি নমুনা প্রোফাইল দেখানো হয়েছে।</p>
         </form>
       </div>
     </section>
   </main>
 
-<footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -767,18 +734,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html" aria-current="true">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -786,16 +753,15 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
@@ -846,20 +812,6 @@
         }
       });
       update();
-    })();
-  </script>
-  <script>
-    (() => {
-      const menus = [...document.querySelectorAll('.v2-dialog')];
-      const sync = () => {
-        document.body.style.overflow = menus.some(menu => menu.open) ? 'hidden' : '';
-      };
-      menus.forEach(menu => {
-        menu.addEventListener('click', event => {
-          if (event.target.closest('a[href]')) menu.close();
-        });
-        new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['open'] });
-      });
     })();
   </script>
 </body>

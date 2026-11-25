@@ -8,235 +8,213 @@
   <title>অ্যাডমিন — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
   <style>
-    /* ADMIN-ONLY: real language links, responsive admin workspace and compact data lists. */
+    /* ADMIN-ONLY: responsive workspace, panel states and scrollable data lists. */
     .admin-page { padding-block: 2rem 4rem; }
-    .admin-intro { display: grid; gap: 1rem; margin-bottom: 2rem; }
-    .admin-demo { padding: 1rem 1.5rem; border: 1px dashed var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .admin-shell { display: grid; overflow: clip; border: 1px solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
+    .admin-intro { margin-bottom: 2rem; }
+    .admin-demo { padding: 1rem 1.5rem; border: 1px dashed var(--v3-navy); border-radius: var(--v3-radius); }
+    .admin-shell { display: grid; overflow: clip; border: 1px solid var(--v3-navy); border-radius: var(--v3-radius); }
     .admin-sidebar { padding: 1.5rem; }
-    .admin-sidebar h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .admin-sidebar h2 { font-size: 1.25rem; line-height: 1.5; }
     .admin-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .admin-nav .button { flex: 1 1 auto; justify-content: start; background: var(--v2-navy); color: var(--v2-paper); border-color: var(--v2-paper); }
-    .admin-nav .button[aria-expanded="true"] { background: var(--v2-paper); color: var(--v2-navy); }
-    .admin-nav .button:hover { border-color: var(--v2-gold); }
+    .admin-nav button { flex: 1 1 auto; justify-content: start; }
+    .admin-nav button[aria-expanded="true"] { background: var(--v3-paper); color: var(--v3-navy); border-color: var(--v3-paper); }
     .admin-sidebar p { margin-top: 1.5rem; }
-    .admin-workspace { padding: 1.5rem; }
+    .admin-workspace { min-width: 0; padding: 1.5rem; }
     .admin-panel { display: grid; gap: 1.5rem; }
-    .admin-panel-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--v2-gold); }
+    .admin-panel-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--v3-navy); }
     .admin-summary { display: grid; gap: 1rem; }
-    .admin-summary .card { display: grid; gap: 0.75rem; padding: 1.5rem; border: 1px solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .admin-summary .card h3 { font: 600 1.125rem/1.8 var(--v2-font-ui); }
+    .admin-summary > article { display: grid; gap: 0.75rem; }
     .admin-specimen { display: grid; gap: 0.25rem; font-size: .875rem; }
     .admin-table-wrap { max-width: 100%; overflow-x: auto; }
-    .admin-table { width: 100%; border-collapse: collapse; text-align: start; }
-    .admin-table caption { padding-bottom: 1rem; text-align: start; }
-    .admin-table :is(th, td) { padding: 1rem 0.75rem; border-bottom: 1px solid var(--v2-navy); vertical-align: top; text-align: start; }
-    .admin-table th { color: var(--v2-navy); font-weight: 600; }
-    .admin-table td:first-child { min-width: 180px; }
-    .admin-table .button { padding-inline: 1rem; }
-    .admin-table .admin-specimen { margin-bottom: 0.5rem; }
+    .v3-admin-table { width: 100%; border-collapse: collapse; text-align: start; }
+    .v3-admin-table caption { padding-bottom: 1rem; text-align: start; }
+    .v3-admin-table :is(th, td) { padding: 1rem 0.75rem; vertical-align: top; text-align: start; }
+    .v3-admin-table th { color: var(--v3-navy); font-weight: 600; }
+    .v3-admin-table td:first-child { min-width: 180px; }
+    .v3-admin-table .admin-specimen { margin-bottom: 0.5rem; }
     .admin-tests { display: grid; gap: 2rem; }
     .admin-test-group { display: grid; gap: 0.75rem; }
     .admin-list { list-style: none; margin: 0; padding: 0; }
-    .admin-list li { display: grid; gap: 0.5rem; padding-block: 1rem; border-bottom: 1px solid var(--v2-navy); }
+    .admin-list li { display: grid; gap: 0.5rem; padding-block: 1rem; border-bottom: 1px solid var(--v3-navy); }
     .admin-filter { max-width: 360px; }
-    .admin-filter select { width: 100%; min-height: 52px; padding: 0.75rem 1rem; border: 1px solid var(--v2-navy); border-radius: var(--v2-radius-control); background: var(--v2-paper); color: var(--v2-charcoal); font: inherit; }
     .admin-footer-note { margin-top: 1.5rem; }
     @media (min-width: 640px) { .admin-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (min-width: 1024px) { .admin-shell { grid-template-columns: 224px minmax(0, 1fr); } .admin-nav { display: grid; } .admin-nav .button { width: 100%; } .admin-workspace { padding: 2rem; } }
+    @media (min-width: 1024px) { .admin-shell { grid-template-columns: 224px minmax(0, 1fr); } .admin-nav { display: grid; } .admin-nav button { width: 100%; } .admin-workspace { padding: 2rem; } }
     [hidden] { display: none !important; }
-    @media (max-width: 1099px) { .v2-hybrid-a { display: none; } }
-    @media (min-width: 1100px) { .v2-hybrid-c, .v2-tabbar { display: none; } }
+    .admin-panel-heading > a, .admin-summary article > a, .admin-test-group > a, .v3-admin-table td > a { display: inline-flex; align-items: center; min-inline-size: 48px; min-block-size: 48px; }
   </style>
 </head>
-<body class="v2-concept-c">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-<header class="v2-header v2-header--a v2-hybrid-a v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body>
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-header">
-          <a href="admin.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="index.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-a-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
 
-<header class="v2-header v2-header--c v2-hybrid-c v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-header">
-          <a href="admin.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-c-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
   </div>
-</header>
-
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-menu">
-        <a href="admin.html" lang="bn" aria-current="page" autofocus>BN</a>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="index.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-a-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-menu">
-        <a href="admin.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-c-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main">
-    <div class="v2-title-band"><div class="v2-container">
-      <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব"><a href="index.html">হোম</a><span aria-hidden="true">›</span><span>অ্যাডমিন</span></nav>
+    <div class="v3-title-band"><div class="v3-container">
+      <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব"><ol><li><a href="index.html">হোম</a></li><li>অ্যাডমিন</li></ol></nav>
       <h1>অ্যাডমিন</h1>
       <p>কনটেন্ট, অ্যাসেসমেন্ট ও অর্ডার পরিচালনার নকশা। নিচের বিভাগগুলোতে কী দেখা যাবে, তা দেখুন।</p>
     </div></div>
 
-    <div class="v2-container admin-page">
+    <div class="v3-container admin-page">
     <div class="admin-intro">
 
       <p class="admin-demo">অ্যাডমিনের ডিজাইন নমুনা — এই রেপোতে কোনো ব্যাকএন্ড বা আসল তথ্য নেই।</p>
 
     </div>
     <div class="admin-shell">
-      <aside class="admin-sidebar v2-surface-navy" aria-labelledby="admin-nav-title">
+      <aside class="admin-sidebar v3-surface-navy" aria-labelledby="admin-nav-title">
         <h2 id="admin-nav-title">পরিচালনা</h2>
         <nav class="admin-nav" aria-label="অ্যাডমিন বিভাগ">
-          <button id="admin-dashboard-toggle" class="v2-button" type="button" aria-expanded="true" aria-controls="admin-dashboard" data-admin-panel>ড্যাশবোর্ড</button>
-          <button id="admin-catalogue-toggle" class="v2-button" type="button" aria-expanded="false" aria-controls="admin-catalogue" data-admin-panel>ক্যাটালগ</button>
-          <button id="admin-tests-toggle" class="v2-button" type="button" aria-expanded="false" aria-controls="admin-tests" data-admin-panel>টেস্ট</button>
-          <button id="admin-orders-toggle" class="v2-button" type="button" aria-expanded="false" aria-controls="admin-orders" data-admin-panel>অর্ডার</button>
-          <button id="admin-audit-toggle" class="v2-button" type="button" aria-expanded="false" aria-controls="admin-audit" data-admin-panel>অডিট লগ</button>
+          <button id="admin-dashboard-toggle" class="v3-button v3-button--secondary" type="button" aria-expanded="true" aria-controls="admin-dashboard" data-admin-panel>ড্যাশবোর্ড</button>
+          <button id="admin-catalogue-toggle" class="v3-button v3-button--secondary" type="button" aria-expanded="false" aria-controls="admin-catalogue" data-admin-panel>ক্যাটালগ</button>
+          <button id="admin-tests-toggle" class="v3-button v3-button--secondary" type="button" aria-expanded="false" aria-controls="admin-tests" data-admin-panel>টেস্ট</button>
+          <button id="admin-orders-toggle" class="v3-button v3-button--secondary" type="button" aria-expanded="false" aria-controls="admin-orders" data-admin-panel>অর্ডার</button>
+          <button id="admin-audit-toggle" class="v3-button v3-button--secondary" type="button" aria-expanded="false" aria-controls="admin-audit" data-admin-panel>অডিট লগ</button>
         </nav>
-        <p class="small">এটি পরিচালনার নকশা। এখানে কোনো অ্যাডমিন সেশন চালু নেই।</p>
+        <p class="v3-small">এটি পরিচালনার নকশা। এখানে কোনো অ্যাডমিন সেশন চালু নেই।</p>
       </aside>
-      <div class="admin-workspace v2-surface-light">
+      <div class="admin-workspace v3-surface-light">
         <noscript><p class="admin-demo">অ্যাডমিনের অন্য বিভাগগুলো দেখতে জাভাস্ক্রিপ্ট চালু করুন। আসল কনটেন্ট <a href="courses.html">কোর্স</a>, <a href="books.html">বই</a> ও <a href="self-test.html">সেলফ-টেস্ট</a> পাতায় আছে।</p></noscript>
         <section id="admin-dashboard" class="admin-panel" aria-labelledby="admin-dashboard-toggle">
-          <div class="admin-panel-heading"><h2>ড্যাশবোর্ড</h2><a class="v2-link" href="index.html">সাইট দেখুন</a></div>
+          <div class="admin-panel-heading"><h2>ড্যাশবোর্ড</h2><a href="index.html">সাইট দেখুন</a></div>
           <p>কোনো ব্যবহারকারী বা অর্ডারের তথ্য নেই। কোর্স, বই ও টেস্টের তথ্য এই রেপোর পৃষ্ঠা থেকে নেওয়া।</p>
           <div class="admin-summary">
-            <article class="v2-card v2-surface-light" data-placeholder="true">
-              <h3>কনটেন্ট <span class="small">(কোর্স ও বই)</span></h3>
+            <article class="v3-light-card" data-placeholder="true">
+              <h3>কনটেন্ট <span class="v3-small">(কোর্স ও বই)</span></h3>
               <p>৪টি কোর্স · ১টি বই</p>
               <p class="admin-specimen">ডিজাইন নমুনা — আসল সংখ্যা নয়<span lang="en">design specimen — not real data</span></p>
-              <a class="v2-link" href="courses.html">কোর্সের তালিকা দেখুন</a>
+              <a href="courses.html">কোর্সের তালিকা দেখুন</a>
             </article>
-            <article class="v2-card v2-surface-light" data-placeholder="true">
-              <h3>টেস্ট <span class="small">(অ্যাসেসমেন্ট)</span></h3>
+            <article class="v3-light-card" data-placeholder="true">
+              <h3>টেস্ট <span class="v3-small">(অ্যাসেসমেন্ট)</span></h3>
               <p>২৬টি সেলফ-টেস্ট · ৭ স্তরের <span lang="en">Human Assessment</span></p>
               <p class="admin-specimen">ডিজাইন নমুনা — আসল সংখ্যা নয়<span lang="en">design specimen — not real data</span></p>
-              <a class="v2-link" href="self-test.html">অ্যাসেসমেন্টের তালিকা দেখুন</a>
+              <a href="self-test.html">অ্যাসেসমেন্টের তালিকা দেখুন</a>
             </article>
-            <article class="v2-card v2-surface-light" data-placeholder="true">
+            <article class="v3-light-card" data-placeholder="true">
               <h3>অর্ডার</h3>
               <p>তথ্য নেই (নমুনা)</p>
               <p class="admin-specimen">ডিজাইন নমুনা — আসল সংখ্যা নয়<span lang="en">design specimen — not real data</span></p>
-              <p class="small">কোনো আসল অর্ডার এখানে নেই।</p>
+              <p class="v3-small">কোনো আসল অর্ডার এখানে নেই।</p>
             </article>
-            <article class="v2-card v2-surface-light" data-placeholder="true">
+            <article class="v3-light-card" data-placeholder="true">
               <h3>ব্যবহারকারী</h3>
               <p>তথ্য নেই (নমুনা)</p>
               <p class="admin-specimen">ডিজাইন নমুনা — আসল সংখ্যা নয়<span lang="en">design specimen — not real data</span></p>
-              <p class="small">কোনো আসল ব্যবহারকারীর তথ্য এখানে নেই।</p>
+              <p class="v3-small">কোনো আসল ব্যবহারকারীর তথ্য এখানে নেই।</p>
             </article>
           </div>
-          <p class="small">কনটেন্টের সংখ্যা এই রেপোর তালিকা বোঝায়; এগুলো ব্যবহারকারী বা অর্ডারের পরিসংখ্যান নয়।</p>
+          <p class="v3-small">কনটেন্টের সংখ্যা এই রেপোর তালিকা বোঝায়; এগুলো ব্যবহারকারী বা অর্ডারের পরিসংখ্যান নয়।</p>
         </section>
         <section id="admin-catalogue" class="admin-panel" aria-labelledby="admin-catalogue-toggle" hidden>
-          <div class="admin-panel-heading"><h2>ক্যাটালগ</h2><a class="v2-link" href="books.html">বইয়ের তাক দেখুন</a></div>
+          <div class="admin-panel-heading"><h2>ক্যাটালগ</h2><a href="books.html">বইয়ের তাক দেখুন</a></div>
           <p>এই রেপোতে প্রকাশিত কোর্স ও বইয়ের পৃষ্ঠা। সম্পাদনার নিয়ন্ত্রণটি শুধু ডিজাইনের নমুনা।</p>
           <div class="admin-table-wrap" tabindex="0" role="region" aria-label="ক্যাটালগের সারণি, প্রয়োজনে পাশে সরিয়ে দেখুন">
-            <table class="admin-table">
+            <table class="v3-admin-table">
               <caption>নাম, ধরন ও পৃষ্ঠার অবস্থা</caption>
               <thead><tr><th scope="col">নাম</th><th scope="col">ধরন</th><th scope="col">অবস্থা</th><th scope="col">করণীয়</th></tr></thead>
               <tbody>
-                <tr><th scope="row"><a href="courses/voice.html">কণ্ঠস্বর <span lang="en">Voice</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v2-button v2-button--secondary" type="button" data-edit-demo aria-label="Voice সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
-                <tr><th scope="row"><a href="courses/body.html">শরীর <span lang="en">Body</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v2-button v2-button--secondary" type="button" data-edit-demo aria-label="Body সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
-                <tr><th scope="row"><a href="courses/mind.html">মন <span lang="en">Mind</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v2-button v2-button--secondary" type="button" data-edit-demo aria-label="Mind সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
-                <tr><th scope="row"><a href="courses/purpose.html">উদ্দেশ্য <span lang="en">Purpose</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v2-button v2-button--secondary" type="button" data-edit-demo aria-label="Purpose সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
-                <tr><th scope="row"><a href="books/atmar-rosayon.html">আত্মার রসায়ন <span lang="en">Atmar Rosayon</span></a><p class="small">লেখক: <span lang="en">Sayful Alvi</span></p></th><td>বই</td><td>প্রকাশিত</td><td><button class="v2-button v2-button--secondary" type="button" data-edit-demo aria-label="আত্মার রসায়ন সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
+                <tr><th scope="row"><a href="courses/voice.html">কণ্ঠস্বর <span lang="en">Voice</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v3-button v3-button--secondary" type="button" data-edit-demo aria-label="Voice সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
+                <tr><th scope="row"><a href="courses/body.html">শরীর <span lang="en">Body</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v3-button v3-button--secondary" type="button" data-edit-demo aria-label="Body সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
+                <tr><th scope="row"><a href="courses/mind.html">মন <span lang="en">Mind</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v3-button v3-button--secondary" type="button" data-edit-demo aria-label="Mind সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
+                <tr><th scope="row"><a href="courses/purpose.html">উদ্দেশ্য <span lang="en">Purpose</span></a></th><td>কোর্স</td><td>প্রকাশিত</td><td><button class="v3-button v3-button--secondary" type="button" data-edit-demo aria-label="Purpose সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
+                <tr><th scope="row"><a href="books/atmar-rosayon.html">আত্মার রসায়ন <span lang="en">Atmar Rosayon</span></a><p class="v3-small">লেখক: <span lang="en">Sayful Alvi</span></p></th><td>বই</td><td>প্রকাশিত</td><td><button class="v3-button v3-button--secondary" type="button" data-edit-demo aria-label="আত্মার রসায়ন সম্পাদনা — ডিজাইন নমুনা" aria-describedby="catalogue-demo-note">সম্পাদনা</button></td></tr>
               </tbody>
             </table>
           </div>
-          <p id="catalogue-demo-note" class="v2-field-note" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো ব্যাকএন্ড নেই, তাই কোনো কনটেন্ট সম্পাদনা করা যাবে না।</p>
+          <p id="catalogue-demo-note" class="v3-field-help" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো ব্যাকএন্ড নেই, তাই কোনো কনটেন্ট সম্পাদনা করা যাবে না।</p>
         </section>
         <section id="admin-tests" class="admin-panel" aria-labelledby="admin-tests-toggle" hidden>
-          <div class="admin-panel-heading"><h2>টেস্ট</h2><a class="v2-link" href="self-test.html">লাইব্রেরি দেখুন</a></div>
+          <div class="admin-panel-heading"><h2>টেস্ট</h2><a href="self-test.html">লাইব্রেরি দেখুন</a></div>
           <p>২৬টি সেলফ-টেস্টের নাম ও অবস্থা <a href="self-test.html">মূল তালিকা</a> অনুযায়ী রাখা হয়েছে। “আরও জানা” বিভাগটিও সেই তালিকার অংশ।</p>
           <div class="admin-demo">
             <p>প্রাপ্তবয়স্করা নিজের মতো করে নিন; ১৩–১৭ বছরে অভিভাবকের নির্দেশনা নিন; ১০–১২ বছরে অভিভাবক পাশে থাকবেন, নিজের ফোন লাগবে না ও ফলাফল সংরক্ষিত হবে না; ১০ বছরের কম বয়সীদের জন্য অ্যাসেসমেন্ট নয়।</p>
@@ -246,7 +224,7 @@
             <section class="admin-test-group" aria-labelledby="admin-tests-human">
               <h3 id="admin-tests-human" lang="en">Human Assessment</h3>
               <p>২১০টি প্রশ্ন · ৭টি স্তর। মডেল ও প্রশ্নপ্রবাহের ডিজাইন ডেমো আছে।</p>
-              <a class="v2-link" href="human-assessment.html">মডেল ও নকশা দেখুন</a>
+              <a href="human-assessment.html">মডেল ও নকশা দেখুন</a>
             </section>
             <section class="admin-test-group" aria-labelledby="admin-tests-voice">
               <h3 id="admin-tests-voice" lang="en">Voice</h3>
@@ -255,94 +233,94 @@
               <section class="admin-test-group" aria-labelledby="admin-tests-body">
                 <h3 id="admin-tests-body" lang="en">Body</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">শরীর কতটা সচল?</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="lock"><a href="self-test.html">ঘুম কেমন হচ্ছে?</a><span class="small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">শরীর কতটা সচল?</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="lock"><a href="self-test.html">ঘুম কেমন হচ্ছে?</a><span class="v3-small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
                 </ul>
               </section>
               <section class="admin-test-group" aria-labelledby="admin-tests-mind">
                 <h3 id="admin-tests-mind" lang="en">Mind</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">মনের চাপ</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">মন কত দ্রুত ঘুরে দাঁড়ায়</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">এই মুহূর্তে থাকা</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">কৃতজ্ঞতা</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">বুদ্ধি কি বাড়ানো যায়?</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">মনের চাপ</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">মন কত দ্রুত ঘুরে দাঁড়ায়</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">এই মুহূর্তে থাকা</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">কৃতজ্ঞতা</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">বুদ্ধি কি বাড়ানো যায়?</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
                 </ul>
               </section>
               <section class="admin-test-group" aria-labelledby="admin-tests-purpose">
                 <h3 id="admin-tests-purpose" lang="en">Purpose</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">ভালো থাকার পাঁচ স্তম্ভ</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">জীবনের অর্থ</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">মনের তিন খাবার</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">ভালো থাকার পাঁচ স্তম্ভ</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">জীবনের অর্থ</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">মনের তিন খাবার</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
                 </ul>
               </section>
               <section class="admin-test-group" aria-labelledby="admin-tests-timeline">
                 <h3 id="admin-tests-timeline">Life Timeline · জীবন-বৃত্ত</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">জীবন-বৃত্ত</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">জীবন-বৃত্ত</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
                 </ul>
               </section>
               <section class="admin-test-group" aria-labelledby="admin-tests-mirror">
                 <h3 id="admin-tests-mirror">360° Mirror · Johari Window</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">অন্যরা আমাকে কীভাবে দেখে</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">অন্যরা আমাকে কীভাবে দেখে</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
                 </ul>
               </section>
               <section class="admin-test-group" aria-labelledby="admin-tests-more">
                 <h3 id="admin-tests-more">আরও জানা</h3>
                 <ul class="admin-list">
-                  <li data-test-status="ok"><a href="self-test.html">স্বভাবের পাঁচটা রং</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">টাকার স্বাধীনতা</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">মনের ভালো থাকা</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">জীবনের তৃপ্তি</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">চরিত্রের ২৪ শক্তি</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="lock"><a href="self-test.html">১৬ ধরন</a><span class="small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
-                  <li data-test-status="lock"><a href="self-test.html">৯ ধরন</a><span class="small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
-                  <li data-test-status="lock"><a href="self-test.html">আচরণের চার ধরন</a><span class="small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
-                  <li data-test-status="draft"><a href="self-test.html">মনের আবহাওয়া</a><span class="small">খসড়া — এখনো নেওয়া যায় না</span></li>
-                  <li data-test-status="draft"><a href="self-test.html">মূল্যবোধের সিঁড়ি</a><span class="small">খসড়া — এখনো নেওয়া যায় না</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">উদ্দেশ্যের চার প্রশ্ন</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
-                  <li data-test-status="draft"><a href="self-test.html">ইসলাম, ঈমান, ইহসান — মুহাসাবা</a><span class="small">খসড়া — এখনো নেওয়া যায় না</span></li>
-                  <li data-test-status="lock"><a href="self-test.html">আমার দ্বীনের জীবন — গভীর পর্যালোচনা</a><span class="small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
-                  <li data-test-status="ok"><a href="self-test.html">পাশে কে আছে</a><span class="small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">স্বভাবের পাঁচটা রং</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">টাকার স্বাধীনতা</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">মনের ভালো থাকা</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">জীবনের তৃপ্তি</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">চরিত্রের ২৪ শক্তি</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="lock"><a href="self-test.html">১৬ ধরন</a><span class="v3-small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
+                  <li data-test-status="lock"><a href="self-test.html">৯ ধরন</a><span class="v3-small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
+                  <li data-test-status="lock"><a href="self-test.html">আচরণের চার ধরন</a><span class="v3-small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
+                  <li data-test-status="draft"><a href="self-test.html">মনের আবহাওয়া</a><span class="v3-small">খসড়া — এখনো নেওয়া যায় না</span></li>
+                  <li data-test-status="draft"><a href="self-test.html">মূল্যবোধের সিঁড়ি</a><span class="v3-small">খসড়া — এখনো নেওয়া যায় না</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">উদ্দেশ্যের চার প্রশ্ন</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
+                  <li data-test-status="draft"><a href="self-test.html">ইসলাম, ঈমান, ইহসান — মুহাসাবা</a><span class="v3-small">খসড়া — এখনো নেওয়া যায় না</span></li>
+                  <li data-test-status="lock"><a href="self-test.html">আমার দ্বীনের জীবন — গভীর পর্যালোচনা</a><span class="v3-small">এখনো নেওয়া যায় না — অনুমতির অপেক্ষায়</span></li>
+                  <li data-test-status="ok"><a href="self-test.html">পাশে কে আছে</a><span class="v3-small">এই ডিজাইন ডেমোতে নেওয়া যায়</span></li>
                 </ul>
               </section>
           </div>
         </section>
         <section id="admin-orders" class="admin-panel" aria-labelledby="admin-orders-toggle" hidden>
-          <div class="admin-panel-heading"><h2>অর্ডার</h2><a class="v2-link" href="my-orders.html">আমার অর্ডারের নকশা</a></div>
+          <div class="admin-panel-heading"><h2>অর্ডার</h2><a href="my-orders.html">আমার অর্ডারের নকশা</a></div>
           <p>এই রেপোতে কোনো আসল অর্ডার নেই। নিচের সারিটি অর্ডারের গঠন দেখানোর জন্য রাখা।</p>
-          <div class="v2-field admin-filter">
-            <label for="admin-order-status">অবস্থা দিয়ে বাছাই করুন</label>
-            <select class="v2-input" id="admin-order-status" aria-describedby="admin-order-filter-hint" aria-controls="admin-order-list">
+          <div class="admin-filter">
+            <label class="v3-field-label" for="admin-order-status">অবস্থা দিয়ে বাছাই করুন</label>
+            <select class="v3-field" id="admin-order-status" aria-describedby="admin-order-filter-hint" aria-controls="admin-order-list">
               <option value="all">সব — all</option>
               <option value="confirmed">নিশ্চিত — confirmed</option>
               <option value="delivered">পৌঁছে গেছে — delivered</option>
             </select>
-            <p id="admin-order-filter-hint" class="v2-field-note">শুধু ডিজাইনের নিয়ন্ত্রণ; আসল অর্ডার বাছাই হবে না।</p>
+            <p id="admin-order-filter-hint" class="v3-field-help">শুধু ডিজাইনের নিয়ন্ত্রণ; আসল অর্ডার বাছাই হবে না।</p>
           </div>
-          <p id="admin-order-demo-note" class="v2-field-note" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো আসল অর্ডার নেই, তাই বাছাই করা যাবে না।</p>
+          <p id="admin-order-demo-note" class="v3-field-help" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো আসল অর্ডার নেই, তাই বাছাই করা যাবে না।</p>
           <div class="admin-table-wrap" tabindex="0" role="region" aria-label="নমুনা অর্ডারের সারণি, প্রয়োজনে পাশে সরিয়ে দেখুন">
-            <table id="admin-order-list" class="admin-table">
+            <table id="admin-order-list" class="v3-admin-table">
               <caption>অর্ডার নম্বরের বিন্যাস: <span lang="en">EMA-YYYYMMDD-XXXX</span></caption>
               <thead><tr><th scope="col">অর্ডার ও বই</th><th scope="col">তারিখ</th><th scope="col">অবস্থা</th></tr></thead>
               <tbody>
                 <tr data-placeholder="true">
-                  <td><p class="admin-specimen">ডিজাইন নমুনা — আসল তথ্য নয় <span lang="en">design specimen — not real data</span></p><p lang="en">EMA-20261125-0001</p><p class="small">শুধু নম্বরের বিন্যাসের উদাহরণ</p><a class="v2-link" href="books/atmar-rosayon.html">আত্মার রসায়ন <span lang="en">Atmar Rosayon</span></a><p class="small">মাধ্যম: <span lang="en">hardcopy</span></p></td>
+                  <td><p class="admin-specimen">ডিজাইন নমুনা — আসল তথ্য নয় <span lang="en">design specimen — not real data</span></p><p lang="en">EMA-20261125-0001</p><p class="v3-small">শুধু নম্বরের বিন্যাসের উদাহরণ</p><a href="books/atmar-rosayon.html">আত্মার রসায়ন <span lang="en">Atmar Rosayon</span></a><p class="v3-small">মাধ্যম: <span lang="en">hardcopy</span></p></td>
                   <td><time datetime="2026-11-25">২৫ নভেম্বর ২০২৬</time></td>
-                  <td><p>অর্ডার নিশ্চিত হয়েছে (নমুনা)</p><p class="small">ডেলিভারির তথ্য নিশ্চিত করা বাকি</p></td>
+                  <td><p>অর্ডার নিশ্চিত হয়েছে (নমুনা)</p><p class="v3-small">ডেলিভারির তথ্য নিশ্চিত করা বাকি</p></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p class="small"><a href="order-confirmation.html">অর্ডার নিশ্চিতকরণ পাতা</a> একই ডেমো অর্ডার নম্বরের বিন্যাস ব্যবহার করে।</p>
+          <p class="v3-small"><a href="order-confirmation.html">অর্ডার নিশ্চিতকরণ পাতা</a> একই ডেমো অর্ডার নম্বরের বিন্যাস ব্যবহার করে।</p>
         </section>
         <section id="admin-audit" class="admin-panel" aria-labelledby="admin-audit-toggle" hidden>
           <div class="admin-panel-heading"><h2>অডিট লগ</h2></div>
           <p>এই রেপোতে কোনো আসল অডিট লগ নেই। আসল অডিট লগ শুধু owner-access ব্যবহারকারীরা দেখতে পারবেন।</p>
           <div class="admin-table-wrap" tabindex="0" role="region" aria-label="নমুনা অডিট লগের সারণি, প্রয়োজনে পাশে সরিয়ে দেখুন">
-            <table class="admin-table">
+            <table class="v3-admin-table">
               <caption>কাজ, যিনি করেছেন ও সময় — সবই নকশার উদাহরণ</caption>
               <thead><tr><th scope="col">কাজ</th><th scope="col">যিনি করেছেন</th><th scope="col">সময়</th></tr></thead>
               <tbody>
@@ -362,15 +340,26 @@
     </div>
   </main>
 
-<footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -380,18 +369,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -399,29 +388,20 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
   </div>
 </footer>
-
-<nav class="v2-tabbar v2-surface-light" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
 
   <!-- ADMIN-ONLY: switch design panels and disclose nonfunctional admin actions. -->
   <script>
@@ -441,14 +421,6 @@
         document.getElementById("admin-order-demo-note").hidden = false;
       });
     })();
-  </script>
-  <script>
-    ['v2-menu-a', 'v2-menu-c'].forEach((id) => {
-      const menu = document.getElementById(id);
-      menu.addEventListener('click', (event) => {
-        if (event.target.closest('a[href]')) menu.close();
-      });
-    });
   </script>
 </body>
 </html>

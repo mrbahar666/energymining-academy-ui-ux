@@ -8,346 +8,326 @@
   <title>চার এনার্জির কোর্স — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
-  <!-- COURSES-ONLY -->
   <style>
-    .v2x-dialog-open { overflow: hidden; }
-    .v2x-heading { margin-block-end: 1.5rem; }
-    .v2x-chips:not([hidden]) { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .v2x-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
-    .v2x-cover { margin: 0; }
-    .v2x-cover img { inline-size: 100%; block-size: auto; border-radius: var(--v2-radius-panel); }
-    .v2x-cover figcaption { margin-block-start: .5rem; font-size: .875rem; }
-    .v2x-faq-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem; }
-    .v2x-faq-item { border-block-end: 1px solid var(--v2-navy); }
-    .v2x-faq-item h3 { margin: 0; }
-    .v2x-faq-toggle { display: flex; align-items: center; inline-size: 100%; min-block-size: 48px; padding: 1rem 0; border: 0; background: var(--v2-paper); color: var(--v2-navy); font: inherit; text-align: start; }
-    .v2x-faq-toggle:is(:hover, [aria-expanded="true"]) { text-decoration: underline; text-underline-offset: .25em; }
-    .v2x-faq-answer { padding-block: .5rem 1rem; }
-    @media (max-width: 1099px) { .v2-header--a { display: none; } }
-    @media (min-width: 1100px) { .v2-header--c { display: none; } }
+    .v3x-heading { margin-block-end: 24px; }
+    .v3x-chips:not([hidden]) { display: flex; flex-wrap: wrap; gap: 12px; }
+    .v3x-chips > a, .v3x-chip { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-block-size: 48px; padding: 10px 16px; border: 1px solid var(--v3-navy); border-radius: var(--v3-radius); background: var(--v3-paper); color: var(--v3-navy); text-decoration: none; }
+    .v3x-chips > a:hover, .v3x-chip:hover { text-decoration: underline; }
+    .v3x-chip[aria-pressed="true"] { background: var(--v3-navy); color: var(--v3-paper); }
+    .v3x-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .v3x-cover { --v3-shelf-shadow: var(--v3-shadow); --v3-shelf-shadow-lift: var(--v3-shadow-lift); }
+    .v3x-cover[href] { --v3-focus: var(--v3-navy); }
+    .v3x-course .v3-cover-caption { display: grid; gap: 16px; }
+    .v3x-course h3 { margin: 0; }
+    .v3x-course .v3-small { font-size: 15px; }
+    .v3x-course .v3-badge { justify-self: start; color: var(--v3-navy); font-size: 14px; }
+    .v3x-why-list { margin: 0; padding-inline-start: 32px; list-style-type: bengali; }
+    .v3x-why-list li { padding: 8px 16px; }
+    .v3x-why-list li::marker { font-weight: 600; }
+    .v3x-why-list p { margin: 0; }
+    .v3x-link { display: inline-flex; align-items: center; gap: 8px; min-block-size: 48px; }
+    .v3x-pathway-note { margin-block: 24px 0; }
+    .v3x-faq-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px; }
+    .v3x-faq-item { border-block-end: 1px solid var(--v3-navy); }
+    .v3x-faq-item h3 { margin: 0; }
+    .v3x-faq-toggle { display: flex; align-items: center; inline-size: 100%; min-block-size: 48px; padding: 16px 0; border: 0; background: var(--v3-paper); color: var(--v3-navy); font: inherit; text-align: start; }
+    .v3x-faq-toggle:is(:hover, [aria-expanded="true"]) { text-decoration: underline; text-underline-offset: .25em; }
+    .v3x-faq-answer { padding-block: 8px 16px; }
     .course-filtered-out { display: none; }
-    #energy-filters { margin-block-end: 1.5rem; }
-    #energy-filters .v2-chip[aria-pressed="true"] { background: var(--v2-navy); color: var(--v2-paper); }
-    .v2x-energy-name { display: grid; gap: .5rem; margin-block-end: 1rem; }
-    .v2x-energy-name [lang="en"] { font: 400 clamp(2rem, 4vw, 3rem)/1.1 var(--v2-font-display); }
-    .v2x-course-body { margin-block-start: 1.5rem; }
-    .v2x-why-list { margin: 0; padding-inline-start: 2rem; list-style-type: bengali; }
-    .v2x-why-list li { padding: .5rem 1rem; border-block-end: 1px solid var(--v2-navy); }
-    .v2x-why-list li::marker { font-weight: 600; }
-    .v2x-why-list p { margin: 0; }
-    .v2x-pathway-note { margin-block-start: 1.5rem; }
-    @media (max-width: 1099px) { .v2x-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 600px) { .v2x-grid, .v2x-faq-layout { grid-template-columns: 1fr; } }
+    #energy-filters { margin-block-end: 24px; }
+    @media (max-width: 1099px) { .v3x-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 767px) { .v3x-grid { gap: 12px; } .v3x-faq-layout { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 600px) { #course-list { grid-template-columns: minmax(0, 1fr); } }
   </style>
 </head>
-<body class="v2-concept-c">
-<a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-<header class="v2-header v2-header--a v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html" aria-current="page">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body>
+<!-- Masthead — spec §4.2 and §6.1–6.3, shown for the Bangla home page. -->
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html" aria-current="page">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-header">
-          <a href="courses.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="courses.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-a-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-menu">
-        <a href="courses.html" lang="bn" aria-current="page" autofocus>BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="courses.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-a-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html" aria-current="page">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html" aria-current="page">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-
-<header class="v2-header v2-header--c v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html" aria-current="page">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-header">
-          <a href="courses.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-c-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-menu">
-        <a href="courses.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-c-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="index.html">হোম</a>
-        <a href="courses.html" aria-current="page">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html" aria-current="page"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main" tabindex="-1">
-    <section class="v2-title-band" aria-labelledby="page-title">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="পাতার অবস্থান">
-          <a href="index.html">হোম</a><span aria-hidden="true">›</span>
-          <span aria-current="page">কোর্স</span>
-        </nav>
+    <section class="v3-title-band" aria-labelledby="page-title">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="পাতার অবস্থান"><ol><li><a href="index.html">হোম</a></li><li><span aria-current="page">কোর্স</span></li></ol></nav>
         <h1 id="page-title">চার এনার্জির কোর্স</h1>
         <p>চারটি প্রোগ্রাম, প্রতিটি এনার্জির জন্য একটি; প্রতিষ্ঠাতা: <span lang="en" translate="no">Sayful Alvi</span>।</p>
       </div>
     </section>
 
-    <section class="v2-section" aria-labelledby="learn-title">
-      <div class="v2-container">
+    <section class="v3-section" aria-labelledby="learn-title">
+      <div class="v3-container">
         <h2 id="learn-title">আজ কী শিখতে চান?</h2>
-        <nav class="v2x-chips" aria-label="কোর্সের পাতা বেছে নিন">
-          <a class="v2-link" href="courses/voice.html">কণ্ঠস্বর <span class="v2-display" lang="en">Voice</span></a>
-          <a class="v2-link" href="courses/body.html">শরীর <span class="v2-display" lang="en">Body</span></a>
-          <a class="v2-link" href="courses/mind.html">মন <span class="v2-display" lang="en">Mind</span></a>
-          <a class="v2-link" href="courses/purpose.html">উদ্দেশ্য <span class="v2-display" lang="en">Purpose</span></a>
+        <nav class="v3x-chips" aria-label="কোর্সের পাতা বেছে নিন">
+          <a class="v3x-link" href="courses/voice.html">কণ্ঠস্বর <span class="v3-display" lang="en">Voice</span></a>
+          <a class="v3x-link" href="courses/body.html">শরীর <span class="v3-display" lang="en">Body</span></a>
+          <a class="v3x-link" href="courses/mind.html">মন <span class="v3-display" lang="en">Mind</span></a>
+          <a class="v3x-link" href="courses/purpose.html">উদ্দেশ্য <span class="v3-display" lang="en">Purpose</span></a>
         </nav>
       </div>
     </section>
 
-    <section class="v2-section" aria-labelledby="energy-title">
-      <div class="v2-container">
-        <div class="v2x-heading">
+    <section class="v3-section" aria-labelledby="energy-title">
+      <div class="v3-container">
+        <div class="v3x-heading">
           <h2 id="energy-title">চার এনার্জি, শেখার চার দিক</h2>
           <p>প্রতিটি বিভাগে একটি কোর্স। নিজের আগ্রহের দিকটি বেছে নিন।</p>
         </div>
-        <nav class="v2x-grid" aria-label="চার এনার্জির কোর্স বিভাগ">
-          <a class="v2-card v2-card--navy" href="courses/voice.html">
-            <span class="v2x-energy-name"><strong>কণ্ঠস্বর</strong><span class="v2-display" lang="en">Voice</span></span>
-            <span>১টি কোর্স</span>
+        <nav class="v3x-grid" aria-label="চার এনার্জির কোর্স বিভাগ">
+          <a class="v3-cover-card v3-surface-navy v3x-cover" href="courses/voice.html">
+            <img src="assets/cover-voice.svg" width="400" height="500" alt="কণ্ঠস্বরের তরঙ্গের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+            <div class="v3-cover-caption">
+              <h3 class="v3-cover-name" lang="en">Voice</h3>
+              <p>কণ্ঠস্বর</p>
+              <p class="v3-cover-count">১টি কোর্স</p>
+            </div>
           </a>
-          <a class="v2-card v2-card--navy" href="courses/body.html">
-            <span class="v2x-energy-name"><strong>শরীর</strong><span class="v2-display" lang="en">Body</span></span>
-            <span>১টি কোর্স</span>
+          <a class="v3-cover-card v3-surface-navy v3x-cover" href="courses/body.html">
+            <img src="assets/cover-body.svg" width="400" height="500" alt="স্থির অনুভূমিক স্তরের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+            <div class="v3-cover-caption">
+              <h3 class="v3-cover-name" lang="en">Body</h3>
+              <p>শরীর</p>
+              <p class="v3-cover-count">১টি কোর্স</p>
+            </div>
           </a>
-          <a class="v2-card v2-card--navy" href="courses/mind.html">
-            <span class="v2x-energy-name"><strong>মন</strong><span class="v2-display" lang="en">Mind</span></span>
-            <span>১টি কোর্স</span>
+          <a class="v3-cover-card v3-surface-navy v3x-cover" href="courses/mind.html">
+            <img src="assets/cover-mind.svg" width="400" height="500" alt="কেন্দ্রমুখী বৃত্তের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+            <div class="v3-cover-caption">
+              <h3 class="v3-cover-name" lang="en">Mind</h3>
+              <p>মন</p>
+              <p class="v3-cover-count">১টি কোর্স</p>
+            </div>
           </a>
-          <a class="v2-card v2-card--navy" href="courses/purpose.html">
-            <span class="v2x-energy-name"><strong>উদ্দেশ্য</strong><span class="v2-display" lang="en">Purpose</span></span>
-            <span>১টি কোর্স</span>
+          <a class="v3-cover-card v3-surface-navy v3x-cover" href="courses/purpose.html">
+            <img src="assets/cover-purpose.svg" width="400" height="500" alt="ঊর্ধ্বমুখী পথের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+            <div class="v3-cover-caption">
+              <h3 class="v3-cover-name" lang="en">Purpose</h3>
+              <p>উদ্দেশ্য</p>
+              <p class="v3-cover-count">১টি কোর্স</p>
+            </div>
           </a>
         </nav>
       </div>
     </section>
 
-    <section id="courses" class="v2-section" aria-labelledby="courses-title">
-      <div class="v2-container">
-        <div class="v2x-heading">
+    <section id="courses" class="v3-section" aria-labelledby="courses-title">
+      <div class="v3-container">
+        <div class="v3x-heading">
           <h2 id="courses-title">এনার্জি দিয়ে কোর্স বাছাই করুন</h2>
           <p>কোর্সের শিক্ষক ও সময়কাল নিশ্চিত হলে সংশ্লিষ্ট পাতায় জানানো হবে।</p>
         </div>
-        <div id="energy-filters" class="v2x-chips" role="group" aria-label="এনার্জি দিয়ে বাছাই করুন" hidden>
-          <button class="v2-chip" type="button" data-energy-filter="all" aria-controls="course-list" aria-pressed="true">সব <span lang="en">All</span></button>
-          <button class="v2-chip" type="button" data-energy-filter="voice" aria-controls="course-list" aria-pressed="false"><span class="v2-display" lang="en">Voice</span></button>
-          <button class="v2-chip" type="button" data-energy-filter="body" aria-controls="course-list" aria-pressed="false"><span class="v2-display" lang="en">Body</span></button>
-          <button class="v2-chip" type="button" data-energy-filter="mind" aria-controls="course-list" aria-pressed="false"><span class="v2-display" lang="en">Mind</span></button>
-          <button class="v2-chip" type="button" data-energy-filter="purpose" aria-controls="course-list" aria-pressed="false"><span class="v2-display" lang="en">Purpose</span></button>
+        <div id="energy-filters" class="v3x-chips" role="group" aria-label="এনার্জি দিয়ে বাছাই করুন" hidden>
+          <button class="v3x-chip" type="button" data-energy-filter="all" aria-controls="course-list" aria-pressed="true">সব <span lang="en">All</span></button>
+          <button class="v3x-chip" type="button" data-energy-filter="voice" aria-controls="course-list" aria-pressed="false"><span class="v3-display" lang="en">Voice</span></button>
+          <button class="v3x-chip" type="button" data-energy-filter="body" aria-controls="course-list" aria-pressed="false"><span class="v3-display" lang="en">Body</span></button>
+          <button class="v3x-chip" type="button" data-energy-filter="mind" aria-controls="course-list" aria-pressed="false"><span class="v3-display" lang="en">Mind</span></button>
+          <button class="v3x-chip" type="button" data-energy-filter="purpose" aria-controls="course-list" aria-pressed="false"><span class="v3-display" lang="en">Purpose</span></button>
         </div>
-          <div id="course-list" class="v2x-grid">
-            <article id="course-voice" data-energy="voice" class="v2-card v2-surface-light" aria-labelledby="voice-title">
-              <figure class="v2x-cover">
-                <img src="assets/cover-voice.svg" width="400" height="500" alt="কণ্ঠস্বরের তরঙ্গের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
-                <figcaption>নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
-              </figure>
-              <div class="v2x-course-body">
-                <h3 id="voice-title">কণ্ঠস্বর <span class="v2-display" lang="en">Voice</span></h3>
+          <div id="course-list" class="v3x-grid">
+            <article id="course-voice" data-energy="voice" class="v3-cover-card v3-surface-navy v3x-cover v3x-course" aria-labelledby="voice-title">
+              <img src="assets/cover-voice.svg" width="400" height="500" alt="কণ্ঠস্বরের তরঙ্গের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+              <div class="v3-cover-caption">
+                <p class="v3-small">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></p>
+                <h3 id="voice-title">কণ্ঠস্বর <span class="v3-display" lang="en">Voice</span></h3>
                 <p>শিক্ষক: শীঘ্রই জানানো হবে</p>
                 <p>নিজের কণ্ঠস্বরকে জানুন।</p>
                 <p>সময়কাল: শীঘ্রই জানানো হবে</p>
-                <p class="v2-badge">প্রথম পাঠ ফ্রি</p>
+                <p class="v3-badge">প্রথম পাঠ ফ্রি</p>
                 <!-- Target built: courses/voice.html -->
-                <a class="v2-button v2-button--primary" href="courses/voice.html">বিস্তারিত দেখুন</a>
+                <a class="v3-button v3-button--primary" href="courses/voice.html">বিস্তারিত দেখুন</a>
               </div>
             </article>
-            <article id="course-body" data-energy="body" class="v2-card v2-surface-light" aria-labelledby="body-title">
-              <figure class="v2x-cover">
-                <img src="assets/cover-body.svg" width="400" height="500" alt="স্থির অনুভূমিক স্তরের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
-                <figcaption>নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
-              </figure>
-              <div class="v2x-course-body">
-                <h3 id="body-title">শরীর <span class="v2-display" lang="en">Body</span></h3>
+            <article id="course-body" data-energy="body" class="v3-cover-card v3-surface-navy v3x-cover v3x-course" aria-labelledby="body-title">
+              <img src="assets/cover-body.svg" width="400" height="500" alt="স্থির অনুভূমিক স্তরের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+              <div class="v3-cover-caption">
+                <p class="v3-small">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></p>
+                <h3 id="body-title">শরীর <span class="v3-display" lang="en">Body</span></h3>
                 <p>শিক্ষক: শীঘ্রই জানানো হবে</p>
                 <p>শরীরের প্রতি মনোযোগ দিন।</p>
                 <p>সময়কাল: শীঘ্রই জানানো হবে</p>
-                <p class="v2-badge">প্রথম পাঠ ফ্রি</p>
+                <p class="v3-badge">প্রথম পাঠ ফ্রি</p>
                 <!-- Target built: courses/body.html -->
-                <a class="v2-button v2-button--primary" href="courses/body.html">বিস্তারিত দেখুন</a>
+                <a class="v3-button v3-button--primary" href="courses/body.html">বিস্তারিত দেখুন</a>
               </div>
             </article>
-            <article id="course-mind" data-energy="mind" class="v2-card v2-surface-light" aria-labelledby="mind-title">
-              <figure class="v2x-cover">
-                <img src="assets/cover-mind.svg" width="400" height="500" alt="কেন্দ্রমুখী বৃত্তের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
-                <figcaption>নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
-              </figure>
-              <div class="v2x-course-body">
-                <h3 id="mind-title">মন <span class="v2-display" lang="en">Mind</span></h3>
+            <article id="course-mind" data-energy="mind" class="v3-cover-card v3-surface-navy v3x-cover v3x-course" aria-labelledby="mind-title">
+              <img src="assets/cover-mind.svg" width="400" height="500" alt="কেন্দ্রমুখী বৃত্তের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+              <div class="v3-cover-caption">
+                <p class="v3-small">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></p>
+                <h3 id="mind-title">মন <span class="v3-display" lang="en">Mind</span></h3>
                 <p>শিক্ষক: শীঘ্রই জানানো হবে</p>
                 <p>নিজের মনকে বুঝুন।</p>
                 <p>সময়কাল: শীঘ্রই জানানো হবে</p>
-                <p class="v2-badge">প্রথম পাঠ ফ্রি</p>
+                <p class="v3-badge">প্রথম পাঠ ফ্রি</p>
                 <!-- Target built: courses/mind.html -->
-                <a class="v2-button v2-button--primary" href="courses/mind.html">বিস্তারিত দেখুন</a>
+                <a class="v3-button v3-button--primary" href="courses/mind.html">বিস্তারিত দেখুন</a>
               </div>
             </article>
-            <article id="course-purpose" data-energy="purpose" class="v2-card v2-surface-light" aria-labelledby="purpose-title">
-              <figure class="v2x-cover">
-                <img src="assets/cover-purpose.svg" width="400" height="500" alt="ঊর্ধ্বমুখী পথের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
-                <figcaption>নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></figcaption>
-              </figure>
-              <div class="v2x-course-body">
-                <h3 id="purpose-title">উদ্দেশ্য <span class="v2-display" lang="en">Purpose</span></h3>
+            <article id="course-purpose" data-energy="purpose" class="v3-cover-card v3-surface-navy v3x-cover v3x-course" aria-labelledby="purpose-title">
+              <img src="assets/cover-purpose.svg" width="400" height="500" alt="ঊর্ধ্বমুখী পথের জ্যামিতিক প্রচ্ছদ" loading="lazy" data-placeholder="true">
+              <div class="v3-cover-caption">
+                <p class="v3-small">নমুনা প্রচ্ছদ <span lang="en">(placeholder)</span></p>
+                <h3 id="purpose-title">উদ্দেশ্য <span class="v3-display" lang="en">Purpose</span></h3>
                 <p>শিক্ষক: শীঘ্রই জানানো হবে</p>
                 <p>জীবনের উদ্দেশ্য নিয়ে ভাবুন।</p>
                 <p>সময়কাল: শীঘ্রই জানানো হবে</p>
-                <p class="v2-badge">প্রথম পাঠ ফ্রি</p>
+                <p class="v3-badge">প্রথম পাঠ ফ্রি</p>
                 <!-- Target built: courses/purpose.html -->
-                <a class="v2-button v2-button--primary" href="courses/purpose.html">বিস্তারিত দেখুন</a>
+                <a class="v3-button v3-button--primary" href="courses/purpose.html">বিস্তারিত দেখুন</a>
               </div>
             </article>
           </div>
       </div>
     </section>
 
-    <section id="pathway" class="v2-section" aria-labelledby="pathway-title">
-      <div class="v2-container">
-        <div class="v2x-heading">
+    <section id="pathway" class="v3-section v3-surface-navy" aria-labelledby="pathway-title">
+      <div class="v3-container">
+        <div class="v3x-heading">
           <h2 id="pathway-title">ধাপে ধাপে শেখার পথ</h2>
           <p>কণ্ঠস্বর থেকে নিজের পরিকল্পনা — পথের ক্রমটি দেখুন।</p>
         </div>
-        <ol class="v2x-why-list">
-          <li><p><a class="v2-link" href="courses/voice.html">কণ্ঠস্বর <span class="v2-display" lang="en">Voice</span></a></p></li>
-          <li><p><a class="v2-link" href="courses/body.html">শরীর <span class="v2-display" lang="en">Body</span></a></p></li>
-          <li><p><a class="v2-link" href="courses/mind.html">মন <span class="v2-display" lang="en">Mind</span></a></p></li>
-          <li><p><a class="v2-link" href="courses/purpose.html">উদ্দেশ্য <span class="v2-display" lang="en">Purpose</span></a></p></li>
-          <li><p><a class="v2-link" href="personal-project-plan.html" lang="en">Personal Project Plan</a></p></li>
+        <ol class="v3x-why-list">
+          <li><p><a class="v3x-link" href="courses/voice.html">কণ্ঠস্বর <span class="v3-display" lang="en">Voice</span></a></p></li>
+          <li><p><a class="v3x-link" href="courses/body.html">শরীর <span class="v3-display" lang="en">Body</span></a></p></li>
+          <li><p><a class="v3x-link" href="courses/mind.html">মন <span class="v3-display" lang="en">Mind</span></a></p></li>
+          <li><p><a class="v3x-link" href="courses/purpose.html">উদ্দেশ্য <span class="v3-display" lang="en">Purpose</span></a></p></li>
+          <li><p><a class="v3x-link" href="personal-project-plan.html" lang="en">Personal Project Plan</a></p></li>
         </ol>
-        <p class="v2x-pathway-note">এখানে শুধু পথের ক্রম দেখানো হয়েছে। ভর্তি হওয়ার পর এই পথে আপনার অবস্থান সংরক্ষিত থাকবে; শিক্ষার্থীর ‘আমার কোর্স’ <span lang="en">(My Courses)</span> পাতায় প্রতিটি কোর্সের অগ্রগতি দেখা যাবে।</p>
+        <p class="v3x-pathway-note">এখানে শুধু পথের ক্রম দেখানো হয়েছে। ভর্তি হওয়ার পর এই পথে আপনার অবস্থান সংরক্ষিত থাকবে; শিক্ষার্থীর ‘আমার কোর্স’ <span lang="en">(My Courses)</span> পাতায় প্রতিটি কোর্সের অগ্রগতি দেখা যাবে।</p>
       </div>
     </section>
 
-    <section class="v2-section" aria-labelledby="enrolment-title">
-      <div class="v2-container">
-        <div class="v2-card v2-surface-light">
+    <section class="v3-section" aria-labelledby="enrolment-title">
+      <div class="v3-container">
+        <div class="v3-light-card">
           <h2 id="enrolment-title">ভর্তি যেভাবে হবে</h2>
           <p>প্রতিটি কোর্সের প্রথম পাঠ ফ্রি। মালিক কোর্সের মূল্য নিশ্চিত করলে ভর্তি শুরু হবে। ভর্তির সময় পাসওয়ার্ড দিয়ে লগ ইন করার জন্য অ্যাকাউন্ট লাগবে।</p>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="v2-section" aria-labelledby="faq-title">
-      <div class="v2-container">
-        <div class="v2x-faq-layout">
-          <div class="v2x-heading">
+    <section id="faq" class="v3-section v3-surface-navy" aria-labelledby="faq-title">
+      <div class="v3-container">
+        <div class="v3x-faq-layout">
+          <div class="v3x-heading">
             <h2 id="faq-title">সাধারণ প্রশ্ন</h2>
             <p>কোর্স বেছে নেওয়ার আগে যা জানা দরকার।</p>
           </div>
-          <div>
-            <div class="v2x-faq-item">
-              <h3><button id="faq-question-announcement" class="faq-toggle v2x-faq-toggle" type="button" aria-controls="faq-answer-announcement" aria-expanded="false">শিক্ষক ও সময়কাল কখন জানব?</button></h3>
-              <div id="faq-answer-announcement" class="v2x-faq-answer" hidden>
+          <div class="v3-light-card">
+            <div class="v3x-faq-item">
+              <h3><button id="faq-question-announcement" class="faq-toggle v3x-faq-toggle" type="button" aria-controls="faq-answer-announcement" aria-expanded="false">শিক্ষক ও সময়কাল কখন জানব?</button></h3>
+              <div id="faq-answer-announcement" class="v3x-faq-answer" hidden>
                 <p>শিক্ষক ও সিলেবাস নিশ্চিত হলে সংশ্লিষ্ট কোর্সের পাতায় শিক্ষক, সময়কাল ও পাঠের তথ্য জানানো হবে। আপাতত এসব তথ্য শীঘ্রই জানানো হবে।</p>
               </div>
             </div>
-            <div class="v2x-faq-item">
-              <h3><button id="faq-question-first-lesson" class="faq-toggle v2x-faq-toggle" type="button" aria-controls="faq-answer-first-lesson" aria-expanded="false">প্রথম পাঠ কি ফ্রি?</button></h3>
-              <div id="faq-answer-first-lesson" class="v2x-faq-answer" hidden>
+            <div class="v3x-faq-item">
+              <h3><button id="faq-question-first-lesson" class="faq-toggle v3x-faq-toggle" type="button" aria-controls="faq-answer-first-lesson" aria-expanded="false">প্রথম পাঠ কি ফ্রি?</button></h3>
+              <div id="faq-answer-first-lesson" class="v3x-faq-answer" hidden>
                 <p>হ্যাঁ, প্রতিটি কোর্সের প্রথম পাঠ ফ্রি। কোন পাঠটি নমুনা হিসেবে থাকবে, তা শিক্ষকের ঘোষণার সঙ্গে জানানো হবে।</p>
               </div>
             </div>
-            <div class="v2x-faq-item">
-              <h3><button id="faq-question-enrolment" class="faq-toggle v2x-faq-toggle" type="button" aria-controls="faq-answer-enrolment" aria-expanded="false">ভর্তি ও মূল্যের তথ্য কোথায় পাব?</button></h3>
-              <div id="faq-answer-enrolment" class="v2x-faq-answer" hidden>
+            <div class="v3x-faq-item">
+              <h3><button id="faq-question-enrolment" class="faq-toggle v3x-faq-toggle" type="button" aria-controls="faq-answer-enrolment" aria-expanded="false">ভর্তি ও মূল্যের তথ্য কোথায় পাব?</button></h3>
+              <div id="faq-answer-enrolment" class="v3x-faq-answer" hidden>
                 <p>মালিক মূল্য নিশ্চিত করলে ভর্তি শুরু হবে এবং এই কোর্সের পাতাগুলোয় তথ্য জানানো হবে। এখন ভর্তি চালু হয়নি।</p>
               </div>
             </div>
-            <div class="v2x-faq-item">
-              <h3><button id="faq-question-path" class="faq-toggle v2x-faq-toggle" type="button" aria-controls="faq-answer-path" aria-expanded="false">শেখার পথ কোথায় নিয়ে যায়?</button></h3>
-              <div id="faq-answer-path" class="v2x-faq-answer" hidden>
+            <div class="v3x-faq-item">
+              <h3><button id="faq-question-path" class="faq-toggle v3x-faq-toggle" type="button" aria-controls="faq-answer-path" aria-expanded="false">শেখার পথ কোথায় নিয়ে যায়?</button></h3>
+              <div id="faq-answer-path" class="v3x-faq-answer" hidden>
                 <p>পথের ক্রম: কণ্ঠস্বর, শরীর, মন, উদ্দেশ্য, তারপর Personal Project Plan। নিজের ভিশন ও বর্তমান অবস্থা থেকে পরের ধাপের লিখিত পরিকল্পনা তৈরি করাই সেই পরিকল্পনার উদ্দেশ্য।</p>
               </div>
             </div>
-            <div class="v2x-faq-item">
-              <h3><button id="faq-question-assessment" class="faq-toggle v2x-faq-toggle" type="button" aria-controls="faq-answer-assessment" aria-expanded="false">অ্যাসেসমেন্ট ও কোর্সের পার্থক্য কী?</button></h3>
-              <div id="faq-answer-assessment" class="v2x-faq-answer" hidden>
+            <div class="v3x-faq-item">
+              <h3><button id="faq-question-assessment" class="faq-toggle v3x-faq-toggle" type="button" aria-controls="faq-answer-assessment" aria-expanded="false">অ্যাসেসমেন্ট ও কোর্সের পার্থক্য কী?</button></h3>
+              <div id="faq-answer-assessment" class="v3x-faq-answer" hidden>
                 <p>অ্যাসেসমেন্ট নিজের সম্পর্কে ভাবার একটি উপায় এবং সম্পূর্ণ ফ্রি। কোর্স হলো একটি এনার্জি নিয়ে শেখার প্রোগ্রাম। কোনোটিই থেরাপি বা রোগনির্ণয় নয়।</p>
               </div>
             </div>
@@ -357,15 +337,27 @@
     </section>
   </main>
 
-<footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<!-- Footer colophon — spec §7: brand, five link groups, and bottom line. -->
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html" aria-current="page">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -375,18 +367,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -394,16 +386,15 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
@@ -424,18 +415,5 @@
       }));
     })();
   </script>
-
-<script>
-  const syncDialogScroll = () => {
-    document.body.classList.toggle('v2x-dialog-open', Boolean(document.querySelector('.v2-dialog[open]')));
-  };
-  document.querySelectorAll('.v2-dialog').forEach((dialog) => {
-    dialog.addEventListener('toggle', syncDialogScroll);
-    dialog.addEventListener('close', syncDialogScroll);
-    dialog.addEventListener('click', (event) => {
-      if (event.target.closest('a')) dialog.close();
-    });
-  });
-</script>
 </body>
 </html>

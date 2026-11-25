@@ -8,191 +8,170 @@
   <title>সাইন আপ — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
   <style>
-    /* ACCOUNT-ONLY: real language links, compact form layout, consent and secondary code panel. */
     .account-layout { display: grid; align-items: start; gap: 2rem; }
     .account-aside { display: grid; gap: 1.5rem; }
-    .account-note { display: grid; gap: 0.75rem; padding-block: 1.5rem; border-block: 1px solid var(--v2-navy); }
-    .account-code { border-top: 1px solid var(--v2-navy); padding-top: 1rem; }
-    .account-code .faq-toggle { padding-inline: 0; font-weight: 500; }
-    .account-code .faq-answer { padding-inline: 0; }
-    .account-demo-fields { display: grid; gap: 1rem; margin: 1rem 0 0; padding: 1rem; border: 1px dashed var(--v2-navy); border-radius: var(--v2-radius-panel); }
-    .account-consent { display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: start; gap: 0.75rem; }
-    .account-consent input { width: 24px; height: 24px; margin: 8px 0 0; accent-color: var(--v2-navy); }
-    .account-consent label { display: grid; align-content: center; min-height: 44px; }
-    .account-status { padding: 1rem; border: 1px solid var(--v2-navy); border-radius: var(--v2-radius-panel); }
+    .account-note { display: grid; gap: 0.75rem; padding-block: 1.5rem; border-block: 1px solid var(--v3-navy); }
+    .account-note > * { margin: 0; }
+    .form-card { display: grid; gap: 1.5rem; min-inline-size: 0; }
+    .form-card p { margin-block-end: 0; }
+    .form-actions { display: grid; justify-items: start; gap: 0.75rem; }
+    .form-actions a, .account-aside a { display: inline-flex; align-items: center; min-inline-size: 48px; min-block-size: 48px; }
+    .account-status { padding: 1rem; border: 1px solid var(--v3-navy); border-radius: var(--v3-radius); }
     @media (min-width: 900px) { .account-layout { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 4rem; } }
-    @media (max-width: 1099px) { .v2-hybrid-a { display: none; } }
-    @media (min-width: 1100px) { .v2-hybrid-c, .v2-tabbar { display: none; } }
+    [hidden] { display: none !important; }
   </style>
 </head>
-<body class="v2-concept-c">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-<header class="v2-header v2-header--a v2-hybrid-a v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body>
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-header">
-          <a href="signup.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="signup.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-a-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
 
-<header class="v2-header v2-header--c v2-hybrid-c v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-header">
-          <a href="signup.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-c-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
   </div>
-</header>
-
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-menu">
-        <a href="signup.html" lang="bn" aria-current="page" autofocus>BN</a>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="signup.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-a-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html" aria-current="page">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-menu">
-        <a href="signup.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-c-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main">
-    <div class="v2-title-band"><div class="v2-container">
-      <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব"><a href="index.html">হোম</a><span aria-hidden="true">›</span><span>সাইন আপ</span></nav>
+    <div class="v3-title-band"><div class="v3-container">
+      <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব"><ol><li><a href="index.html">হোম</a></li><li>সাইন আপ</li></ol></nav>
       <h1 id="signup-title">সাইন আপ</h1>
       <p>ফোন নম্বর, ইমেইল ও পাসওয়ার্ড দিয়ে অ্যাকাউন্ট তৈরির নকশা।</p>
     </div></div>
 
-    <div class="v2-section v2-container">
+    <div class="v3-section v3-container">
 
     <div class="account-layout">
-      <form id="signup" class="v2-card form-card v2-surface-light" method="post" action="signup.html" aria-labelledby="signup-title" aria-describedby="signup-demo">
+      <form id="signup" class="v3-light-card form-card" method="post" action="signup.html" aria-labelledby="signup-title" aria-describedby="signup-demo">
         <div class="form-intro">
           <h2>অ্যাকাউন্টের তথ্য</h2>
-          <p id="signup-demo" class="v2-field-note">এটি ডিজাইন ডেমো। এই রেপোতে কোনো ব্যাকএন্ড নেই; এখানে অ্যাকাউন্ট তৈরি হবে না।</p>
+          <p id="signup-demo" class="v3-field-help">এটি ডিজাইন ডেমো। এই রেপোতে কোনো ব্যাকএন্ড নেই; এখানে অ্যাকাউন্ট তৈরি হবে না।</p>
         </div>
-        <div class="v2-field">
-          <label for="signup-phone">ফোন নম্বর</label>
-          <input class="v2-input" id="signup-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="01[0-9]{9}" aria-describedby="signup-phone-hint" required>
-          <p id="signup-phone-hint" class="v2-field-note">বাংলাদেশি নম্বরের ধরন: <span lang="en">01XXXXXXXXX</span> — ১১টি ইংরেজি অঙ্কে লিখুন।</p>
+        <div>
+          <label class="v3-field-label" for="signup-phone">ফোন নম্বর</label>
+          <input class="v3-field" id="signup-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="01[0-9]{9}" aria-describedby="signup-phone-hint" required>
+          <p id="signup-phone-hint" class="v3-field-help">বাংলাদেশি নম্বরের ধরন: <span lang="en">01XXXXXXXXX</span> — ১১টি ইংরেজি অঙ্কে লিখুন।</p>
         </div>
-        <div class="v2-field">
-          <label for="signup-email">ইমেইল</label>
-          <input class="v2-input" id="signup-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" aria-invalid="true" aria-describedby="signup-email-hint signup-email-error" required>
-          <p id="signup-email-hint" class="v2-field-note">আপনি ব্যবহার করেন এমন ইমেইল ঠিকানা লিখুন।</p>
-          <p id="signup-email-error" class="field-error">ত্রুটির অবস্থার উদাহরণ: সঠিক ইমেইল ঠিকানা লিখুন। এটি আপনার দেওয়া তথ্যের ত্রুটি নয়।</p>
+        <div>
+          <label class="v3-field-label" for="signup-email">ইমেইল</label>
+          <input class="v3-field" id="signup-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" aria-invalid="true" aria-describedby="signup-email-hint signup-email-error" required>
+          <p id="signup-email-hint" class="v3-field-help">আপনি ব্যবহার করেন এমন ইমেইল ঠিকানা লিখুন।</p>
+          <p id="signup-email-error" class="v3-field-error"><svg class="v3-error-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M10 5.5v5M10 14h0"/></svg><span>ত্রুটির অবস্থার উদাহরণ: সঠিক ইমেইল ঠিকানা লিখুন। এটি আপনার দেওয়া তথ্যের ত্রুটি নয়।</span></p>
         </div>
-        <div class="v2-field">
-          <label for="signup-password">পাসওয়ার্ড তৈরি করুন</label>
-          <input class="v2-input" id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="signup-password-hint" required>
-          <p id="signup-password-hint" class="v2-field-note">অন্তত ৮টি অক্ষর ব্যবহার করুন।</p>
+        <div>
+          <label class="v3-field-label" for="signup-password">পাসওয়ার্ড তৈরি করুন</label>
+          <input class="v3-field" id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="signup-password-hint" required>
+          <p id="signup-password-hint" class="v3-field-help">অন্তত ৮টি অক্ষর ব্যবহার করুন।</p>
         </div>
-        <div class="v2-field">
-          <label for="signup-password-confirm">পাসওয়ার্ড আবার লিখুন</label>
-          <input class="v2-input" id="signup-password-confirm" name="password-confirm" type="password" autocomplete="new-password" minlength="8" aria-describedby="signup-password-confirm-hint" required>
-          <p id="signup-password-confirm-hint" class="v2-field-note">ওপরে দেওয়া একই পাসওয়ার্ড আবার লিখুন।</p>
+        <div>
+          <label class="v3-field-label" for="signup-password-confirm">পাসওয়ার্ড আবার লিখুন</label>
+          <input class="v3-field" id="signup-password-confirm" name="password-confirm" type="password" autocomplete="new-password" minlength="8" aria-describedby="signup-password-confirm-hint" required>
+          <p id="signup-password-confirm-hint" class="v3-field-help">ওপরে দেওয়া একই পাসওয়ার্ড আবার লিখুন।</p>
         </div>
-        <div class="v2-field">
-          <label for="signup-birth-year">জন্মের সাল</label>
-          <input class="v2-input" id="signup-birth-year" name="birth-year" type="number" inputmode="numeric" min="1900" max="2026" step="1" aria-describedby="signup-birth-year-hint" required>
-          <p id="signup-birth-year-hint" class="v2-field-note">শুধু সাল — পুরো জন্মতারিখ লাগবে না। ইংরেজি অঙ্কে সাল লিখুন।</p>
+        <div>
+          <label class="v3-field-label" for="signup-birth-year">জন্মের সাল</label>
+          <input class="v3-field" id="signup-birth-year" name="birth-year" type="number" inputmode="numeric" min="1900" max="2026" step="1" aria-describedby="signup-birth-year-hint" required>
+          <p id="signup-birth-year-hint" class="v3-field-help">শুধু সাল — পুরো জন্মতারিখ লাগবে না। ইংরেজি অঙ্কে সাল লিখুন।</p>
         </div>
-        <div class="account-consent">
-          <input class="v2-input" id="signup-data-consent" name="data-consent" type="checkbox" aria-describedby="signup-consent-hint" required>
-          <label for="signup-data-consent">আমার তথ্য আমি ডাউনলোড ও মুছে ফেলতে পারব</label>
-        </div>
-        <div class="account-consent">
-          <input class="v2-input" id="signup-ai-consent" name="ai-consent" type="checkbox" aria-describedby="signup-consent-hint" required>
-          <label for="signup-ai-consent">আমার নাম ও ফোন নম্বর AI-কে দেওয়া হবে না</label>
-        </div>
-        <p id="signup-consent-hint" class="v2-field-note">আসল সেবার নকশায় এই দুটি শর্ত আছে। এই ডেমোতে তথ্য পাঠানো বা সংরক্ষণ করা হয় না।</p>
+        <label class="v3-choice" for="signup-data-consent">
+          <input id="signup-data-consent" name="data-consent" type="checkbox" aria-describedby="signup-consent-hint" required>
+          <span>আমার তথ্য আমি ডাউনলোড ও মুছে ফেলতে পারব</span>
+        </label>
+        <label class="v3-choice" for="signup-ai-consent">
+          <input id="signup-ai-consent" name="ai-consent" type="checkbox" aria-describedby="signup-consent-hint" required>
+          <span>আমার নাম ও ফোন নম্বর AI-কে দেওয়া হবে না</span>
+        </label>
+        <p id="signup-consent-hint" class="v3-field-help">আসল সেবার নকশায় এই দুটি শর্ত আছে। এই ডেমোতে তথ্য পাঠানো বা সংরক্ষণ করা হয় না।</p>
         <div class="form-actions">
           <!-- Enabled only after the demo submit handler is attached, so no-JS use cannot send credentials. -->
-          <button class="v2-button v2-button--primary" type="submit" disabled>অ্যাকাউন্ট তৈরি করুন</button>
-          <a class="v2-link" href="login.html">আগেই অ্যাকাউন্ট আছে? লগ ইন</a>
+          <button class="v3-button" type="submit" disabled>অ্যাকাউন্ট তৈরি করুন</button>
+          <a href="login.html">আগেই অ্যাকাউন্ট আছে? লগ ইন</a>
         </div>
-        <p class="small">লগ ইন হবে ইমেইল বা ফোন নম্বর ও পাসওয়ার্ড দিয়ে; কোড (OTP) কেবল গৌণ পদ্ধতি।</p>
-        <p id="signup-demo-note" class="v2-field-note account-status" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো ব্যাকএন্ড নেই, তাই অ্যাকাউন্ট তৈরি হবে না।</p>
-        <noscript><p class="v2-field-note">জাভাস্ক্রিপ্ট বন্ধ থাকায় নমুনা বাটনটি নিষ্ক্রিয়। এই রেপোতে অ্যাকাউন্ট তৈরি চালু নেই।</p></noscript>
+        <p class="v3-small">লগ ইন হবে ইমেইল বা ফোন নম্বর ও পাসওয়ার্ড দিয়ে; কোড (OTP) কেবল গৌণ পদ্ধতি।</p>
+        <p id="signup-demo-note" class="v3-field-help account-status" role="status" hidden>এটি ডিজাইনের নমুনা — এই রেপোতে কোনো ব্যাকএন্ড নেই, তাই অ্যাকাউন্ট তৈরি হবে না।</p>
+        <noscript><p class="v3-field-help">জাভাস্ক্রিপ্ট বন্ধ থাকায় নমুনা বাটনটি নিষ্ক্রিয়। এই রেপোতে অ্যাকাউন্ট তৈরি চালু নেই।</p></noscript>
       </form>
       <aside class="account-aside" aria-labelledby="signup-age-title">
         <div class="account-note">
@@ -205,8 +184,8 @@
         <div class="account-note">
           <h2>একবারে শেষ, নাকি পরে চালাবেন?</h2>
           <p>লাইভ সাইটে লগ ইন করলে <span lang="en">Human Assessment</span>-এর অগ্রগতি রেখে পরে চালিয়ে যেতে পারবেন। অতিথি হিসেবে টেস্ট একবারে শেষ করতে হবে।</p>
-          <p class="small">এই ডেমোতে লগ ইন, অ্যাকাউন্ট তৈরি বা অগ্রগতি সংরক্ষণ নেই।</p>
-          <a class="v2-link" href="self-test.html">সেলফ-টেস্টের লাইব্রেরি দেখুন</a>
+          <p class="v3-small">এই ডেমোতে লগ ইন, অ্যাকাউন্ট তৈরি বা অগ্রগতি সংরক্ষণ নেই।</p>
+          <a href="self-test.html">সেলফ-টেস্টের লাইব্রেরি দেখুন</a>
         </div>
       </aside>
     </div>
@@ -214,15 +193,26 @@
     </div>
   </main>
 
-<footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -232,18 +222,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
         <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html" aria-current="page">সাইন আপ</a>
@@ -251,29 +241,20 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
   </div>
 </footer>
-
-<nav class="v2-tabbar v2-surface-light" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
 
   <script>
     const form = document.getElementById("signup");
@@ -282,14 +263,6 @@
       document.getElementById("signup-demo-note").hidden = false;
     });
     form.querySelector('button[type="submit"]').disabled = false;
-  </script>
-  <script>
-    ['v2-menu-a', 'v2-menu-c'].forEach((id) => {
-      const menu = document.getElementById(id);
-      menu.addEventListener('click', (event) => {
-        if (event.target.closest('a[href]')) menu.close();
-      });
-    });
   </script>
 </body>
 </html>

@@ -7,205 +7,180 @@
   <title>কার্ট — Energy Mining Academy</title>
   <link rel="preload" href="fonts/127532bae53efa808330288dd41e2316.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Synonym-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/design-system-v2.css">
+  <link rel="icon" href="assets/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/design-system-v3.css">
   <script src="js/main.js" defer></script>
   <!-- BOOKS-ONLY -->
   <script src="js/cart.js" defer></script>
   <!-- Cart: rows, quantity controls, checkout form. -->
   <style>
+    main [hidden] { display: none; }
     .small, .demo-note { font-size: .875rem; }
     .cart-layout { display: grid; gap: 3rem; padding-block-end: 4rem; align-items: start; }
+    .v3-title-band a { display: inline-flex; align-items: center; min-block-size: 48px; }
     .cart-list { list-style: none; margin: 0; padding: 0; }
-    .cart-row { display: grid; gap: 1.5rem; padding-block: 1.5rem; border-block-end: 1px solid var(--v2-navy); }
+    .cart-row { display: grid; gap: 1.5rem; padding-block: 1.5rem; border-block-end: 1px solid var(--v3-navy); }
     .cart-row:first-child { padding-block-start: 0; }
     .cart-book { display: grid; gap: .5rem; }
     .cart-book h3 { margin: 0; }
     .cart-book p { margin: 0; }
     .cart-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
     .quantity-controls { display: flex; align-items: center; gap: .5rem; }
-    .quantity-controls .v2-button { padding-inline: .75rem; }
+    .quantity-controls .v3-button { min-inline-size: 48px; padding-inline: .75rem; }
     .quantity-value { min-inline-size: 32px; text-align: center; font-variant-numeric: tabular-nums; }
-    textarea.v2-input { min-block-size: 96px; resize: vertical; }
+    textarea.v3-field { min-block-size: 96px; resize: vertical; }
     .demo-note { margin-block-start: 1rem; }
-    .field-error { color: var(--v2-navy); font-weight: 600; }
     .form-card { display: grid; gap: 1rem; }
     @media (min-width: 768px) { .cart-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
   </style>
-  <!-- Hybrid chrome: desktop A, mobile C. -->
-  <style>
-    @media (max-width: 1099px) { .v2-hybrid-a { display: none; } }
-    @media (min-width: 1100px) { .v2-hybrid-c { display: none; } }
-  </style>
 </head>
-<body lang="bn" class="v2-concept-c v2-no-tabbar" data-flow="cart">
-  <a class="v2-skip-link" href="#main">মূল অংশে যান</a>
-
-  <header class="v2-header v2-header--a v2-hybrid-a v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no"><span class="v2-wordmark-line">Energy Mining</span> <span class="v2-wordmark-line">Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html" aria-current="true">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
+<body lang="bn" data-flow="cart">
+<!-- Masthead — spec §4.2 and §6.1–6.3, shown for the Bangla home page. -->
+<a class="v3-skip-link" href="#main">মূল অংশে যান</a>
+<header class="v3-masthead v3-surface-navy">
+  <div class="v3-container v3-masthead-row">
+    <a class="v3-brand" href="index.html" lang="en" translate="no">
+      <span class="v3-ribbon">
+        <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+             alt="" decoding="async" data-placeholder="true">
+      </span>
+      <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+    </a>
+    <nav class="v3-primary-nav" aria-label="প্রধান নেভিগেশন">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html" aria-current="true">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
     </nav>
-    <div class="v2-header-actions">
-      <a class="v2-cart-link" href="cart.html" aria-current="page"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <a class="v2-button v2-button--secondary" href="login.html">লগ ইন</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-header">
-          <a href="cart.html" lang="bn" aria-current="page">BN</a>
+    <div class="v3-masthead-actions">
+      <a class="v3-cart-link" href="cart.html">
+        <svg class="v3-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="v3-cart-label">কার্ট</span>
+      </a>
+      <a class="v3-button v3-button--secondary v3-login-link" href="login.html">লগ ইন</a>
+      <div class="v3-language-group">
+        <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-header">
+          <a href="cart.html" lang="bn" hreflang="bn" aria-current="page">BN</a>
           <a href="en/index.html" lang="en" hreflang="en">EN</a>
         </nav>
-        <p class="v2-language-note" id="v2-language-note-a-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+        <p class="v3-visually-hidden" id="v3-language-note-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
       </div>
+      <button class="v3-button v3-button--secondary v3-menu-toggle" type="button" command="show-modal" commandfor="v3-menu" aria-haspopup="dialog" aria-controls="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+        মেনু
+      </button>
     </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-a" aria-haspopup="dialog" aria-controls="v2-menu-a">মেনু</button>
   </div>
 </header>
-<dialog id="v2-menu-a" class="v2-dialog v2-dialog--a v2-hybrid-a v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-a-menu">
-        <a href="cart.html" lang="bn" autofocus aria-current="page">BN</a>
+
+<!-- Menu dialog — spec §6.4 and §13 Q6; copy its script with the dialog. -->
+<dialog class="v3-dialog v3-surface-light" id="v3-menu" aria-label="মেনু">
+  <div class="v3-dialog-bar v3-surface-navy">
+    <div class="v3-container v3-dialog-row">
+      <a class="v3-brand" href="index.html" lang="en" translate="no">
+        <span class="v3-ribbon">
+          <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+               alt="" decoding="async" data-placeholder="true">
+        </span>
+        <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+      </a>
+      <button class="v3-button v3-button--secondary v3-dialog-close" type="button" command="close" commandfor="v3-menu">
+        <svg class="v3-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+  <div class="v3-dialog-content v3-container">
+    <div class="v3-dialog-language">
+      <nav class="v3-language" aria-label="ভাষা নির্বাচন" aria-describedby="v3-language-note-menu">
+        <a href="cart.html" lang="bn" hreflang="bn" aria-current="page" autofocus>BN</a>
         <a href="en/index.html" lang="en" hreflang="en">EN</a>
       </nav>
-      <p class="v2-language-note" id="v2-language-note-a-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
+      <p class="v3-language-note" id="v3-language-note-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
     </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-a">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="মোবাইল নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html" aria-current="true">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
+    <nav class="v3-menu-nav" aria-label="মেনু">
+      <a href="courses.html">কোর্স</a>
+      <a href="books.html" aria-current="true">বই</a>
+      <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
+      <a href="teachers.html">শিক্ষক</a>
+      <a href="personal-project-plan.html">পরিকল্পনা</a>
+      <a href="about.html">আমাদের কথা</a>
+      <a href="help.html">সাহায্য</a>
     </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html" aria-current="page">কার্ট</a>
+    <nav class="v3-account-links" aria-label="অ্যাকাউন্ট">
+      <a class="v3-button v3-button--primary" href="login.html">লগ ইন</a>
+      <a class="v3-button v3-button--secondary" href="signup.html">সাইন আপ</a>
+      <a href="cart.html">কার্ট</a>
     </nav>
+    <p class="v3-menu-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
   </div>
 </dialog>
-<header class="v2-header v2-header--c v2-hybrid-c v2-surface-light">
-  <div class="v2-container v2-header-row">
-    <a class="v2-wordmark" href="index.html" lang="en" translate="no" aria-label="Energy Mining Academy"><span class="v2-wordmark-short" aria-hidden="true">EMA</span><span class="v2-wordmark-full">Energy Mining Academy</span></a>
-    <nav class="v2-primary-nav" aria-label="প্রধান নেভিগেশন">
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html" aria-current="true">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-    </nav>
-    <div class="v2-header-actions">
-      <a class="v2-button v2-button--primary" href="login.html">লগ ইন</a>
-      <a class="v2-cart-link" href="cart.html" aria-current="page"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 12h12l2-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>কার্ট</a>
-      <div class="v2-language-group">
-        <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-header">
-          <a href="cart.html" lang="bn" aria-current="page">BN</a>
-          <a href="en/index.html" lang="en" hreflang="en">EN</a>
-        </nav>
-        <p class="v2-language-note" id="v2-language-note-c-header">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-      </div>
-    </div>
-    <button class="v2-button v2-button--secondary v2-menu-toggle" type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c">আরও</button>
-  </div>
-</header>
-<dialog id="v2-menu-c" class="v2-dialog v2-dialog--c v2-hybrid-c v2-surface-light" aria-label="মেনু">
-  <div class="v2-dialog-content">
-    <div class="v2-dialog-language">
-      <nav class="v2-language" aria-label="ভাষা নির্বাচন" aria-describedby="v2-language-note-c-menu">
-        <a href="cart.html" lang="bn" aria-current="page">BN</a>
-        <a href="en/index.html" lang="en" hreflang="en">EN</a>
-      </nav>
-      <p class="v2-language-note" id="v2-language-note-c-menu">ইংরেজি সংস্করণ এখন শুধু হোম পাতায়</p>
-    </div>
-    <button class="v2-button v2-button--secondary v2-dialog-close" type="button" command="close" commandfor="v2-menu-c">বন্ধ করুন</button>
-    <nav class="v2-menu-nav" aria-label="আরও">
-      <div class="v2-flow-nav">
-        <a href="index.html">হোম</a>
-        <a href="courses.html">কোর্স</a>
-        <a href="books.html" aria-current="true">বই</a>
-        <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-      </div>
-        <a href="teachers.html">শিক্ষক</a>
-        <a href="personal-project-plan.html">পরিকল্পনা</a>
-        <a href="about.html">আমাদের কথা</a>
-        <a href="help.html">সাহায্য</a>
-    </nav>
-    <nav class="v2-account-links" aria-label="অ্যাকাউন্ট">
-        <a href="login.html">লগ ইন</a>
-        <a href="signup.html">সাইন আপ</a>
-        <a href="cart.html" aria-current="page">কার্ট</a>
-    </nav>
-
-  </div>
-</dialog>
-
-<nav class="v2-tabbar v2-surface-light" aria-label="মোবাইল নেভিগেশন">
-  <a href="index.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span>হোম</span></a>
-  <a href="courses.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M12 8h5M12 12h5"/></svg></span><span>কোর্স</span></a>
-  <a href="books.html" aria-current="true"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></svg></span><span>বই</span></a>
-  <a href="human-assessment.html"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span><span>অ্যাসেসমেন্ট</span></a>
-  <button type="button" command="show-modal" commandfor="v2-menu-c" aria-haspopup="dialog" aria-controls="v2-menu-c"><span class="v2-tab-icon"><svg class="v2-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span>আরও</span></button>
-</nav>
+<script>
+const v3Menu = document.getElementById('v3-menu');
+if (!('commandForElement' in HTMLButtonElement.prototype)) {
+  document.querySelector('.v3-menu-toggle').addEventListener('click', () => v3Menu.showModal());
+  document.querySelector('.v3-dialog-close').addEventListener('click', () => v3Menu.close()); }
+v3Menu.addEventListener('click', event => { if (event.target.closest('a[href]')) v3Menu.close(); });
+</script>
 
   <main id="main">
-    <section class="v2-title-band" aria-labelledby="page-title">
-      <div class="v2-container">
-        <nav class="v2-breadcrumbs" aria-label="ব্রেডক্রাম্ব">
-          <a href="index.html">হোম</a><span aria-hidden="true">/</span><a href="books.html">বই</a><span aria-hidden="true">/</span><span aria-current="page">কার্ট</span>
+    <section class="v3-title-band" aria-labelledby="page-title">
+      <div class="v3-container">
+        <nav class="v3-breadcrumb" aria-label="ব্রেডক্রাম্ব">
+          <ol>
+            <li><a href="index.html">হোম</a></li>
+            <li><a href="books.html">বই</a></li>
+            <li><span aria-current="page">কার্ট</span></li>
+          </ol>
         </nav>
         <h1 id="page-title">কার্ট</h1>
         <p>বেছে নেওয়া বই ও মাধ্যম দেখে অর্ডারের নমুনা সাজান।</p>
-        <a class="v2-link" href="books.html">বইয়ের তাকে ফিরুন</a>
+        <a href="books.html">বইয়ের তাকে ফিরুন</a>
       </div>
     </section>
 
-    <div class="v2-container cart-layout">
+    <div class="v3-section v3-container cart-layout">
       <section aria-labelledby="cart-title">
-        <div class="section-heading">
+        <div>
           <h2 id="cart-title">আপনার বেছে নেওয়া বই</h2>
           <p class="small">মাধ্যম ও পরিমাণ দেখে নিন।</p>
         </div>
         <ul id="cart-list" class="cart-list" aria-label="কার্টের বই"></ul>
-        <div id="cart-empty" class="form-card v2-surface-light">
+        <div id="cart-empty" class="form-card v3-light-card">
           <h3>কার্ট খালি</h3>
-          <a class="v2-button v2-button--primary" href="books.html">বইয়ের তাক দেখুন</a>
+          <a class="v3-button v3-button--primary" href="books.html">বইয়ের তাক দেখুন</a>
         </div>
         <noscript><p class="demo-note">কার্ট সংরক্ষণ ও ডেমো অর্ডারের জন্য JavaScript চালু করুন।</p></noscript>
         <p id="cart-status" class="small" role="status" aria-live="polite"></p>
-        <p id="cart-error" class="field-error" role="alert" hidden></p>
+        <p id="cart-error" class="v3-field-error" role="alert" hidden></p>
         <p id="cart-demo" class="demo-note">ডিজাইন ডেমো: কার্টটি এই ব্রাউজারেই সংরক্ষিত হয়; কোনো অর্ডার সার্ভারে যায় না, কোনো অর্থ নেওয়া হয় না।</p>
       </section>
 
       <section aria-labelledby="checkout-title">
-        <form id="checkout-form" class="form-card v2-surface-light" aria-labelledby="checkout-title" aria-describedby="cart-demo checkout-note">
-          <div class="form-intro">
+        <form id="checkout-form" class="form-card v3-light-card" aria-labelledby="checkout-title" aria-describedby="cart-demo checkout-note">
+          <div>
             <h2 id="checkout-title">অর্ডারের তথ্য</h2>
             <p id="checkout-note" class="demo-note">অ্যাকাউন্ট ছাড়াই ডেমোটি দেখুন। নমুনা তথ্য ব্যবহার করুন; এটি বাস্তব অর্ডার নয়।</p>
           </div>
-          <div class="v2-field">
-            <label for="customer-name">নাম</label>
-            <input class="v2-input" id="customer-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+          <div>
+            <label class="v3-field-label" for="customer-name">নাম</label>
+            <input class="v3-field" id="customer-name" name="name" type="text" autocomplete="name" maxlength="100" required>
           </div>
-          <div class="v2-field">
-            <label for="customer-phone">ফোন নম্বর</label>
-            <input class="v2-input" id="customer-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required>
+          <div>
+            <label class="v3-field-label" for="customer-phone">ফোন নম্বর</label>
+            <input class="v3-field" id="customer-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required>
           </div>
-          <div class="v2-field">
-            <label for="customer-address">পুরো ঠিকানা</label>
-            <textarea class="v2-input" id="customer-address" name="address" rows="3" autocomplete="street-address" maxlength="1000" required></textarea>
+          <div>
+            <label class="v3-field-label" for="customer-address">পুরো ঠিকানা</label>
+            <textarea class="v3-field" id="customer-address" name="address" rows="3" autocomplete="street-address" maxlength="1000" required></textarea>
           </div>
-          <div class="v2-field">
-            <label for="customer-note">নোট <span class="small">(ইচ্ছা হলে)</span></label>
-            <textarea class="v2-input" id="customer-note" name="note" rows="3" maxlength="1000"></textarea>
+          <div>
+            <label class="v3-field-label" for="customer-note">নোট <span class="small">(ইচ্ছা হলে)</span></label>
+            <textarea class="v3-field" id="customer-note" name="note" rows="3" maxlength="1000"></textarea>
           </div>
-          <div class="form-actions">
-            <button id="place-order" class="v2-button v2-button--primary" type="submit" disabled>ডেমো অর্ডার রাখুন</button>
+          <div>
+            <button id="place-order" class="v3-button v3-button--primary" type="submit" disabled>ডেমো অর্ডার রাখুন</button>
             <p class="demo-note">অর্ডারের নম্বরও এই ডিজাইন ডেমোতেই তৈরি হবে।</p>
           </div>
         </form>
@@ -222,25 +197,37 @@
         <div class="cart-controls">
           <span>পরিমাণ</span>
           <div class="quantity-controls" role="group" aria-label="বইয়ের পরিমাণ বদলান">
-            <button class="v2-button v2-button--secondary" type="button" data-cart-action="decrease" aria-label="পরিমাণ কমান">−</button>
+            <button class="v3-button v3-button--secondary" type="button" data-cart-action="decrease" aria-label="পরিমাণ কমান">−</button>
             <span class="quantity-value" data-quantity></span>
-            <button class="v2-button v2-button--secondary" type="button" data-cart-action="increase" aria-label="পরিমাণ বাড়ান">+</button>
+            <button class="v3-button v3-button--secondary" type="button" data-cart-action="increase" aria-label="পরিমাণ বাড়ান">+</button>
           </div>
-          <button class="v2-button v2-button--secondary" type="button" data-cart-action="remove" aria-label="কার্ট থেকে সরান">সরান</button>
+          <button class="v3-button v3-button--secondary" type="button" data-cart-action="remove" aria-label="কার্ট থেকে সরান">সরান</button>
         </div>
       </li>
     </template>
   </main>
 
-  <footer class="v2-footer v2-footer--c v2-surface-navy">
-  <div class="v2-container">
-    <nav class="v2-footer-doors" aria-label="শেখার পথ">
-      <a class="v2-card v2-surface-light" href="courses.html">কোর্স দেখুন</a>
-      <a class="v2-card v2-surface-light" href="books.html" aria-current="true">বইয়ের তাক</a>
-      <a class="v2-card v2-surface-light" href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
-    </nav>
-    <nav class="v2-footer-grid" aria-label="ফুটার নেভিগেশন">
-      <div class="v2-footer-group">
+<!-- Footer colophon — spec §7: brand, five link groups, and bottom line. -->
+<footer class="v3-footer v3-surface-navy">
+  <div class="v3-container">
+    <div class="v3-footer-top">
+      <div class="v3-footer-lockup">
+        <a class="v3-brand v3-footer-brand" href="index.html" lang="en" translate="no">
+          <span class="v3-ribbon">
+            <img class="v3-logo" src="assets/logo-placeholder.svg" width="64" height="64"
+                 alt="" decoding="async" data-placeholder="true">
+          </span>
+          <span class="v3-wordmark"><span>Energy Mining</span> <span>Academy</span></span>
+        </a>
+        <p class="v3-footer-tagline">নিজেকে জানা → নিজেকে বদলানো</p>
+      </div>
+      <div class="v3-footer-purpose">
+        <p>নিজেকে জানার ও শেখার পথে চার এনার্জির কোর্স, বই এবং ফ্রি অ্যাসেসমেন্ট।</p>
+        <p class="v3-footer-trust" lang="en">Trust · Training · Loyalty</p>
+      </div>
+    </div>
+    <nav class="v3-footer-grid" aria-label="ফুটার নেভিগেশন">
+      <div class="v3-footer-group">
         <h2>শিখুন</h2>
         <a href="courses.html">সব কোর্স</a>
         <a href="courses/voice.html">কণ্ঠস্বর</a>
@@ -250,18 +237,18 @@
         <a href="teachers.html">শিক্ষক</a>
         <a href="personal-project-plan.html">পরিকল্পনা</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>বই</h2>
-        <a href="books.html" aria-current="true">বইয়ের তাক</a>
+        <a href="books.html">বইয়ের তাক</a>
         <a href="books/atmar-rosayon.html">আত্মার রসায়ন</a>
         <a href="cart.html" aria-current="page">কার্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>নিজেকে জানা</h2>
         <a href="human-assessment.html">ফ্রি অ্যাসেসমেন্ট</a>
         <a href="self-test.html">ফ্রি সেলফ-টেস্ট</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>অ্যাকাউন্ট</h2>
         <a href="login.html">লগ ইন</a>
         <a href="signup.html">সাইন আপ</a>
@@ -269,36 +256,19 @@
         <a href="my-orders.html">আমার অর্ডার</a>
         <a href="my-results.html">আমার ফলাফল</a>
       </div>
-      <div class="v2-footer-group">
+      <div class="v3-footer-group">
         <h2>একাডেমি</h2>
         <a href="about.html">আমাদের কথা</a>
         <a href="help.html">সাহায্য</a>
         <a href="legal.html">আইনি তথ্য</a>
       </div>
     </nav>
-    <a class="v2-footer-display" href="index.html" lang="en" translate="no">Energy Mining Academy</a>
-    <div class="v2-footer-bottom">
-      <p lang="en" translate="no">© Energy Mining Academy</p>
+    <div class="v3-footer-bottom">
+      <p lang="en">© Energy Mining Academy</p>
       <p data-helpline>হেল্পলাইন: শীঘ্রই জানানো হবে</p>
       <a href="legal.html">আইনি তথ্য</a>
     </div>
   </div>
 </footer>
-  <!-- Close either menu on navigation and mirror the modal scroll lock. -->
-  <script>
-    const menus = Array.from(document.querySelectorAll('.v2-dialog'));
-    const syncDialogScroll = () => {
-      document.body.style.overflow = menus.some(menu => menu.open) ? 'hidden' : '';
-    };
-    menus.forEach((menu) => {
-      menu.addEventListener('click', (event) => {
-        if (event.target.closest('a[href]')) menu.close();
-      });
-      new MutationObserver(syncDialogScroll).observe(menu, { attributes: true, attributeFilter: ['open'] });
-    });
-    window.matchMedia('(min-width: 1100px)').addEventListener('change', () => {
-      menus.forEach(menu => menu.close());
-    });
-  </script>
 </body>
 </html>
